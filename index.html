@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Orange Pair – Antigua</title>
-    <meta name="description" content="The Orange Pair is a premium hospitality experience in English Harbour, Antigua. Memberships, events, and the Founders Wall." />
+    <meta name="description" content="The Orange Pair is a premium hospitality experience in English Harbour, Antigua. Memberships, Founders Wall, and the night you have been waiting for." />
     <style>
         /* ---------- RESET ---------- */
         * {
@@ -14,83 +14,104 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Georgia', 'Times New Roman', serif;
             background: #faf8f5;
             color: #1e1e1e;
-            line-height: 1.6;
-            padding: 2rem 1rem;
+            line-height: 1.7;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
+        /* ---------- HEADER / NAV ---------- */
+        header {
             background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 24px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e8e0d8;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        h1 {
-            font-size: 3.2rem;
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #1e1e1e;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        nav a:hover {
+            color: #b85a1f;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            background: #1e2a3a;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            background-image: url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Orange%20Pair%20Landing%20Image%202.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 1;
+        }
+
+        .hero h1,
+        .hero p,
+        .hero .btn {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
             font-weight: 400;
-            letter-spacing: -0.5px;
-            color: #1e1e1e;
-            margin-bottom: 0.25rem;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: #d46a2a;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid #d46a2a;
-            padding-left: 1.2rem;
-        }
-
-        .subhead {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: #3a3a3a;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            color: #1e1e1e;
-        }
-
-        .section {
-            margin-bottom: 2.5rem;
-        }
-
-        .founder-box {
-            background: #fcf8f3;
-            border: 1px solid #e8dfd5;
-            border-radius: 16px;
-            padding: 1.8rem 2rem;
-            margin: 2rem 0;
-        }
-
-        .founder-box h3 {
-            font-size: 1.4rem;
-            color: #1e1e1e;
+            letter-spacing: 1px;
             margin-bottom: 0.5rem;
         }
 
-        .founder-box .price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #d46a2a;
-            margin: 0.5rem 0;
+        .hero .tagline {
+            font-size: 1.6rem;
+            color: #f5a623;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
 
         .btn {
             display: inline-block;
-            background: #d46a2a;
+            background: #b85a1f;
             color: white;
-            padding: 0.9rem 2.2rem;
+            padding: 1rem 2.8rem;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
@@ -98,113 +119,226 @@
             border: none;
             cursor: pointer;
             transition: background 0.2s;
-            margin-top: 0.5rem;
         }
 
         .btn:hover {
-            background: #b85a1f;
+            background: #9e4a18;
         }
 
         .btn-outline {
             background: transparent;
-            color: #d46a2a;
-            border: 2px solid #d46a2a;
+            color: #b85a1f;
+            border: 2px solid #b85a1f;
         }
 
         .btn-outline:hover {
-            background: #d46a2a;
+            background: #b85a1f;
             color: white;
         }
 
-        .survey-link {
-            display: inline-block;
-            margin-top: 0.5rem;
-            color: #d46a2a;
-            font-weight: 600;
-            text-decoration: none;
-            border-bottom: 2px solid #d46a2a;
+        /* ---------- CONTAINER ---------- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
         }
 
-        .survey-link:hover {
-            color: #b85a1f;
-            border-bottom-color: #b85a1f;
+        /* ---------- SECTIONS ---------- */
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: #1e1e1e;
+        }
+
+        .section {
+            margin-bottom: 4rem;
         }
 
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 2.5rem;
             margin: 1.5rem 0;
         }
 
         .pillar {
-            background: #f5f2ee;
-            padding: 1.5rem;
+            background: #f8f4ef;
+            padding: 2rem;
             border-radius: 16px;
         }
 
         .pillar h4 {
-            font-size: 1.1rem;
-            color: #d46a2a;
-            margin-bottom: 0.4rem;
+            font-size: 1.3rem;
+            color: #b85a1f;
+            margin-bottom: 0.5rem;
         }
 
-        .meta {
-            font-size: 0.9rem;
+        /* ---------- FOUNDERS WALL ---------- */
+        .founder-box {
+            background: #fcf8f3;
+            border: 2px solid #e8dfd5;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .founder-box .price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #b85a1f;
+            margin: 0.5rem 0;
+        }
+
+        .founder-box .sub {
+            font-size: 0.95rem;
             color: #6a6a6a;
-            margin-top: 2rem;
-            border-top: 1px solid #e0d8cf;
-            padding-top: 1.5rem;
+            margin-bottom: 0.8rem;
         }
 
-        .meta a {
-            color: #d46a2a;
+        .founder-box .btn {
+            margin-top: 1rem;
+        }
+
+        /* ---------- GALLERY ---------- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ---------- MEMBERSHIPS ---------- */
+        .membership-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .membership-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .membership-list li:last-child {
+            border-bottom: none;
+        }
+
+        .membership-list .tier {
+            font-weight: 600;
+            color: #1e1e1e;
+        }
+
+        .membership-list .desc {
+            color: #4a4a4a;
+            font-size: 0.95rem;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: #1e2a3a;
+            color: #ccc;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: #f5a623;
             text-decoration: none;
         }
 
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 700px) {
             .grid-2 {
                 grid-template-columns: 1fr;
             }
-            h1 {
-                font-size: 2.4rem;
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero .tagline {
+                font-size: 1.2rem;
             }
             .container {
                 padding: 1.5rem 1rem;
+            }
+            .founder-box {
+                padding: 1.5rem;
+            }
+            .founder-box .price {
+                font-size: 2rem;
+            }
+            header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            nav a {
+                margin: 0 0.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Orange%20Pair%20Logo%20blue%20and%20orange.png" alt="The Orange Pair Logo" />
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#founders">Founders</a>
+            <a href="#memberships">Memberships</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
         <h1>The Orange Pair</h1>
         <div class="tagline">Controlled. Tiered. Premium.</div>
-        <div class="subhead">
-            A premium hospitality experience in English Harbour, Antigua. 
-            Not a bar. Not a club. A place where the evening feels complete.
-        </div>
+        <p>A premium hospitality experience in English Harbour, Antigua.</p>
+        <a href="#founders" class="btn">Join the Founders Wall</a>
+    </section>
 
-        <!-- SECTION: ABOUT -->
+    <!-- ABOUT -->
+    <div class="container" id="about">
         <div class="section">
-            <h2>About</h2>
-            <p>
-                The Orange Pair is designed for people who value great food, 
-                great drinks, and great company in a controlled, refined atmosphere. 
-                Open late. Warm. Intentional.
-            </p>
-            <p style="margin-top:0.8rem;">
-                We are currently in pre-launch. Memberships and Founders Wall 
-                opportunities are now available.
+            <h2>What We Are Building</h2>
+            <p style="font-size:1.1rem; max-width:800px;">
+                The Orange Pair is designed for people who value great food, great drinks,
+                and great company in a controlled, refined atmosphere. Open late. Warm. Intentional.
+                We are currently in pre-launch. Memberships and Founders Wall opportunities
+                are now available.
             </p>
         </div>
+    </div>
 
-        <!-- SECTION: PILLARS -->
+    <!-- PILLARS -->
+    <div class="container">
         <div class="section">
-            <h2>What We Offer</h2>
+            <h2>The Experience</h2>
             <div class="grid-2">
                 <div class="pillar">
                     <h4>Premium Dining</h4>
-                    <p>Chef-driven menu using local ingredients.</p>
+                    <p>Chef-driven menu using local ingredients. Seasonal. Thoughtful.</p>
                 </div>
                 <div class="pillar">
                     <h4>Craft Cocktails &amp; Cigars</h4>
@@ -216,71 +350,86 @@
                 </div>
                 <div class="pillar">
                     <h4>Founders Wall</h4>
-                    <p>Be part of the first 100. Your name, permanently.</p>
+                    <p>Be part of the first 50. Your name, permanently.</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- SECTION: FOUNDERS WALL -->
-        <div class="founder-box">
-            <h3>Founders Wall</h3>
-            <p style="font-size:0.95rem; margin-bottom:0.25rem;">Be one of the first 50 to join.</p>
-            <div class="price">$10,000 USD</div>
-            <p style="font-size:0.95rem; margin-bottom:0.8rem;">
-                Your name on the Founders Wall. Priority access. 
-                Exclusive events. A permanent place in the story.
-            </p>
-            <a href="#" class="btn">Reserve Your Spot</a>
-            <p style="font-size:0.8rem; margin-top:0.6rem; color:#6a6a6a;">
-                *This is a one-time contribution. Not a membership fee.
-            </p>
-        </div>
-
-        <!-- SECTION: SURVEY -->
+    <!-- FOUNDERS WALL -->
+    <div class="container" id="founders">
         <div class="section">
-            <h2>Help Shape the Experience</h2>
-            <p style="margin-bottom:0.5rem;">
-                We are listening. Take our anonymous survey and tell us what 
-                you want from Antigua's nightlife.
-            </p>
-            <a href="#" class="survey-link">Take the Survey →</a>
+            <h2>Founders Wall</h2>
+            <div class="founder-box">
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/FOUNDERS%20WALL.png" alt="Founders Wall" style="width:100%; max-width:800px; border-radius:16px; margin-bottom:1.5rem;" />
+                <div class="price">$10,000 USD</div>
+                <div class="sub">One-time contribution. Not a membership fee.</div>
+                <p style="margin-bottom:1.2rem;">
+                    Your name on the Founders Wall. Priority access. Exclusive events.
+                    A permanent place in the story.
+                </p>
+                <a href="#" class="btn">Reserve Your Spot</a>
+            </div>
         </div>
+    </div>
 
-        <!-- SECTION: MEMBERSHIPS -->
+    <!-- GALLERY -->
+    <div class="container">
+        <div class="section">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Orange%20Pair%20Lounge%20at%20night.png" alt="Lounge at Night" />
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Orange%20Pair%20Patio%20Firepit.png" alt="Patio Firepit" />
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Orange%20Pair%20from%20the%20marina%20image.png" alt="Marina View" />
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/The%20Orange%20Pair%20Door%20logo.png" alt="Door Logo" />
+            </div>
+        </div>
+    </div>
+
+    <!-- MEMBERSHIPS -->
+    <div class="container" id="memberships">
         <div class="section">
             <h2>Memberships</h2>
-            <p style="margin-bottom:0.8rem;">
-                Three tiers. Each designed for how you want to experience 
-                The Orange Pair.
+            <p style="margin-bottom:1rem;">
+                Three tiers. Each designed for how you want to experience The Orange Pair.
             </p>
-            <ul style="list-style: none; padding-left:0;">
-                <li style="padding:0.4rem 0; border-bottom:1px solid #eee;">
-                    <strong>Social</strong> – No door charge. 5% off. Priority booking.
+            <ul class="membership-list">
+                <li>
+                    <span class="tier">Social</span>
+                    <span class="desc">No door charge. 5% off. Priority booking.</span>
                 </li>
-                <li style="padding:0.4rem 0; border-bottom:1px solid #eee;">
-                    <strong>Cigar</strong> – All Social benefits. 10% off. Complimentary cigar. Locker.
+                <li>
+                    <span class="tier">Cigar</span>
+                    <span class="desc">All Social benefits. 10% off. Complimentary cigar. Locker.</span>
                 </li>
-                <li style="padding:0.4rem 0;">
-                    <strong>Founder</strong> – All Cigar benefits. Founders Wall. Annual dinner. VIP access.
+                <li>
+                    <span class="tier">Founder</span>
+                    <span class="desc">All Cigar benefits. Founders Wall. Annual dinner. VIP access.</span>
                 </li>
             </ul>
             <p style="margin-top:0.8rem; font-size:0.9rem; color:#6a6a6a;">
                 More details available upon request.
             </p>
         </div>
-
-        <!-- SECTION: CONTACT / SOCIAL -->
-        <div class="meta">
-            <p>
-                English Harbour, Antigua &middot; 
-                <a href="#">Instagram</a> &middot; 
-                <a href="#">YouTube</a> &middot; 
-                <a href="#">LinkedIn</a>
-            </p>
-            <p style="margin-top:0.5rem; font-size:0.85rem;">
-                For inquiries: <a href="mailto:hello@orangepair.com">hello@orangepair.com</a>
-            </p>
-        </div>
     </div>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <p style="margin-bottom:0.5rem;">
+            English Harbour, Antigua
+        </p>
+        <p style="margin-bottom:0.5rem;">
+            <a href="#">Instagram</a> &middot;
+            <a href="#">YouTube</a> &middot;
+            <a href="#">LinkedIn</a>
+        </p>
+        <p>
+            For inquiries: <a href="mailto:hello@theorangepair.com">hello@theorangepair.com</a>
+        </p>
+        <p style="margin-top:1rem; font-size:0.8rem; opacity:0.6;">
+            &copy; 2026 The Orange Pair
+        </p>
+    </footer>
+
 </body>
 </html>
