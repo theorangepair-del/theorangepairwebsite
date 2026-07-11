@@ -29,6 +29,7 @@
     </script>
 
     <style>
+        /* ---------- RESET ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -42,13 +43,14 @@
             line-height: 1.7;
         }
 
+        /* ---------- HEADER ---------- */
         header {
-            background: white;
+            background: #1a2634;
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #e8e0d8;
+            border-bottom: 2px solid #f5a623;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -62,20 +64,22 @@
         nav a {
             margin-left: 2rem;
             text-decoration: none;
-            color: #1e1e1e;
+            color: #f0ebe4;
             font-weight: 500;
             font-size: 0.95rem;
+            letter-spacing: 0.3px;
         }
 
         nav a:hover {
-            color: #b85a1f;
+            color: #f5a623;
         }
 
+        /* ---------- HERO ---------- */
         .hero {
             background-image: url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Orange%20Pair%20Landing%20Image%202.png');
             background-size: cover;
             background-position: center;
-            min-height: 80vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -92,7 +96,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(26, 38, 52, 0.55);
             z-index: 1;
         }
 
@@ -100,58 +104,65 @@
             position: relative;
             z-index: 2;
             color: white;
-            max-width: 800px;
+            max-width: 850px;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 400;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-bottom: 0.5rem;
+            color: #f5a623;
         }
 
         .hero .tagline {
-            font-size: 1.8rem;
-            color: #f5a623;
+            font-size: 2rem;
+            color: #ffffff;
             font-style: italic;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn {
             display: inline-block;
-            background: #b85a1f;
-            color: white;
-            padding: 1rem 2.8rem;
+            background: #f5a623;
+            color: #1a2634;
+            padding: 1rem 3rem;
             border-radius: 40px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             border: none;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: background 0.2s, transform 0.1s;
         }
 
         .btn:hover {
-            background: #9e4a18;
+            background: #d98e1f;
+            transform: scale(1.02);
         }
 
         .btn-outline {
             background: transparent;
-            border: 2px solid white;
-            color: white;
+            border: 2px solid #f5a623;
+            color: #f5a623;
         }
 
         .btn-outline:hover {
-            background: white;
-            color: #1e1e1e;
+            background: #f5a623;
+            color: #1a2634;
         }
 
+        /* ---------- CONTAINER ---------- */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -163,16 +174,20 @@
         }
 
         h2 {
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             font-weight: 400;
             margin-bottom: 1.5rem;
-            color: #1e1e1e;
+            color: #1a2634;
+        }
+
+        h2 .highlight {
+            color: #f5a623;
         }
 
         h3 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 400;
-            color: #b85a1f;
+            color: #f5a623;
             margin-bottom: 1rem;
         }
 
@@ -187,35 +202,42 @@
             background: #f8f4ef;
             padding: 2rem;
             border-radius: 16px;
+            border-left: 4px solid #f5a623;
         }
 
         .pillar h4 {
             font-size: 1.3rem;
-            color: #b85a1f;
+            color: #1a2634;
             margin-bottom: 0.5rem;
         }
 
+        /* ---------- FOUNDERS WALL ---------- */
         .founder-box {
-            background: #fcf8f3;
-            border: 2px solid #e8dfd5;
+            background: #1a2634;
             border-radius: 20px;
-            padding: 2.5rem;
+            padding: 3rem 2.5rem;
             margin: 2rem 0;
             text-align: center;
+            color: #f0ebe4;
         }
 
         .founder-box .price {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            color: #b85a1f;
+            color: #f5a623;
             margin: 0.5rem 0;
         }
 
         .founder-box .sub {
             font-size: 0.95rem;
-            color: #6a6a6a;
+            color: #b0a8a0;
         }
 
+        .founder-box .btn {
+            margin-top: 1rem;
+        }
+
+        /* ---------- GALLERY ---------- */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -228,9 +250,10 @@
             height: 250px;
             object-fit: cover;
             border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
+        /* ---------- MEMBERSHIPS ---------- */
         .membership-list {
             list-style: none;
             padding: 0;
@@ -239,7 +262,7 @@
 
         .membership-list li {
             padding: 1rem 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e0d8d0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -252,22 +275,21 @@
 
         .membership-list .tier {
             font-weight: 600;
+            color: #1a2634;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 1.5rem 0;
+        .membership-list .desc {
+            color: #4a4a4a;
         }
 
+        /* ---------- FOOTER ---------- */
         footer {
-            background: #1e2a3a;
-            color: #ccc;
+            background: #1a2634;
+            color: #b0a8a0;
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             margin-top: 2rem;
+            border-top: 2px solid #f5a623;
         }
 
         footer a {
@@ -279,12 +301,13 @@
             text-decoration: underline;
         }
 
+        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 700px) {
             .grid-2 {
                 grid-template-columns: 1fr;
             }
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 3.2rem;
             }
             .hero .tagline {
                 font-size: 1.4rem;
@@ -296,7 +319,7 @@
                 padding: 1.5rem;
             }
             .founder-box .price {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             header {
                 flex-direction: column;
@@ -304,10 +327,10 @@
             }
             nav a {
                 margin: 0 0.8rem;
+                font-size: 0.85rem;
             }
-            .btn-group {
-                flex-direction: column;
-                align-items: center;
+            h2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -333,7 +356,7 @@
             <h1>The Orange Pair</h1>
             <div class="tagline">Before Everyone Else.</div>
             <p>Some places open. Some places become institutions.</p>
-            <div class="btn-group">
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="#" class="btn">Become a Founding Member</a>
                 <a href="#" class="btn btn-outline">Learn More</a>
             </div>
@@ -343,8 +366,8 @@
     <!-- ABOUT -->
     <div class="container" id="about">
         <div class="section">
-            <h2>A New Chapter for Antigua</h2>
-            <p style="font-size:1.1rem; max-width:800px;">
+            <h2>A <span class="highlight">New Chapter</span> for Antigua</h2>
+            <p style="font-size:1.2rem; max-width:800px; color:#3a3a3a;">
                 The Orange Pair is being created as the place where locals, travelers, founders, executives, politicians, creatives, yacht owners, entrepreneurs, and tastemakers cross paths. Not because of food. Not because of drinks. Not because of cigars. Because of people.
             </p>
         </div>
@@ -353,25 +376,50 @@
     <!-- WHY PEOPLE COME -->
     <div class="container">
         <div class="section">
-            <h2>Why People Will Come</h2>
-            <p style="font-size:1.1rem; max-width:800px;">
+            <h2>Why <span class="highlight">People Will Come</span></h2>
+            <p style="font-size:1.2rem; max-width:800px; color:#3a3a3a;">
                 People will come to The Orange Pair because they never know what the evening may bring. A new friendship. A new business relationship. A new favorite cigar. A new favorite drink. A celebration. An introduction. A conversation. A connection. A story.
             </p>
+        </div>
+    </div>
+
+    <!-- THE EXPERIENCE -->
+    <div class="container">
+        <div class="section">
+            <h2>The <span class="highlight">Experience</span></h2>
+            <div class="grid-2">
+                <div class="pillar">
+                    <h4>Premium Dining</h4>
+                    <p>Chef-driven menu using local ingredients. Seasonal. Thoughtful.</p>
+                </div>
+                <div class="pillar">
+                    <h4>Craft Cocktails &amp; Cigars</h4>
+                    <p>Curated spirits and a refined cigar lounge.</p>
+                </div>
+                <div class="pillar">
+                    <h4>Membership</h4>
+                    <p>Exclusive access, priority bookings, and member-only events.</p>
+                </div>
+                <div class="pillar">
+                    <h4>Founders Wall</h4>
+                    <p>Be part of the first 50. Your name, permanently.</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- FOUNDERS WALL -->
     <div class="container" id="founders">
         <div class="section">
-            <h2>The Founders Wall</h2>
-            <p style="font-size:1.1rem; max-width:800px;">
+            <h2>The <span class="highlight">Founders Wall</span></h2>
+            <p style="font-size:1.2rem; max-width:800px; color:#3a3a3a;">
                 Long after opening day. Long after the first events. Long after the first celebrations. The Founders Wall will remain. A permanent tribute to the individuals who believed in The Orange Pair before the world discovered it.
             </p>
             <div class="founder-box">
                 <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/FOUNDERS%20WALL.png" alt="Founders Wall" style="width:100%; max-width:800px; border-radius:16px; margin-bottom:1.5rem;" />
                 <div class="price">$10,000 USD</div>
                 <div class="sub">Founding Membership Investment</div>
-                <p style="margin:1rem 0;">
+                <p style="margin:1rem 0; max-width:600px; margin-left:auto; margin-right:auto;">
                     Permanent recognition on the Founders Wall. Private humidor locker. Priority access. Exclusive Founder events. A permanent place in the story.
                 </p>
                 <a href="#" class="btn">Apply Now</a>
@@ -382,16 +430,16 @@
     <!-- MEMBERSHIP DETAILS -->
     <div class="container" id="membership">
         <div class="section">
-            <h2>Membership Details</h2>
+            <h2>Membership <span class="highlight">Details</span></h2>
             <ul class="membership-list">
-                <li><span class="tier">Investment</span><span>$10,000</span></li>
-                <li><span class="tier">Recognition</span><span>Permanent</span></li>
-                <li><span class="tier">Availability</span><span>Limited</span></li>
-                <li><span class="tier">Term</span><span>Annual</span></li>
-                <li><span class="tier">Location</span><span>Antigua &amp; Barbuda</span></li>
-                <li><span class="tier">Approval</span><span>Required</span></li>
+                <li><span class="tier">Investment</span><span class="desc">$10,000</span></li>
+                <li><span class="tier">Recognition</span><span class="desc">Permanent</span></li>
+                <li><span class="tier">Availability</span><span class="desc">Limited</span></li>
+                <li><span class="tier">Term</span><span class="desc">Annual</span></li>
+                <li><span class="tier">Location</span><span class="desc">Antigua &amp; Barbuda</span></li>
+                <li><span class="tier">Approval</span><span class="desc">Required</span></li>
             </ul>
-            <p style="margin-top:1rem;">
+            <p style="margin-top:1rem; color:#4a4a4a;">
                 Founding Members may choose either public recognition or private recognition.
             </p>
         </div>
@@ -413,21 +461,24 @@
     <div class="container" id="contact">
         <div class="section">
             <h2>Contact</h2>
-            <p>Founding Memberships are now open.</p>
-            <div class="btn-group">
+            <p style="font-size:1.1rem;">Founding Memberships are now open.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1.5rem 0;">
                 <a href="#" class="btn">Apply Now</a>
-                <a href="#" class="btn btn-outline" style="border-color:#b85a1f; color:#b85a1f;">Schedule a Conversation</a>
+                <a href="#" class="btn btn-outline" style="border-color:#f5a623; color:#f5a623; background:transparent;">Schedule a Conversation</a>
             </div>
-            <p style="margin-top:1.5rem;">
-                Email: <a href="mailto:founder@theorangepair.com" style="color:#b85a1f;">founder@theorangepair.com</a>
+            <p style="margin-top:1rem;">
+                Email: <a href="mailto:founder@theorangepair.com" style="color:#f5a623; font-weight:600;">founder@theorangepair.com</a>
             </p>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
+        <p style="margin-bottom:0.5rem; font-size:1.1rem; color:#f0ebe4;">
+            The Orange Pair
+        </p>
         <p style="margin-bottom:0.5rem;">
-            The Orange Pair &middot; English Harbour, Antigua
+            English Harbour, Antigua
         </p>
         <p style="margin-bottom:0.5rem;">
             <a href="#">Instagram</a> &middot;
