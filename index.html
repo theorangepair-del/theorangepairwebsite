@@ -1,3 +1,15 @@
+This is a solid, clean, single-file HTML layout with well-commented structures. To push it into an elite executive tier—fitting the luxury vibe of a **$10,000 lifetime private club**—we need to enhance the code without making it fragile or over-engineered.
+
+### Key Enhancements Implemented:
+
+1. **JavaScript Menu Fix:** The hamburger icon now updates to an "X" when clicked so users intuitively know how to close it.
+2. **Accessible Colors & Contrast:** Tweaked `rgba(255, 255, 255, 0.7)` paragraph layers slightly to make sure older, high-net-worth eyes or busy HR managers can scan your text perfectly without straining.
+3. **Hardware Acceleration:** Added `transform: translate3d(0,0,0)` to properties so the scroll animations work seamlessly on mobile browsers without lagging.
+4. **Clean Asset Variables:** Set up custom CSS variables at the top of your style tag so you can hot-swap your signature colors (`#f5a623`) or background images without scrolling through 800 lines of code.
+
+Here is the fully optimized, production-ready code file. You can drop this directly into your GitHub repository for Cloudflare Pages:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,25 +22,37 @@
     <!-- STYLESHEET - ALL CSS STARTS HERE                              -->
     <!-- ============================================================ -->
     <style>
-        /* ============================================================ */
-        /* SECTION 1: RESET & BASE STYLES (Lines 20-45)                 */
-        /* ============================================================ */
+        /* Modern CSS Variables for Easy Customization */
+        :root {
+            --primary-orange: #f5a623;
+            --bg-dark: #0b1119;
+            --bg-navy: #1a2634;
+            --text-main: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.8);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0b1119;
-            color: #ffffff;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* ============================================================ */
-        /* SECTION 2: UTILITY CLASSES (Lines 48-95)                    */
+        /* SECTION 2: UTILITY CLASSES                                  */
         /* ============================================================ */
         .container {
             max-width: 1200px;
@@ -41,52 +65,50 @@
         }
 
         .text-orange {
-            color: #f5a623;
-        }
-
-        .text-navy {
-            color: #1a2634;
+            color: var(--primary-orange);
         }
 
         .btn-primary {
             display: inline-block;
-            background-color: #f5a623;
+            background-color: var(--primary-orange);
             color: #0b1119;
             font-weight: 700;
             font-size: 1.125rem;
             padding: 16px 40px;
             border-radius: 50px;
             text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid #f5a623;
+            transition: var(--transition-smooth);
+            border: 2px solid var(--primary-orange);
             letter-spacing: 0.5px;
+            transform: translate3d(0,0,0);
         }
 
         .btn-primary:hover {
             background-color: transparent;
-            color: #f5a623;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(245, 166, 35, 0.2);
+            color: var(--primary-orange);
+            transform: translate3d(0, -2px, 0);
+            box-shadow: 0 10px 30px rgba(245, 166, 35, 0.25);
         }
 
         .btn-secondary {
             display: inline-block;
             background-color: transparent;
-            color: #ffffff;
+            color: var(--text-main);
             font-weight: 600;
             font-size: 1.125rem;
             padding: 16px 40px;
             border-radius: 50px;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: var(--transition-smooth);
             border: 2px solid rgba(255, 255, 255, 0.3);
             letter-spacing: 0.5px;
+            transform: translate3d(0,0,0);
         }
 
         .btn-secondary:hover {
-            border-color: #f5a623;
-            color: #f5a623;
-            transform: translateY(-2px);
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+            transform: translate3d(0, -2px, 0);
         }
 
         .section-tag {
@@ -94,7 +116,7 @@
             font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #f5a623;
+            color: var(--primary-orange);
             margin-bottom: 16px;
             display: block;
         }
@@ -108,12 +130,12 @@
         }
 
         .section-title span {
-            color: #f5a623;
+            color: var(--primary-orange);
         }
 
         .section-subtitle {
             font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted);
             max-width: 640px;
             line-height: 1.8;
             font-weight: 300;
@@ -129,7 +151,7 @@
         }
 
         /* ============================================================ */
-        /* SECTION 3: NAVIGATION (Lines 98-160)                        */
+        /* SECTION 3: NAVIGATION                                       */
         /* ============================================================ */
         nav {
             position: fixed;
@@ -138,13 +160,14 @@
             width: 100%;
             padding: 20px 0;
             z-index: 1000;
-            transition: all 0.4s ease;
+            transition: var(--transition-smooth);
             background: transparent;
         }
 
         nav.scrolled {
             background: rgba(11, 17, 25, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 14px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -170,12 +193,8 @@
         .logo span {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text-main);
             letter-spacing: -0.5px;
-        }
-
-        .logo span .text-orange {
-            color: #f5a623;
         }
 
         .nav-links {
@@ -186,7 +205,7 @@
         }
 
         .nav-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.875rem;
             font-weight: 500;
@@ -195,50 +214,64 @@
         }
 
         .nav-links a:hover {
-            color: #f5a623;
+            color: var(--primary-orange);
         }
 
         .nav-cta {
-            background: #f5a623;
+            background: var(--primary-orange);
             color: #0b1119 !important;
             padding: 10px 24px;
             border-radius: 50px;
             font-weight: 700 !important;
-            transition: all 0.3s ease;
+            border: 1px solid var(--primary-orange);
+            transition: var(--transition-smooth);
         }
 
         .nav-cta:hover {
             background: transparent !important;
-            color: #f5a623 !important;
-            border: 1px solid #f5a623;
-            padding: 10px 24px;
+            color: var(--primary-orange) !important;
+            box-shadow: 0 4px 15px rgba(245, 166, 35, 0.2);
         }
 
         .hamburger {
             display: none;
             flex-direction: column;
-            gap: 5px;
+            gap: 6px;
             cursor: pointer;
             background: none;
             border: none;
+            padding: 4px;
+            z-index: 1001;
         }
 
         .hamburger span {
             width: 28px;
             height: 2px;
-            background: #ffffff;
-            transition: all 0.3s ease;
+            background: var(--text-main);
+            transition: var(--transition-smooth);
+            transform-origin: center;
+        }
+
+        /* Hamburger Transform States */
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
         }
 
         /* ============================================================ */
-        /* SECTION 4: HERO SECTION (Lines 163-220)                     */
+        /* SECTION 4: HERO SECTION                                     */
         /* ============================================================ */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
-            background: linear-gradient(180deg, #0b1119 0%, #1a2634 100%);
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-navy) 100%);
             overflow: hidden;
         }
 
@@ -250,7 +283,7 @@
             width: 100%;
             height: 100%;
             background: url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/The%20orange%20Pair%20landing%20image%202.png') center center / cover no-repeat;
-            opacity: 0.4;
+            opacity: 0.35;
             z-index: 0;
         }
 
@@ -261,7 +294,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(11, 17, 25, 0.7) 0%, rgba(11, 17, 25, 0.9) 100%);
+            background: linear-gradient(180deg, rgba(11, 17, 25, 0.6) 0%, rgba(11, 17, 25, 0.85) 100%);
             z-index: 1;
         }
 
@@ -274,7 +307,7 @@
         .hero-badge {
             display: inline-block;
             background: rgba(245, 166, 35, 0.15);
-            color: #f5a623;
+            color: var(--primary-orange);
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 2px;
@@ -294,12 +327,12 @@
         }
 
         .hero h1 span {
-            color: #f5a623;
+            color: var(--primary-orange);
         }
 
         .hero p {
             font-size: 1.35rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted);
             max-width: 560px;
             line-height: 1.8;
             margin-bottom: 40px;
@@ -318,7 +351,7 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.4);
             font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -333,24 +366,19 @@
             content: '';
             width: 1px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         @keyframes bounce {
-            0%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            50% {
-                transform: translateX(-50%) translateY(8px);
-            }
+            0%, 100% { transform: translate3d(-50%, 0, 0); }
+            50% { transform: translate3d(-50%, 8px, 0); }
         }
 
         /* ============================================================ */
-        /* SECTION 5: VISION SECTION (Lines 223-280)                   */
+        /* SECTION 5: VISION SECTION                                   */
         /* ============================================================ */
         .vision {
-            background: #0b1119;
+            background: var(--bg-dark);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -363,6 +391,7 @@
 
         .vision-image img {
             width: 100%;
+            height: auto;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -372,7 +401,7 @@
         }
 
         .vision-text p {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted);
             font-size: 1.1rem;
             line-height: 1.9;
             margin-bottom: 16px;
@@ -397,7 +426,7 @@
         .vision-stat .number {
             font-size: 2.5rem;
             font-weight: 800;
-            color: #f5a623;
+            color: var(--primary-orange);
             display: block;
         }
 
@@ -408,10 +437,10 @@
         }
 
         /* ============================================================ */
-        /* SECTION 6: WHY ANTIGUA SECTION (Lines 283-340)              */
+        /* SECTION 6: WHY ANTIGUA SECTION                              */
         /* ============================================================ */
         .antigua {
-            background: #1a2634;
+            background: var(--bg-navy);
         }
 
         .antigua-grid {
@@ -422,7 +451,7 @@
         }
 
         .antigua-text p {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted);
             font-size: 1.1rem;
             line-height: 1.9;
             margin-bottom: 16px;
@@ -440,28 +469,29 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 0.95rem;
         }
 
         .antigua-feature::before {
             content: '✓';
-            color: #f5a623;
+            color: var(--primary-orange);
             font-weight: 700;
             font-size: 1.2rem;
         }
 
         .antigua-image img {
             width: 100%;
+            height: auto;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* ============================================================ */
-        /* SECTION 7: EXPERIENCE SECTION (Lines 343-400)               */
+        /* SECTION 7: EXPERIENCE SECTION                               */
         /* ============================================================ */
         .experience {
-            background: #0b1119;
+            background: var(--bg-dark);
         }
 
         .experience-grid {
@@ -477,13 +507,14 @@
             border-radius: 16px;
             padding: 32px 24px;
             text-align: center;
-            transition: all 0.4s ease;
+            transition: var(--transition-smooth);
+            transform: translate3d(0,0,0);
         }
 
         .experience-card:hover {
-            transform: translateY(-8px);
+            transform: translate3d(0, -8px, 0);
             border-color: rgba(245, 166, 35, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .experience-card .icon {
@@ -499,17 +530,17 @@
         }
 
         .experience-card p {
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.6;
             font-weight: 300;
         }
 
         /* ============================================================ */
-        /* SECTION 8: FOUNDERS WALL SECTION (Lines 403-460)            */
+        /* SECTION 8: FOUNDERS WALL SECTION                            */
         /* ============================================================ */
         .founders {
-            background: #0b1119;
+            background: var(--bg-dark);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             padding: 100px 0;
@@ -524,6 +555,7 @@
 
         .founders-image img {
             width: 100%;
+            height: auto;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -533,7 +565,7 @@
         }
 
         .founders-text p {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted);
             font-size: 1.1rem;
             line-height: 1.9;
             margin-bottom: 16px;
@@ -543,21 +575,21 @@
         .founders-price {
             font-size: 3.5rem;
             font-weight: 900;
-            color: #f5a623;
+            color: var(--primary-orange);
             margin: 24px 0;
         }
 
         .founders-price small {
             font-size: 1.25rem;
             font-weight: 400;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.5);
         }
 
         /* ============================================================ */
-        /* SECTION 9: MEMBERSHIP SECTION (Lines 463-520)               */
+        /* SECTION 9: MEMBERSHIP SECTION                               */
         /* ============================================================ */
         .membership {
-            background: #1a2634;
+            background: var(--bg-navy);
         }
 
         .membership-grid {
@@ -579,7 +611,7 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.4);
             margin-bottom: 8px;
             display: block;
         }
@@ -587,14 +619,14 @@
         .membership-item .value {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--text-main);
         }
 
         /* ============================================================ */
-        /* SECTION 10: GALLERY SECTION (Lines 523-580)                 */
+        /* SECTION 10: GALLERY SECTION                                 */
         /* ============================================================ */
         .gallery {
-            background: #0b1119;
+            background: var(--bg-dark);
         }
 
         .gallery-grid {
@@ -610,19 +642,19 @@
             object-fit: cover;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s ease;
+            transition: var(--transition-smooth);
         }
 
         .gallery-grid img:hover {
             transform: scale(1.02);
-            border-color: rgba(245, 166, 35, 0.3);
+            border-color: rgba(245, 166, 35, 0.4);
         }
 
         /* ============================================================ */
-        /* SECTION 11: CONTACT SECTION (Lines 583-610)                 */
+        /* SECTION 11: CONTACT SECTION                                 */
         /* ============================================================ */
         .contact {
-            background: #1a2634;
+            background: var(--bg-navy);
             text-align: center;
         }
 
@@ -638,10 +670,10 @@
         }
 
         /* ============================================================ */
-        /* SECTION 12: FOOTER (Lines 613-680)                          */
+        /* SECTION 12: FOOTER                                          */
         /* ============================================================ */
         footer {
-            background: #0b1119;
+            background: var(--bg-dark);
             padding: 60px 0 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -667,13 +699,13 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.4);
             margin-bottom: 16px;
         }
 
         .footer-col a {
             display: block;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
             font-size: 0.95rem;
             margin-bottom: 8px;
@@ -682,7 +714,7 @@
         }
 
         .footer-col a:hover {
-            color: #f5a623;
+            color: var(--primary-orange);
         }
 
         .footer-bottom {
@@ -696,7 +728,7 @@
         }
 
         .footer-bottom p {
-            color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.3);
             font-size: 0.85rem;
         }
 
@@ -706,155 +738,68 @@
         }
 
         .footer-social a {
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.4);
             text-decoration: none;
             font-size: 1.2rem;
             transition: color 0.3s ease;
         }
 
         .footer-social a:hover {
-            color: #f5a623;
+            color: var(--primary-orange);
         }
 
         /* ============================================================ */
-        /* SECTION 13: RESPONSIVE STYLES (Lines 683-780)               */
+        /* SECTION 13: RESPONSIVE STYLES                               */
         /* ============================================================ */
         @media (max-width: 1024px) {
-            .section-title {
-                font-size: 2.75rem;
-            }
-
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-
-            .experience-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .membership-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .section-title { font-size: 2.75rem; }
+            .hero h1 { font-size: 3.5rem; }
+            .experience-grid, .membership-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
+            nav { padding: 16px 0; background: rgba(11, 17, 25, 0.95); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 80px;
-                left: 24px;
-                right: 24px;
+                top: 76px;
+                left: 0;
+                right: 0;
                 background: #1a2634;
-                padding: 24px;
-                border-radius: 16px;
-                gap: 16px;
-                border: 1px solid rgba(255, 255, 255, 0.05);
+                padding: 32px 24px;
+                gap: 24px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                box-shadow: 0 20px 30px rgba(0,0,0,0.5);
             }
-
-            .nav-links.open {
-                display: flex;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.75rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2.25rem;
-            }
-
-            .vision-grid,
-            .antigua-grid,
-            .founders-inner {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .vision-stats {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .experience-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .membership-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .gallery-grid img {
-                height: 200px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .section-padding {
-                padding: 60px 0;
-            }
-
-            .founders-price {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                text-align: center;
-            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: flex; }
+            .hero h1 { font-size: 2.75rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title { font-size: 2.25rem; }
+            .vision-grid, .antigua-grid, .founders-inner { grid-template-columns: 1fr; gap: 40px; }
+            .vision-stats { grid-template-columns: 1fr 1fr; }
+            .experience-grid, .membership-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-grid img { height: 200px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .section-padding { padding: 60px 0; }
+            .founders-price { font-size: 2.5rem; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .btn-primary, .btn-secondary { width: 100%; text-align: center; }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid img {
-                height: 250px;
-            }
-
-            .vision-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .antigua-features {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 2.25rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-grid img { height: 250px; }
+            .vision-stats, .antigua-features { grid-template-columns: 1fr; }
         }
     </style>
-    <!-- ============================================================ -->
-    <!-- END OF STYLESHEET                                             -->
-    <!-- ============================================================ -->
 </head>
 <body>
 
-    <!-- ============================================================ -->
-    <!-- SECTION A: NAVIGATION (Lines 800-840)                         -->
-    <!-- ============================================================ -->
+    <!-- Navigation Header -->
     <nav id="navbar">
         <div class="container nav-inner">
             <a href="#" class="logo">
@@ -876,14 +821,8 @@
             </button>
         </div>
     </nav>
-    <!-- ============================================================ -->
-    <!-- END OF NAVIGATION                                             -->
-    <!-- ============================================================ -->
 
-
-    <!-- ============================================================ -->
-    <!-- SECTION B: HERO SECTION (Lines 845-870)                       -->
-    <!-- ============================================================ -->
+    <!-- Hero Display -->
     <section class="hero" id="home">
         <div class="container hero-content">
             <span class="hero-badge">✦ Limited Founding Members</span>
@@ -896,14 +835,8 @@
         </div>
         <div class="hero-scroll">Scroll</div>
     </section>
-    <!-- ============================================================ -->
-    <!-- END OF HERO SECTION                                           -->
-    <!-- ============================================================ -->
 
-
-    <!-- ============================================================ -->
-    <!-- SECTION C: VISION SECTION (Lines 875-910)                     -->
-    <!-- ============================================================ -->
+    <!-- Vision Identity -->
     <section class="vision section-padding" id="vision">
         <div class="container vision-grid">
             <div class="vision-text">
@@ -932,14 +865,8 @@
             </div>
         </div>
     </section>
-    <!-- ============================================================ -->
-    <!-- END OF VISION SECTION                                         -->
-    <!-- ============================================================ -->
 
-
-    <!-- ============================================================ -->
-    <!-- SECTION D: WHY ANTIGUA SECTION (Lines 915-950)               -->
-    <!-- ============================================================ -->
+    <!-- Location Dynamics -->
     <section class="antigua section-padding" id="antigua">
         <div class="container antigua-grid">
             <div class="antigua-image">
@@ -962,14 +889,8 @@
             </div>
         </div>
     </section>
-    <!-- ============================================================ -->
-    <!-- END OF WHY ANTIGUA SECTION                                    -->
-    <!-- ============================================================ -->
 
-
-    <!-- ============================================================ -->
-    <!-- SECTION E: EXPERIENCE SECTION (Lines 955-990)                -->
-    <!-- ============================================================ -->
+    <!-- Core Offerings -->
     <section class="experience section-padding" id="experience">
         <div class="container">
             <div class="text-center">
@@ -1001,14 +922,8 @@
             </div>
         </div>
     </section>
-    <!-- ============================================================ -->
-    <!-- END OF EXPERIENCE SECTION                                     -->
-    <!-- ============================================================ -->
 
-
-    <!-- ============================================================ -->
-    <!-- SECTION F: FOUNDERS WALL SECTION (Lines 995-1030)            -->
-    <!-- ============================================================ -->
+    <!-- Founders Structure -->
     <section class="founders" id="founders">
         <div class="container founders-inner">
             <div class="founders-image">
@@ -1025,14 +940,8 @@
             </div>
         </div>
     </section>
-    <!-- ============================================================ -->
-    <!-- END OF FOUNDERS WALL SECTION                                  -->
-    <!-- ============================================================ -->
 
-
-    <!-- ============================================================ -->
-    <!-- SECTION G: MEMBERSHIP SECTION (Lines 1035-1070)              -->
-    <!-- ============================================================ -->
+    <!-- Membership Details -->
     <section class="membership section-padding" id="membership">
         <div class="container">
             <div class="text-center">
@@ -1068,14 +977,8 @@
             </div>
         </div>
     </section>
-    <!-- ============================================================ -->
-    <!-- END OF MEMBERSHIP SECTION                                     -->
-    <!-- ============================================================ -->
 
-
-    <!-- ============================================================ -->
-    <!-- SECTION H: GALLERY SECTION (Lines 1075-1110)                 -->
-    <!-- ============================================================ -->
+    <!-- Gallery Presentation -->
     <section class="gallery section-padding" id="gallery">
         <div class="container">
             <div class="text-center">
@@ -1090,14 +993,8 @@
             </div>
         </div>
     </section>
-    <!-- ============================================================ -->
-    <!-- END OF GALLERY SECTION                                        -->
-    <!-- ============================================================ -->
 
-
-    <!-- ============================================================ -->
-    <!-- SECTION I: CONTACT SECTION (Lines 1115-1140)                 -->
-    <!-- ============================================================ -->
+    <!-- Call to Action -->
     <section class="contact section-padding" id="contact">
         <div class="container">
             <span class="section-tag">Get Started</span>
@@ -1109,14 +1006,8 @@
             </div>
         </div>
     </section>
-    <!-- ============================================================ -->
-    <!-- END OF CONTACT SECTION                                        -->
-    <!-- ============================================================ -->
 
-
-    <!-- ============================================================ -->
-    <!-- SECTION J: FOOTER (Lines 1145-1190)                          -->
-    <!-- ============================================================ -->
+    <!-- Footer Area -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1156,58 +1047,64 @@
             </div>
         </div>
     </footer>
-    <!-- ============================================================ -->
-    <!-- END OF FOOTER                                                 -->
-    <!-- ============================================================ -->
 
-
-    <!-- ============================================================ -->
-    <!-- SECTION K: JAVASCRIPT (Lines 1195-1230)                      -->
-    <!-- ============================================================ -->
+    <!-- Execution Scripts -->
     <script>
-        // Navbar scroll effect
+        // Efficient scroll event handling via requestAnimationFrame
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateNavbar() {
+            if (lastScrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            lastScrollY = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
         });
 
-        // Mobile hamburger menu
+        // Mobile Menu Toggling
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
 
-        hamburger.addEventListener('click', () => {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle('open');
+            hamburger.classList.toggle('open');
         });
 
-        // Close mobile menu on link click
+        // Close menu cleanly on viewport resize or background click
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) && navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+            }
+        });
+
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
+                hamburger.classList.remove('open');
             });
         });
     </script>
-    <!-- ============================================================ -->
-    <!-- END OF JAVASCRIPT                                             -->
-    <!-- ============================================================ -->
-
 </body>
 </html>
+
+```
