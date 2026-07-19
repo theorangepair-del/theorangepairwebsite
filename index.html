@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Orange Pair | Before Everyone Else</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <title>The Orange Pair | Private Waterfront Social Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     
-    <!-- ============================================================ -->
-    <!-- STYLESHEET - ALL CSS STARTS HERE                              -->
-    <!-- ============================================================ -->
     <style>
-        /* Modern CSS Variables for Easy Customization */
         :root {
-            --primary-orange: #f5a623;
-            --bg-dark: #0b1119;
-            --bg-navy: #1a2634;
-            --text-main: #ffffff;
-            --text-muted: rgba(255, 255, 255, 0.8);
-            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --midnight-obsidian: #0b0f19;
+            --smoked-charcoal: #1e2530;
+            --brushed-copper: #d97736;
+            --copper-glow: rgba(217, 119, 54, 0.15);
+            --alabaster-cream: #f4f4f6;
+            --text-muted: #94a3b8;
+            --border-muted: rgba(255, 255, 255, 0.05);
+            --transition-tactile: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -32,132 +30,117 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            background-color: var(--midnight-obsidian);
+            color: var(--alabaster-cream);
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ============================================================ */
-        /* SECTION 2: UTILITY CLASSES                                  */
-        /* ============================================================ */
+        /* --- Utility Layouts --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 32px;
         }
 
         .section-padding {
-            padding: 100px 0;
+            padding: 120px 0;
         }
 
-        .text-orange {
-            color: var(--primary-orange);
+        .text-copper {
+            color: var(--brushed-copper);
         }
 
-        .btn-primary {
+        .btn-copper {
             display: inline-block;
-            background-color: var(--primary-orange);
-            color: #0b1119;
+            background-color: var(--brushed-copper);
+            color: var(--midnight-obsidian);
             font-weight: 700;
-            font-size: 1.125rem;
-            padding: 16px 40px;
-            border-radius: 50px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 18px 42px;
+            border-radius: 4px;
             text-decoration: none;
-            transition: var(--transition-smooth);
-            border: 2px solid var(--primary-orange);
-            letter-spacing: 0.5px;
+            transition: var(--transition-tactile);
+            border: 1px solid var(--brushed-copper);
             transform: translate3d(0,0,0);
         }
 
-        .btn-primary:hover {
+        .btn-copper:hover {
             background-color: transparent;
-            color: var(--primary-orange);
+            color: var(--brushed-copper);
             transform: translate3d(0, -2px, 0);
-            box-shadow: 0 10px 30px rgba(245, 166, 35, 0.25);
+            box-shadow: 0 10px 30px var(--copper-glow);
         }
 
-        .btn-secondary {
+        .btn-outline {
             display: inline-block;
             background-color: transparent;
-            color: var(--text-main);
+            color: var(--alabaster-cream);
             font-weight: 600;
-            font-size: 1.125rem;
-            padding: 16px 40px;
-            border-radius: 50px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 18px 42px;
+            border-radius: 4px;
             text-decoration: none;
-            transition: var(--transition-smooth);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            letter-spacing: 0.5px;
+            transition: var(--transition-tactile);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             transform: translate3d(0,0,0);
         }
 
-        .btn-secondary:hover {
-            border-color: var(--primary-orange);
-            color: var(--primary-orange);
+        .btn-outline:hover {
+            border-color: var(--brushed-copper);
+            color: var(--brushed-copper);
             transform: translate3d(0, -2px, 0);
         }
 
         .section-tag {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--primary-orange);
-            margin-bottom: 16px;
+            color: var(--brushed-copper);
+            margin-bottom: 20px;
             display: block;
         }
 
         .section-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
+            font-size: 2.75rem;
+            font-weight: 700;
+            line-height: 1.2;
             margin-bottom: 24px;
-            letter-spacing: -1px;
-        }
-
-        .section-title span {
-            color: var(--primary-orange);
+            letter-spacing: -0.5px;
         }
 
         .section-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 640px;
-            line-height: 1.8;
+            max-width: 600px;
+            margin-bottom: 48px;
             font-weight: 300;
         }
 
-        .text-center {
-            text-align: center;
-        }
-
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* ============================================================ */
-        /* SECTION 3: NAVIGATION                                       */
-        /* ============================================================ */
+        /* --- Navigation --- */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 0;
+            padding: 24px 0;
             z-index: 1000;
-            transition: var(--transition-smooth);
+            transition: var(--transition-tactile);
             background: transparent;
         }
 
         nav.scrolled {
-            background: rgba(11, 17, 25, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 14px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(11, 15, 25, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-muted);
         }
 
         .nav-inner {
@@ -169,25 +152,25 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-decoration: none;
         }
 
         .logo img {
-            height: 44px;
+            height: 38px;
             width: auto;
         }
 
         .logo span {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            color: var(--text-main);
-            letter-spacing: -0.5px;
+            color: var(--alabaster-cream);
+            letter-spacing: 0.5px;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 36px;
             align-items: center;
             list-style: none;
         }
@@ -195,30 +178,28 @@
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             transition: color 0.3s ease;
-            letter-spacing: 0.3px;
         }
 
         .nav-links a:hover {
-            color: var(--primary-orange);
+            color: var(--brushed-copper);
         }
 
         .nav-cta {
-            background: var(--primary-orange);
-            color: #0b1119 !important;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 700 !important;
-            border: 1px solid var(--primary-orange);
-            transition: var(--transition-smooth);
+            border: 1px solid var(--brushed-copper) !important;
+            padding: 10px 22px;
+            border-radius: 2px;
+            color: var(--brushed-copper) !important;
+            transition: var(--transition-tactile);
         }
 
         .nav-cta:hover {
-            background: transparent !important;
-            color: var(--primary-orange) !important;
-            box-shadow: 0 4px 15px rgba(245, 166, 35, 0.2);
+            background: var(--brushed-copper);
+            color: var(--midnight-obsidian) !important;
         }
 
         .hamburger {
@@ -228,38 +209,26 @@
             cursor: pointer;
             background: none;
             border: none;
-            padding: 4px;
-            z-index: 1001;
         }
 
         .hamburger span {
-            width: 28px;
+            width: 24px;
             height: 2px;
-            background: var(--text-main);
-            transition: var(--transition-smooth);
-            transform-origin: center;
+            background: var(--alabaster-cream);
+            transition: var(--transition-tactile);
         }
 
-        /* Hamburger Transform States */
-        .hamburger.open span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 6px);
-        }
-        .hamburger.open span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.open span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -6px);
-        }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
-        /* ============================================================ */
-        /* SECTION 4: HERO SECTION                                     */
-        /* ============================================================ */
+        /* --- Hero --- */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-navy) 100%);
+            background: linear-gradient(180deg, var(--midnight-obsidian) 0%, #131924 100%);
             overflow: hidden;
         }
 
@@ -270,539 +239,413 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/The%20orange%20Pair%20landing%20image%202.png') center center / cover no-repeat;
-            opacity: 0.35;
-            z-index: 0;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(11, 17, 25, 0.6) 0%, rgba(11, 17, 25, 0.85) 100%);
-            z-index: 1;
+            background: url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cameras%20images.png') center center / cover no-repeat;
+            opacity: 0.08;
+            filter: grayscale(100%);
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(245, 166, 35, 0.15);
-            color: var(--primary-orange);
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 8px 20px;
-            border-radius: 50px;
-            margin-bottom: 24px;
-            border: 1px solid rgba(245, 166, 35, 0.2);
+            max-width: 780px;
         }
 
         .hero h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1.05;
-            margin-bottom: 24px;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 span {
-            color: var(--primary-orange);
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 28px;
+            letter-spacing: -1.5px;
         }
 
         .hero p {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             color: var(--text-muted);
-            max-width: 560px;
-            line-height: 1.8;
-            margin-bottom: 40px;
+            line-height: 1.7;
+            margin-bottom: 48px;
             font-weight: 300;
         }
 
-        .hero-buttons {
+        .hero-actions {
             display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .hero-scroll {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            animation: bounce 2s infinite;
-        }
-
-        .hero-scroll::after {
-            content: '';
-            width: 1px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translate3d(-50%, 0, 0); }
-            50% { transform: translate3d(-50%, 8px, 0); }
-        }
-
-        /* ============================================================ */
-        /* SECTION 5: VISION SECTION                                   */
-        /* ============================================================ */
-        .vision {
-            background: var(--bg-dark);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .vision-grid {
+        /* --- Dual Column Architecture Blocks --- */
+        .split-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 96px;
             align-items: center;
         }
 
-        .vision-image img {
+        .panel-preview {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-muted);
+            background: var(--smoked-charcoal);
+        }
+
+        .panel-preview img {
             width: 100%;
             height: auto;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: block;
+            opacity: 0.75;
+            transition: var(--transition-tactile);
         }
 
-        .vision-text .section-title {
-            font-size: 3rem;
+        .panel-preview:hover img {
+            opacity: 0.95;
         }
 
-        .vision-text p {
+        .panel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(0deg, rgba(11,15,25,0.9) 0%, rgba(11,15,25,0) 100%);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
             color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.9;
-            margin-bottom: 16px;
-            font-weight: 300;
+            text-transform: uppercase;
         }
 
-        .vision-stats {
+        .narrative-p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* --- Dynamic Flow Grid --- */
+        .flow-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .vision-stat {
-            text-align: center;
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .vision-stat .number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary-orange);
-            display: block;
-        }
-
-        .vision-stat .label {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.5);
-            margin-top: 4px;
-        }
-
-        /* ============================================================ */
-        /* SECTION 6: WHY ANTIGUA SECTION                              */
-        /* ============================================================ */
-        .antigua {
-            background: var(--bg-navy);
-        }
-
-        .antigua-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .antigua-text p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.9;
-            margin-bottom: 16px;
-            font-weight: 300;
-        }
-
-        .antigua-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 32px;
             margin-top: 24px;
         }
 
-        .antigua-feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.95rem;
+        .flow-card {
+            background: var(--smoked-charcoal);
+            border: 1px solid var(--border-muted);
+            padding: 40px;
+            border-radius: 4px;
+            transition: var(--transition-tactile);
         }
 
-        .antigua-feature::before {
-            content: '✓';
-            color: var(--primary-orange);
+        .flow-card:hover {
+            border-color: rgba(217, 119, 54, 0.3);
+            transform: translate3d(0, -4px, 0);
+        }
+
+        .flow-card .step {
+            font-size: 0.8rem;
             font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .antigua-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* ============================================================ */
-        /* SECTION 7: EXPERIENCE SECTION                               */
-        /* ============================================================ */
-        .experience {
-            background: var(--bg-dark);
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .experience-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
-            padding: 32px 24px;
-            text-align: center;
-            transition: var(--transition-smooth);
-            transform: translate3d(0,0,0);
-        }
-
-        .experience-card:hover {
-            transform: translate3d(0, -8px, 0);
-            border-color: rgba(245, 166, 35, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .experience-card .icon {
-            font-size: 3rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        .experience-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .experience-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        /* ============================================================ */
-        /* SECTION 8: FOUNDERS WALL SECTION                            */
-        /* ============================================================ */
-        .founders {
-            background: var(--bg-dark);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 100px 0;
-        }
-
-        .founders-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .founders-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .founders-text .section-title {
-            font-size: 3rem;
-        }
-
-        .founders-text p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.9;
-            margin-bottom: 16px;
-            font-weight: 300;
-        }
-
-        .founders-price {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--primary-orange);
-            margin: 24px 0;
-        }
-
-        .founders-price small {
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* ============================================================ */
-        /* SECTION 9: MEMBERSHIP SECTION                               */
-        /* ============================================================ */
-        .membership {
-            background: var(--bg-navy);
-        }
-
-        .membership-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .membership-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-        }
-
-        .membership-item .label {
-            font-size: 0.75rem;
+            color: var(--brushed-copper);
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: rgba(255, 255, 255, 0.4);
-            margin-bottom: 8px;
+            margin-bottom: 16px;
             display: block;
         }
 
-        .membership-item .value {
-            font-size: 1.1rem;
+        .flow-card h3 {
+            font-size: 1.35rem;
             font-weight: 600;
-            color: var(--text-main);
+            margin-bottom: 12px;
         }
 
-        /* ============================================================ */
-        /* SECTION 10: GALLERY SECTION                                 */
-        /* ============================================================ */
-        .gallery {
-            background: var(--bg-dark);
+        .flow-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
         }
 
-        .gallery-grid {
+        /* --- Interactive Membership Framework --- */
+        .tier-stack {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 48px;
+            gap: 32px;
+            align-items: stretch;
         }
 
-        .gallery-grid img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition-smooth);
-        }
-
-        .gallery-grid img:hover {
-            transform: scale(1.02);
-            border-color: rgba(245, 166, 35, 0.4);
-        }
-
-        /* ============================================================ */
-        /* SECTION 11: CONTACT SECTION                                 */
-        /* ============================================================ */
-        .contact {
-            background: var(--bg-navy);
-            text-align: center;
-        }
-
-        .contact .section-subtitle {
-            margin: 0 auto 40px;
-        }
-
-        .contact-buttons {
+        .tier-card {
+            background: var(--smoked-charcoal);
+            border: 1px solid var(--border-muted);
+            border-radius: 4px;
+            padding: 48px 36px;
             display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
         }
 
-        /* ============================================================ */
-        /* SECTION 12: FOOTER                                          */
-        /* ============================================================ */
-        footer {
-            background: var(--bg-dark);
-            padding: 60px 0 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        .tier-card.featured {
+            border-color: var(--brushed-copper);
+            background: linear-gradient(180deg, var(--smoked-charcoal) 0%, rgba(217,119,54,0.03) 100%);
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
+        .tier-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: var(--copper-glow);
+            color: var(--brushed-copper);
+            padding: 4px 12px;
+            border-radius: 2px;
+            font-weight: 600;
+        }
+
+        .tier-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .tier-card .description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .tier-card .metric {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--alabaster-cream);
+            margin-bottom: 32px;
+        }
+
+        .tier-card .metric small {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .tier-features {
+            list-style: none;
             margin-bottom: 40px;
         }
 
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.95rem;
-            max-width: 320px;
-            margin-top: 12px;
+        .tier-features li {
+            font-size: 0.9rem;
+            color: var(--alabaster-cream);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-weight: 300;
-            line-height: 1.8;
+        }
+
+        .tier-features li::before {
+            content: '▫';
+            color: var(--brushed-copper);
+            font-weight: 700;
+        }
+
+        /* --- Spatial Blueprint Matrix --- */
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .matrix-item {
+            position: relative;
+            height: 280px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-muted);
+        }
+
+        .matrix-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            transition: var(--transition-tactile);
+            filter: grayscale(30%);
+        }
+
+        .matrix-item:hover img {
+            opacity: 0.85;
+            transform: scale(1.02);
+        }
+
+        /* --- Investor & Governance Blocks --- */
+        .info-strip {
+            background: var(--smoked-charcoal);
+            border: 1px solid var(--border-muted);
+            border-radius: 4px;
+            padding: 48px;
+            margin-top: 48px;
+        }
+
+        .strip-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .strip-node .val {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--brushed-copper);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .strip-node .lbl {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+        }
+
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-muted);
+            padding: 24px 0;
+        }
+
+        .faq-trigger {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--alabaster-cream);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-trigger::after {
+            content: '+';
+            color: var(--brushed-copper);
+            font-size: 1.2rem;
+        }
+
+        .faq-content {
+            margin-top: 12px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+            display: none;
+            line-height: 1.7;
+        }
+
+        /* --- Footer Setup --- */
+        footer {
+            background: #060910;
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border-muted);
+        }
+
+        .footer-cols {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 64px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 16px;
+            max-width: 300px;
+            font-weight: 300;
         }
 
         .footer-col h4 {
-            font-size: 0.875rem;
-            font-weight: 700;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.4);
-            margin-bottom: 16px;
+            letter-spacing: 2px;
+            color: var(--brushed-copper);
+            margin-bottom: 24px;
         }
 
         .footer-col a {
             display: block;
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.95rem;
-            margin-bottom: 8px;
-            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
             font-weight: 300;
+            transition: color 0.3s ease;
         }
 
         .footer-col a:hover {
-            color: var(--primary-orange);
+            color: var(--alabaster-cream);
         }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 24px;
+        .footer-base {
+            border-top: 1px solid var(--border-muted);
+            padding-top: 32px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.25);
         }
 
-        .footer-bottom p {
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.85rem;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 16px;
-        }
-
-        .footer-social a {
-            color: rgba(255, 255, 255, 0.4);
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: var(--primary-orange);
-        }
-
-        /* ============================================================ */
-        /* SECTION 13: RESPONSIVE STYLES                               */
-        /* ============================================================ */
+        /* --- Responsive Viewport Mechanics --- */
         @media (max-width: 1024px) {
-            .section-title { font-size: 2.75rem; }
+            .split-grid, .tier-stack { grid-template-columns: 1fr; gap: 48px; }
+            .flow-grid, .matrix-grid { grid-template-columns: 1fr 1fr; }
+            .strip-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
             .hero h1 { font-size: 3.5rem; }
-            .experience-grid, .membership-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
-            nav { padding: 16px 0; background: rgba(11, 17, 25, 0.95); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+            nav { padding: 20px 0; background: var(--midnight-obsidian); border-bottom: 1px solid var(--border-muted); }
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 76px;
+                top: 80px;
                 left: 0;
                 right: 0;
-                background: #1a2634;
-                padding: 32px 24px;
-                gap: 24px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-                box-shadow: 0 20px 30px rgba(0,0,0,0.5);
+                background: var(--smoked-charcoal);
+                padding: 40px 32px;
+                gap: 28px;
+                border-bottom: 1px solid var(--border-muted);
             }
             .nav-links.open { display: flex; }
             .hamburger { display: flex; }
             .hero h1 { font-size: 2.75rem; }
-            .hero p { font-size: 1.1rem; }
-            .section-title { font-size: 2.25rem; }
-            .vision-grid, .antigua-grid, .founders-inner { grid-template-columns: 1fr; gap: 40px; }
-            .vision-stats { grid-template-columns: 1fr 1fr; }
-            .experience-grid, .membership-grid { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: 1fr 1fr; }
-            .gallery-grid img { height: 200px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-            .section-padding { padding: 60px 0; }
-            .founders-price { font-size: 2.5rem; }
-            .hero-buttons { flex-direction: column; width: 100%; }
-            .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.25rem; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .gallery-grid img { height: 250px; }
-            .vision-stats, .antigua-features { grid-template-columns: 1fr; }
+            .flow-grid, .matrix-grid, .strip-grid, .footer-cols { grid-template-columns: 1fr; }
+            .section-padding { padding: 80px 0; }
+            .hero-actions { flex-direction: column; }
+            .btn-copper, .btn-outline { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Header -->
+    <!-- Header Navigation -->
     <nav id="navbar">
         <div class="container nav-inner">
             <a href="#" class="logo">
-                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/The%20orange%20Pair%20no%20words.png" alt="The Orange Pair Logo" />
-                <span>The <span class="text-orange">Orange</span> Pair</span>
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/The%20orange%20Pair%20no%20words.png" alt="The Orange Pair Icon" />
+                <span>The <span class="text-copper">Orange</span> Pair</span>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#vision">Vision</a></li>
-                <li><a href="#antigua">Antigua</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#founders">Founders Wall</a></li>
+                <li><a href="#evolution">The Evening</a></li>
                 <li><a href="#membership">Membership</a></li>
-                <li><a href="#contact" class="nav-cta">Join Now</a></li>
+                <li><a href="#governance">Investors</a></li>
+                <li><a href="#application" class="nav-cta">Apply</a></li>
             </ul>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu Navigation">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -810,289 +653,328 @@
         </div>
     </nav>
 
-    <!-- Hero Display -->
+    <!-- Master Stage Header -->
     <section class="hero" id="home">
-        <div class="container hero-content">
-            <span class="hero-badge">✦ Limited Founding Members</span>
-            <h1>Before <span>Everyone</span> Else</h1>
-            <p>Antigua's most anticipated private members' club. Where visionaries gather, legacies are built, and the extraordinary becomes everyday.</p>
-            <div class="hero-buttons">
-                <a href="#founders" class="btn-primary">Secure Your Place</a>
-                <a href="#vision" class="btn-secondary">Discover More</a>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Before Everyone Else</h1>
+                <p>Antigua's premier private waterfront social club. An evolving environment where exceptional dining, premium cigars, handcrafted cocktails, and definitive networking converge under one roof.</p>
+                <div class="hero-actions">
+                    <a href="#membership" class="btn-copper">Review Memberships</a>
+                    <a href="#vision" class="btn-outline">Read The Vision</a>
+                </div>
             </div>
         </div>
-        <div class="hero-scroll">Scroll</div>
     </section>
 
-    <!-- Vision Identity -->
-    <section class="vision section-padding" id="vision">
-        <div class="container vision-grid">
-            <div class="vision-text">
-                <span class="section-tag">The Vision</span>
-                <h2 class="section-title">A New Chapter for <span>Antigua</span></h2>
-                <p>The Orange Pair isn't just another club. It's a sanctuary for those who understand that the best things in life are shared with the right people.</p>
-                <p>We're creating a space where entrepreneurs, artists, and visionaries come together to shape what comes next. A place where business happens over sunset cocktails, and partnerships are forged under Caribbean stars.</p>
-                <p>Before everyone else discovers it, you can be part of something that will define Antigua's future.</p>
-                <div class="vision-stats">
-                    <div class="vision-stat">
-                        <span class="number">50</span>
-                        <span class="label">Founding Members</span>
+    <!-- Core Purpose & IP Protection Strategy -->
+    <section class="section-padding" id="vision">
+        <div class="container split-grid">
+            <div class="vision-narrative">
+                <span class="section-tag">Identity Architecture</span>
+                <h2 class="section-title">A Unified Destination</h2>
+                <p class="narrative-p">The Orange Pair deliberately addresses a distinct operational void within Antigua's luxury space. Rather than forcing guests to migrate between scattered destinations across an evening, we gather premium waterfront dining, an elite cigar lounge environment, and sophisticated late-night social energy into a singular, integrated experience.</p>
+                <p class="narrative-p">Every decision is governed by clean service parameters: discretion, comfort, and uncompromising professionalism. Here, absolute privacy is executed as an approachable luxury asset.</p>
+            </div>
+            <div class="panel-preview">
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cam%2003%20Main%20Floor.png" alt="Interior Architecture Analysis" />
+                <div class="panel-caption">Spatial Layout: Main Social Floor Matrix</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Operational Progression Engine -->
+    <section class="section-padding" style="background-color: #0d131f;" id="evolution">
+        <div class="container">
+            <span class="section-tag">The Evening Lifecycle</span>
+            <h2 class="section-title">The Evolving Atmosphere</h2>
+            <p class="section-subtitle">A night at The Orange Pair progresses seamlessly through defined emotional and operational phases, eliminating the need to relocate.</p>
+            
+            <div class="flow-grid">
+                <div class="flow-card">
+                    <span class="step">18:00 — Arrival &amp; Dining</span>
+                    <h3>Refined Comfort</h3>
+                    <p>Attentive greeting sequences transition seamlessly into elevated, Caribbean-inspired cuisine inflected with international techniques. Focus rests on high-presentation steaks, local seafood, and custom tableside presentations.</p>
+                </div>
+                <div class="flow-card">
+                    <span class="step">21:00 — Cocktails &amp; Cigars</span>
+                    <h3>Discreet Relaxation</h3>
+                    <p>The space evolves as ambient illumination shifts. Premium rum creations and rare whiskeys pair deliberately with custom cigar selections maintained in professionally controlled humidors.</p>
+                </div>
+                <div class="flow-card">
+                    <span class="step">23:00 — Late Night Cycle</span>
+                    <h3>Sustained Energy</h3>
+                    <p>The energy deepens via live acoustic profiles, curated jazz sessions, and precise cultural showcases. Gourmet shared plates, signature desserts, and fluid mixology carry through to close.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gated Membership Architecture -->
+    <section class="section-padding" id="membership">
+        <div class="container">
+            <span class="section-tag">Access Architecture</span>
+            <h2 class="section-title">Membership Structure</h2>
+            <p class="section-subtitle">Curation remains central to our identity. Every application undergoes systematic committee review to guarantee absolute alignment with club values.</p>
+
+            <div class="tier-stack">
+                <!-- Social Tier -->
+                <div class="tier-card">
+                    <div>
+                        <h3>Social Membership</h3>
+                        <p class="description">Designed for individuals prioritizing network connectivity, exceptional dining access, and weekly live entertainment access.</p>
+                        <ul class="tier-features">
+                            <li>Premium Waterfront Dining Privileges</li>
+                            <li>Attentive Concierge Reservation Access</li>
+                            <li>Member-Only Cultural &amp; Jazz Events</li>
+                            <li>Personalized Club Onboarding</li>
+                        </ul>
                     </div>
-                    <div class="vision-stat">
-                        <span class="number">2027</span>
-                        <span class="label">Grand Opening</span>
-                    </div>
-                    <div class="vision-stat">
-                        <span class="number">365</span>
-                        <span class="label">Days of Sunshine</span>
+                    <div>
+                        <div class="metric"><small>Tier Profile</small> Resident</div>
+                        <a href="#application" class="btn-outline" style="display:block; text-align:center;">Request Access</a>
                     </div>
                 </div>
-            </div>
-            <div class="vision-image">
-                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Orange%20Pair%20Lounge%20at%20night.png" alt="The Orange Pair Lounge" />
-            </div>
-        </div>
-    </section>
 
-    <!-- Location Dynamics -->
-    <section class="antigua section-padding" id="antigua">
-        <div class="container antigua-grid">
-            <div class="antigua-image">
-                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Orange%20Pair%20from%20the%20marina%20image.png" alt="Antigua Marina" />
-            </div>
-            <div class="antigua-text">
-                <span class="section-tag">The Setting</span>
-                <h2 class="section-title">Why <span>Antigua &amp; Barbuda</span></h2>
-                <p>With 365 beaches — one for every day of the year — Antigua is the Caribbean's best-kept secret. But it won't stay that way for long.</p>
-                <p>As the region's most stable and business-friendly jurisdiction, Antigua is poised for a renaissance. The Orange Pair sits at the heart of this transformation.</p>
-                <p>This isn't just about a beautiful location. It's about being early to one of the world's next great destinations.</p>
-                <div class="antigua-features">
-                    <span class="antigua-feature">365 beaches</span>
-                    <span class="antigua-feature">Tax-advantaged</span>
-                    <span class="antigua-feature">Direct flights from US/UK</span>
-                    <span class="antigua-feature">English-speaking</span>
-                    <span class="antigua-feature">Stable democracy</span>
-                    <span class="antigua-feature">World-class yachting</span>
+                <!-- Founders Tier -->
+                <div class="tier-card featured">
+                    <span class="tier-badge">Scarce: 50 Allotted</span>
+                    <div>
+                        <h3>Founder's Circle</h3>
+                        <p class="description">For committed visionaries dedicated to the foundational, long-term legacy of the club. Capped permanently at fifty seats.</p>
+                        <ul class="tier-features">
+                            <li>Permanent, Definitive Board Recognition</li>
+                            <li>Handcrafted Physical Presentation Asset</li>
+                            <li>Maximum Priority Gated Table Allocations</li>
+                            <li>Unrestricted Access to Private Lounges</li>
+                            <li>Comprehensive Guest Sponsorship Privileges</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="metric">$10,000 <small>/ Lifetime</small></div>
+                        <a href="#application" class="btn-copper" style="display:block; text-align:center;">Secure Placement</a>
+                    </div>
+                </div>
+
+                <!-- Specialized Seasonal Tier -->
+                <div class="tier-card">
+                    <div>
+                        <h3>Corporate &amp; Seasonal</h3>
+                        <p class="description">Optimized for international yachting crews, private aviation travelers, and multi-executive enterprises visiting seasonally.</p>
+                        <ul class="tier-features">
+                            <li>Flexible Annual Fleet/Crew Configuration</li>
+                            <li>Discreet Waterfront Docking Coordination</li>
+                            <li>Executive Boardroom &amp; Lounge Bookings</li>
+                            <li>Reciprocal Network Privileges</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="metric"><small>Tier Profile</small> Enterprise</div>
+                        <a href="#application" class="btn-outline" style="display:block; text-align:center;">Inquire Securely</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Offerings -->
-    <section class="experience section-padding" id="experience">
+    <!-- Restricted Spatial Analysis Matrix -->
+    <section class="section-padding" style="background-color: #0d131f;">
         <div class="container">
-            <div class="text-center">
-                <span class="section-tag">The Experience</span>
-                <h2 class="section-title">What Awaits <span>You</span></h2>
-                <p class="section-subtitle mx-auto">Every detail has been curated to create an environment where connection, creativity, and success flourish.</p>
-            </div>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <span class="icon">🍽️</span>
-                    <h3>Premium Dining</h3>
-                    <p>World-class cuisine crafted by internationally renowned chefs using the finest local ingredients.</p>
+            <span class="section-tag">Spatial Blueprints</span>
+            <h2 class="section-title">The Interior Dimensions</h2>
+            <p class="section-subtitle">The most memorable venues are discovered, not announced. We explicitly safeguard our entrance architecture to preserve structural IP and guest anonymity.</p>
+            
+            <div class="matrix-grid">
+                <div class="matrix-item">
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cam%2007%20Kitchen.png" alt="Culinary Workspace Matrix" />
+                    <div class="panel-caption">Culinary Zone / Spatial Control 07</div>
                 </div>
-                <div class="experience-card">
-                    <span class="icon">🥃</span>
-                    <h3>Cocktails &amp; Cigars</h3>
-                    <p>An elegant bar with rare spirits, vintage wines, and a curated cigar lounge for the discerning palate.</p>
+                <div class="matrix-item">
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cam%2008%20Cigar%20lounge.png" alt="Cigar Lounge Internal Rendering" />
+                    <div class="panel-caption">Lounge Environment / Control 08</div>
                 </div>
-                <div class="experience-card">
-                    <span class="icon">🤝</span>
-                    <h3>Private Membership</h3>
-                    <p>A carefully selected community of entrepreneurs, investors, and cultural leaders who shape the world.</p>
-                </div>
-                <div class="experience-card">
-                    <span class="icon">🏛️</span>
-                    <h3>Founders Wall</h3>
-                    <p>Your name permanently etched into the legacy of The Orange Pair — a mark of being here first.</p>
+                <div class="matrix-item">
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cam%2008%20Fire%20in%20cigar%20lounge%20demonstration.png" alt="Acoustic & Hearth Evaluation" />
+                    <div class="panel-caption">Atmospheric Hearth / Internal 08</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Founders Structure -->
-    <section class="founders" id="founders">
-        <div class="container founders-inner">
-            <div class="founders-image">
-                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/FOUNDERS%20WALL.png" alt="Founders Wall" />
-            </div>
-            <div class="founders-text">
-                <span class="section-tag">Legacy</span>
-                <h2 class="section-title">The <span>Founders</span> Wall</h2>
-                <p>There are those who arrive after everything has been built. And then there are those who build it.</p>
-                <p>The Founders Wall is a permanent tribute to the visionaries who believed in The Orange Pair before it existed. Your name, cast in bronze, will stand as a testament to your foresight — and your place in Antigua's most exclusive story.</p>
-                <p>This is your invitation to be remembered. Before everyone else.</p>
-                <div class="founders-price">$10,000 <small>Founding Investment</small></div>
-                <a href="#contact" class="btn-primary">Secure Your Place on the Wall</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Membership Details -->
-    <section class="membership section-padding" id="membership">
+    <!-- Governance & Investor Interface -->
+    <section class="section-padding" id="governance">
         <div class="container">
-            <div class="text-center">
-                <span class="section-tag">Membership</span>
-                <h2 class="section-title">Join the <span>Founding</span> Circle</h2>
-                <p class="section-subtitle mx-auto">Exclusive access, lifetime recognition, and a place in Antigua's most anticipated private club.</p>
+            <div class="split-grid">
+                <div>
+                    <span class="section-tag">Capital Realization</span>
+                    <h2 class="section-title">Investor Relations &amp; De-risking Milestones</h2>
+                    <p class="narrative-p">The Orange Pair is constructed on definitive operational metrics. From formal site control through absolute design and permitting completion, our capitalization trajectory is built on risk mitigation and structured phases.</p>
+                    <p class="narrative-p">Qualified investment stakeholders can access core financial projections, square-footage allocations, and asset valuations via a secure, direct verification channel.</p>
+                </div>
+                <div>
+                    <div class="panel-preview">
+                        <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cam%2008%20diff%20cigar%20lounge.png" alt="Alternative Internal Structural Perspective" />
+                        <div class="panel-caption">Alternate Perspective Layout Matrix</div>
+                    </div>
+                </div>
             </div>
-            <div class="membership-grid">
-                <div class="membership-item">
-                    <span class="label">Investment</span>
-                    <span class="value">$10,000 USD</span>
-                </div>
-                <div class="membership-item">
-                    <span class="label">Recognition</span>
-                    <span class="value">Founders Wall</span>
-                </div>
-                <div class="membership-item">
-                    <span class="label">Availability</span>
-                    <span class="value">50 Founders Only</span>
-                </div>
-                <div class="membership-item">
-                    <span class="label">Term</span>
-                    <span class="value">Lifetime</span>
-                </div>
-                <div class="membership-item">
-                    <span class="label">Location</span>
-                    <span class="value">Antigua &amp; Barbuda</span>
-                </div>
-                <div class="membership-item">
-                    <span class="label">Approval</span>
-                    <span class="value">Curated Selection</span>
+
+            <div class="info-strip">
+                <div class="strip-grid">
+                    <div class="strip-node">
+                        <span class="val">Verified</span>
+                        <span class="lbl">Site Control</span>
+                    </div>
+                    <div class="strip-node">
+                        <span class="val">Complete</span>
+                        <span class="lbl">Architectural IP</span>
+                    </div>
+                    <div class="strip-node">
+                        <span class="val">Phase 1</span>
+                        <span class="lbl">Capitalization</span>
+                    </div>
+                    <div class="strip-node">
+                        <span class="val">2027</span>
+                        <span class="lbl">Grand Opening</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Presentation -->
-    <section class="gallery section-padding" id="gallery">
+    <!-- Essential Operational Cleansing (FAQ) -->
+    <section class="section-padding" style="background-color: #0d131f;">
         <div class="container">
-            <div class="text-center">
-                <span class="section-tag">Gallery</span>
-                <h2 class="section-title">A Glimpse of <span>Paradise</span></h2>
-                <p class="section-subtitle mx-auto">The spaces where memories are made, deals are closed, and friendships are forged.</p>
-            </div>
-            <div class="gallery-grid">
-                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Orange%20Pair%20Lounge%20at%20night.png" alt="Lounge at Night" />
-                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Orange%20Pair%20Patio%20Firepit.png" alt="Patio Firepit" />
-                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Orange%20Pair%20from%20the%20marina%20image.png" alt="Marina View" />
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="contact section-padding" id="contact">
-        <div class="container">
-            <span class="section-tag">Get Started</span>
-            <h2 class="section-title">Ready to Join <span>Before Everyone Else?</span></h2>
-            <p class="section-subtitle mx-auto">Secure your place among Antigua's founding visionaries. We'll be in touch within 24 hours.</p>
-            <div class="contact-buttons">
-                <a href="mailto:hello@theorangepair.com" class="btn-primary">✉️ hello@theorangepair.com</a>
-                <a href="https://wa.me/12684000000" class="btn-secondary">📱 WhatsApp</a>
+            <span class="section-tag">House Protocols</span>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">Operational Protocols</h2>
+            
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-trigger">Is membership mandatory to access the club?</div>
+                    <div class="faq-content">We operate primarily as a private member ecosystem. Gated table reservations and specific lounge access are prioritized exclusively for active membership holders and their sponsored guests.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-trigger">Are cigars required to be smoked by guests?</div>
+                    <div class="faq-content">No. While our custom cigar program and specialized ventilation lounge spaces serve as core components of our identity, they remain entirely optional for guests prioritizing our dining, mixology, or entertainment programs.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-trigger">What is the explicit camera and privacy policy?</div>
+                    <div class="faq-content">To protect high-profile members, yacht owners, and executives, recording or photographing other members within our club walls without express permission is strictly prohibited. Discretion is absolute.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-trigger">Can guests arrive by maritime transit or yacht?</div>
+                    <div class="faq-content">Yes. Our waterfront footprint provides convenient maritime access points, details of which are coordinated directly through the concierge team during reservation clearing.</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Area -->
+    <!-- Secure Application Form Vector -->
+    <section class="section-padding" id="application">
+        <div class="container" style="text-align: center; max-width: 700px;">
+            <span class="section-tag">Intent Submission</span>
+            <h2 class="section-title">Initiate Contact</h2>
+            <p class="section-subtitle" style="margin: 0 auto 40px;">Select your processing path. Whether requesting membership onboarding or submitting a confidential investor data room inquiry, our team responds within 24 hours.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:concierge@theorangepair.com?subject=Membership%20Application%20Inquiry" class="btn-copper">✉️ Request Membership Invitation</a>
+                <a href="mailto:invest@theorangepair.com?subject=Confidential%20Investor%20Inquiry" class="btn-outline">💼 Secure Investor Channel</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structural Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-cols">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/The%20orange%20Pair%20no%20words.png" alt="The Orange Pair Logo" />
-                        <span>The <span class="text-orange">Orange</span> Pair</span>
+                        <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/The%20orange%20Pair%20no%20words.png" alt="The Orange Pair Crest" />
+                        <span>The <span class="text-copper">Orange</span> Pair</span>
                     </a>
-                    <p>Antigua's most anticipated private members' club. Where visionaries gather and legacies are built.</p>
+                    <p>Antigua's premier private waterfront social club. Where visionaries gather, transactions occur, and legacy is built.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <a href="#vision">Vision</a>
-                    <a href="#antigua">Antigua</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#founders">Founders Wall</a>
+                    <h4>Operations</h4>
+                    <a href="#vision">Identity Architecture</a>
+                    <a href="#evolution">The Evening Lifecycle</a>
+                    <a href="#membership">Access Framework</a>
+                    <a href="#governance">De-risking Milestones</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Membership</h4>
-                    <a href="#membership">Join Now</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#">Privacy Policy</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <a href="mailto:hello@theorangepair.com">hello@theorangepair.com</a>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="LinkedIn">💼</a>
-                        <a href="#" aria-label="YouTube">▶️</a>
-                    </div>
+                    <h4>Inquiries</h4>
+                    <a href="mailto:concierge@theorangepair.com">concierge@theorangepair.com</a>
+                    <a href="mailto:invest@theorangepair.com">invest@theorangepair.com</a>
+                    <a href="#">Data Protections &amp; NDA</a>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-base">
                 <p>&copy; 2026 The Orange Pair. All rights reserved.</p>
                 <p>Before Everyone Else.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Execution Scripts -->
+    <!-- Behavioral Engine scripts -->
     <script>
-        // Efficient scroll event handling via requestAnimationFrame
+        // High-performance scroll tracking via requestAnimationFrame
         const navbar = document.getElementById('navbar');
-        let lastScrollY = window.scrollY;
-        let ticking = false;
+        let currentScroll = window.scrollY;
+        let isTicking = false;
 
-        function updateNavbar() {
-            if (lastScrollY > 50) {
+        function scrollManagement() {
+            if (currentScroll > 60) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
-            ticking = false;
+            isTicking = false;
         }
 
         window.addEventListener('scroll', () => {
-            lastScrollY = window.scrollY;
-            if (!ticking) {
-                window.requestAnimationFrame(updateNavbar);
-                ticking = true;
+            currentScroll = window.scrollY;
+            if (!isTicking) {
+                window.requestAnimationFrame(scrollManagement);
+                isTicking = true;
             }
         });
 
-        // Mobile Menu Toggling
+        // Mobile Gated Navigation Logic
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
 
         hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
-            navLinks.classList.toggle('open');
             hamburger.classList.toggle('open');
-        });
-
-        // Close menu cleanly on viewport resize or background click
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && navLinks.classList.contains('open')) {
-                navLinks.classList.remove('open');
-                hamburger.classList.remove('open');
-            }
+            navLinks.classList.toggle('open');
         });
 
         document.addEventListener('click', (e) => {
             if (!navbar.contains(e.target) && navLinks.classList.contains('open')) {
-                navLinks.classList.remove('open');
                 hamburger.classList.remove('open');
+                navLinks.classList.remove('open');
             }
         });
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', () => {
                 hamburger.classList.remove('open');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Interactive Accordion Controller
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const content = trigger.nextElementSibling;
+                const active = content.style.display === 'block';
+                
+                // Reset all panels cleanly
+                document.querySelectorAll('.faq-content').forEach(c => c.style.display = 'none');
+                
+                // Toggle clicked panel state
+                content.style.display = active ? 'none' : 'block';
             });
         });
     </script>
 </body>
 </html>
-
-```
