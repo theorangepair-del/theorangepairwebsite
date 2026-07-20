@@ -4,18 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Orange Pair | Private Waterfront Social Club</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Premium Editorial Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
     
     <style>
         :root {
-            --midnight-obsidian: #0b0f19;
-            --smoked-charcoal: #1e2530;
-            --brushed-copper: #d97736;
-            --copper-glow: rgba(217, 119, 54, 0.15);
-            --alabaster-cream: #f4f4f6;
+            --midnight: #070a12;
+            --surface: #121824;
+            --surface-accent: #1a2333;
+            --copper: #e07a38;
+            --copper-light: #f0965a;
+            --cream: #f8f9fa;
             --text-muted: #94a3b8;
-            --border-muted: rgba(255, 255, 255, 0.05);
-            --transition-tactile: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --border: rgba(255, 255, 255, 0.08);
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
         }
 
         * {
@@ -29,95 +32,77 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--midnight-obsidian);
-            color: var(--alabaster-cream);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: var(--font-sans);
+            background-color: var(--midnight);
+            color: var(--cream);
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 0 40px;
         }
 
-        .section-padding {
-            padding: 120px 0;
-        }
-
-        .text-copper {
-            color: var(--brushed-copper);
-        }
-
-        .btn-copper {
-            display: inline-block;
-            background-color: var(--brushed-copper);
-            color: var(--midnight-obsidian);
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 18px 42px;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: var(--transition-tactile);
-            border: 1px solid var(--brushed-copper);
-        }
-
-        .btn-copper:hover {
-            background-color: transparent;
-            color: var(--brushed-copper);
-            transform: translate3d(0, -2px, 0);
-            box-shadow: 0 10px 30px var(--copper-glow);
-        }
-
-        .btn-outline {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--alabaster-cream);
+        /* --- Elegant Typography & Headings --- */
+        .serif-title {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
             font-weight: 600;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 18px 42px;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: var(--transition-tactile);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
         }
 
-        .btn-outline:hover {
-            border-color: var(--brushed-copper);
-            color: var(--brushed-copper);
-            transform: translate3d(0, -2px, 0);
+        .serif-italic {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
         }
 
         .section-tag {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            letter-spacing: 4px;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: var(--brushed-copper);
-            margin-bottom: 20px;
+            color: var(--copper);
             display: block;
-        }
-
-        .section-title {
-            font-size: 2.75rem;
-            font-weight: 700;
-            line-height: 1.2;
             margin-bottom: 24px;
-            letter-spacing: -0.5px;
         }
 
-        .section-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 48px;
-            font-weight: 300;
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 20px 40px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+
+        .btn-copper {
+            background-color: var(--copper);
+            color: var(--midnight);
+        }
+
+        .btn-copper:hover {
+            background-color: var(--copper-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--cream);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--copper);
+            color: var(--copper);
+            transform: translateY(-2px);
         }
 
         /* --- Navigation --- */
@@ -126,18 +111,17 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 24px 0;
+            padding: 30px 0;
             z-index: 1000;
-            transition: var(--transition-tactile);
-            background: transparent;
+            background: linear-gradient(to bottom, rgba(7, 10, 18, 0.8), rgba(7, 10, 18, 0));
+            transition: all 0.4s ease;
         }
 
         nav.scrolled {
-            background: rgba(11, 15, 25, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-muted);
+            background: rgba(7, 10, 18, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
         }
 
         .nav-inner {
@@ -149,26 +133,22 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 15px;
             text-decoration: none;
+            color: var(--cream);
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
         }
 
         .logo img {
-            height: 42px;
+            height: 45px;
             width: auto;
-            border-radius: 4px;
-        }
-
-        .logo span {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--alabaster-cream);
-            letter-spacing: 0.5px;
         }
 
         .nav-links {
             display: flex;
-            gap: 36px;
+            gap: 40px;
             align-items: center;
             list-style: none;
         }
@@ -179,24 +159,23 @@
             font-size: 0.85rem;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 0.1em;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--brushed-copper);
+            color: var(--cream);
         }
 
-        .nav-cta {
-            border: 1px solid var(--brushed-copper) !important;
-            padding: 10px 22px;
-            border-radius: 2px;
-            color: var(--brushed-copper) !important;
+        .nav-links .cta {
+            color: var(--copper);
+            border: 1px solid var(--copper);
+            padding: 8px 20px;
         }
 
-        .nav-cta:hover {
-            background: var(--brushed-copper);
-            color: var(--midnight-obsidian) !important;
+        .nav-links .cta:hover {
+            background: var(--copper);
+            color: var(--midnight);
         }
 
         .hamburger {
@@ -209,437 +188,403 @@
         }
 
         .hamburger span {
-            width: 24px;
+            width: 25px;
             height: 2px;
-            background: var(--alabaster-cream);
+            background: var(--cream);
         }
 
-        /* --- Hero Section --- */
+        /* --- Showcase Hero Section (100% Brightness & Vibrant) --- */
         .hero {
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             position: relative;
-            overflow: hidden;
-            background-color: var(--midnight-obsidian);
+            padding-bottom: 100px;
+            background: url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/The%20Orange%20Pair%20nightlife%20glamour.png') center center / cover no-repeat;
         }
 
+        /* Ambient gradient only at the very bottom text area so typography reads flawlessly without tinting the photo */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(11, 15, 25, 0.4) 0%, rgba(11, 15, 25, 0.95) 100%), 
-                        url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/The%20Orange%20Pair%20nightlife%20glamour.png') center center / cover no-repeat;
+            height: 50%;
+            background: linear-gradient(to top, rgba(7, 10, 18, 0.95) 0%, rgba(7, 10, 18, 0) 100%);
             z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 28px;
-            letter-spacing: -1.5px;
+            color: var(--cream);
+            margin-bottom: 30px;
         }
 
         .hero p {
             font-size: 1.25rem;
-            color: var(--alabaster-cream);
-            opacity: 0.9;
-            line-height: 1.7;
-            margin-bottom: 48px;
+            color: var(--cream);
+            max-width: 650px;
+            margin-bottom: 40px;
             font-weight: 300;
         }
 
-        .hero-actions {
-            display: flex;
-            gap: 20px;
-        }
-
-        /* --- Split Layouts --- */
-        .split-grid {
+        /* --- Full-Width Unfiltered Image Editorial Block --- */
+        .editorial-split {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 96px;
             align-items: center;
+            gap: 80px;
+            padding: 140px 0;
         }
 
-        .panel-preview {
-            position: relative;
-            border-radius: 4px;
-            overflow: hidden;
-            border: 1px solid var(--border-muted);
-            background: var(--smoked-charcoal);
-        }
-
-        .panel-preview img {
+        .editorial-image-container img {
             width: 100%;
             height: auto;
             display: block;
-            transition: var(--transition-tactile);
+            border: 1px solid var(--border);
         }
 
-        .panel-preview:hover img {
-            transform: scale(1.01);
+        .editorial-text {
+            max-width: 520px;
         }
 
-        .panel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 16px 24px;
-            background: linear-gradient(0deg, rgba(11,15,25,0.95) 0%, rgba(11,15,25,0) 100%);
-            font-size: 0.75rem;
-            letter-spacing: 1px;
+        .editorial-text p {
+            font-size: 1.1rem;
             color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        .narrative-p {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            margin-bottom: 24px;
+            margin-bottom: 30px;
             font-weight: 300;
-            line-height: 1.8;
         }
 
-        /* --- Card Architecture --- */
-        .flow-grid {
+        /* --- The Three-Stage Vibe Cycle --- */
+        .vibe-cycle-section {
+            background-color: #0b0f19;
+            padding: 140px 0;
+        }
+
+        .vibe-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            margin-top: 24px;
+            gap: 40px;
+            margin-top: 60px;
         }
 
-        .flow-card {
-            background: var(--smoked-charcoal);
-            border: 1px solid var(--border-muted);
-            border-radius: 4px;
-            overflow: hidden;
-            transition: var(--transition-tactile);
+        .vibe-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
         }
 
-        .flow-card-img {
-            height: 200px;
+        .vibe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vibe-card img {
             width: 100%;
+            height: 280px;
             object-fit: cover;
-            border-bottom: 1px solid var(--border-muted);
-        }
-
-        .flow-card-body {
-            padding: 36px;
-        }
-
-        .flow-card:hover {
-            border-color: rgba(217, 119, 54, 0.3);
-            transform: translate3d(0, -4px, 0);
-        }
-
-        .flow-card .step {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--brushed-copper);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
             display: block;
         }
 
-        .flow-card h3 {
-            font-size: 1.35rem;
-            font-weight: 600;
-            margin-bottom: 12px;
+        .vibe-card-body {
+            padding: 40px;
         }
 
-        .flow-card p {
+        .vibe-card time {
+            font-size: 0.8rem;
+            color: var(--copper);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .vibe-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .vibe-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
             font-weight: 300;
         }
 
-        /* --- Membership Cards --- */
-        .tier-stack {
+        /* --- Membership Experience Framework --- */
+        .membership-section {
+            padding: 140px 0;
+        }
+
+        .benefits-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 60px;
+            margin-bottom: 60px;
+        }
+
+        .benefits-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            align-items: stretch;
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .tier-card {
-            background: var(--smoked-charcoal);
-            border: 1px solid var(--border-muted);
-            border-radius: 4px;
-            padding: 48px 36px;
+        .benefit-item {
+            font-size: 0.95rem;
+            color: var(--cream);
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-        }
-
-        .tier-card.featured {
-            border-color: var(--brushed-copper);
-            background: linear-gradient(180deg, var(--smoked-charcoal) 0%, rgba(217,119,54,0.02) 100%);
-        }
-
-        .tier-badge {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            background: var(--copper-glow);
-            color: var(--brushed-copper);
-            padding: 4px 12px;
-            border-radius: 2px;
-            font-weight: 600;
-        }
-
-        .tier-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .tier-card .description {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            font-weight: 300;
-        }
-
-        .tier-card .metric {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--brushed-copper);
-            margin-bottom: 32px;
-        }
-
-        .tier-card .metric small {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 400;
-            display: block;
-            margin-top: 4px;
-        }
-
-        .tier-features {
-            list-style: none;
-            margin-bottom: 40px;
-        }
-
-        .tier-features li {
-            font-size: 0.9rem;
-            color: var(--alabaster-cream);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
             font-weight: 300;
         }
 
-        .tier-features li::before {
-            content: '▫';
-            color: var(--brushed-copper);
+        .benefit-item::before {
+            content: "—";
+            color: var(--copper);
+            font-weight: bold;
         }
 
-        .legal-notice {
-            margin-top: 40px;
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px dashed var(--border-muted);
-            border-radius: 4px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 300;
-            text-align: center;
-        }
-
-        /* --- Spatial Blueprint Matrix --- */
-        .matrix-grid {
+        .tier-layout {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 40px;
+            align-items: stretch;
         }
 
-        .matrix-item {
-            position: relative;
-            height: 320px;
-            border-radius: 4px;
-            overflow: hidden;
-            border: 1px solid var(--border-muted);
-        }
-
-        .matrix-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-            transition: var(--transition-tactile);
-        }
-
-        .matrix-item:hover img {
-            opacity: 0.95;
-            transform: scale(1.03);
-        }
-
-        /* --- Info Strip --- */
-        .info-strip {
-            background: var(--smoked-charcoal);
-            border: 1px solid var(--border-muted);
-            border-radius: 4px;
-            padding: 48px;
-            margin-top: 48px;
-        }
-
-        .strip-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            text-align: center;
-        }
-
-        .strip-node .val {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--brushed-copper);
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .strip-node .lbl {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-        }
-
-        /* --- FAQ Architecture --- */
-        .faq-accordion {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--border-muted);
-            padding: 24px 0;
-        }
-
-        .faq-trigger {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--alabaster-cream);
-            cursor: pointer;
+        .tier-column {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 50px 40px;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            align-items: center;
         }
 
-        .faq-trigger::after {
-            content: '+';
-            color: var(--brushed-copper);
+        .tier-column.featured {
+            border: 1px solid var(--copper);
+            background: linear-gradient(180deg, var(--surface) 0%, rgba(224, 122, 56, 0.02) 100%);
         }
 
-        .faq-content {
-            margin-top: 12px;
+        .tier-header h3 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .tier-header .badge {
+            font-size: 0.7rem;
+            color: var(--copper);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .tier-header p {
             color: var(--text-muted);
             font-size: 0.95rem;
             font-weight: 300;
-            display: none;
-            line-height: 1.7;
+            margin-bottom: 40px;
         }
 
-        /* --- Footer Setup --- */
+        .tier-perks {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .tier-perks li {
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            color: var(--cream);
+            display: flex;
+            gap: 10px;
+            font-weight: 300;
+        }
+
+        .tier-perks li::before {
+            content: "▪";
+            color: var(--copper);
+        }
+
+        .tier-footer .discount {
+            font-size: 0.85rem;
+            color: var(--copper);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        /* --- Policy / Guidelines Layout --- */
+        .policy-block {
+            background: #0b0f19;
+            border: 1px dashed var(--border);
+            padding: 50px;
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .policy-col h4 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: var(--copper);
+        }
+
+        .policy-col ul {
+            list-style: none;
+        }
+
+        .policy-col li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 300;
+        }
+
+        .disclaimer-text {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 30px;
+            font-style: italic;
+        }
+
+        /* --- Full Screen Visual Intermission (The Dance Floor Asset) --- */
+        .visual-intermission {
+            height: 70vh;
+            background: url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Glamorous%20waterfront%20nightclub%20with%20vibrant%20crowd.png') center center / cover no-repeat;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* --- Environment Gallery --- */
+        .gallery-section {
+            padding: 140px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- Private Buyouts / Lounge Matrix --- */
+        .buyout-section {
+            background-color: #0b0f19;
+            padding: 140px 0;
+        }
+
+        /* --- Application Call to Action --- */
+        .cta-section {
+            padding: 160px 0;
+            text-align: center;
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 20px auto 45px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* --- Footer --- */
         footer {
-            background: #060910;
-            padding: 80px 0 40px;
-            border-top: 1px solid var(--border-muted);
+            background: #04060b;
+            padding: 100px 0 40px;
+            border-top: 1px solid var(--border);
         }
 
-        .footer-cols {
+        .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            gap: 64px;
-            margin-bottom: 60px;
+            gap: 80px;
+            margin-bottom: 80px;
         }
 
         .footer-brand p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 16px;
-            max-width: 320px;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            max-width: 340px;
             font-weight: 300;
         }
 
         .footer-col h4 {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--brushed-copper);
-            margin-bottom: 24px;
+            letter-spacing: 0.15em;
+            color: var(--copper);
+            margin-bottom: 25px;
         }
 
         .footer-col a {
             display: block;
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
             font-weight: 300;
             transition: color 0.3s ease;
         }
 
         .footer-col a:hover {
-            color: var(--alabaster-cream);
+            color: var(--cream);
         }
 
-        .footer-base {
-            border-top: 1px solid var(--border-muted);
-            padding-top: 32px;
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 40px;
             display: flex;
             justify-content: space-between;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.2);
+            font-weight: 300;
         }
 
-        /* --- Responsive Breaks --- */
-        @media (max-width: 1024px) {
-            .split-grid, .tier-stack { grid-template-columns: 1fr; gap: 48px; }
-            .flow-grid, .matrix-grid { grid-template-columns: 1fr 1fr; }
-            .strip-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-            .hero h1 { font-size: 3.5rem; }
+        /* --- Responsive Viewports --- */
+        @media (max-width: 1100px) {
+            .tier-layout, .vibe-grid, .gallery-grid, .benefits-grid { grid-template-columns: 1fr 1fr; }
+            .editorial-split { grid-template-columns: 1fr; gap: 50px; }
+            .policy-block { grid-template-columns: 1fr; gap: 40px; }
         }
 
         @media (max-width: 768px) {
-            nav { padding: 20px 0; background: var(--midnight-obsidian); border-bottom: 1px solid var(--border-muted); }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: var(--smoked-charcoal);
-                padding: 40px 32px;
-                gap: 28px;
-                border-bottom: 1px solid var(--border-muted);
-            }
-            .nav-links.open { display: flex; }
+            .nav-links { display: none; }
             .hamburger { display: flex; }
-            .hero h1 { font-size: 2.75rem; }
-            .flow-grid, .matrix-grid, .strip-grid, .footer-cols { grid-template-columns: 1fr; }
-            .section-padding { padding: 80px 0; }
-            .hero-actions { flex-direction: column; }
-            .btn-copper, .btn-outline { width: 100%; text-align: center; }
+            .serif-title { font-size: 2.6rem; }
+            .tier-layout, .vibe-grid, .gallery-grid, .benefits-grid, .footer-grid { grid-template-columns: 1fr; }
+            .benefits-panel { padding: 30px; }
+            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -649,17 +594,17 @@
     <nav id="navbar">
         <div class="container nav-inner">
             <a href="#" class="logo">
-                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Orange%20Pair%20Logo%20blue%20and%20orange.png" alt="The Orange Pair Icon" />
-                <span>The <span class="text-copper">Orange</span> Pair</span>
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Orange%20Pair%20Logo%20blue%20and%20orange.png" alt="The Orange Pair Crest" />
+                <span>The Orange Pair</span>
             </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#vision">Vision</a></li>
-                <li><a href="#evolution">The Evening</a></li>
+            <ul class="nav-links">
+                <li><a href="#about">The Space</a></li>
+                <li><a href="#hours">The Atmosphere</a></li>
                 <li><a href="#membership">Membership</a></li>
-                <li><a href="#governance">Investors</a></li>
-                <li><a href="#application" class="nav-cta">Apply</a></li>
+                <li><a href="#spaces">Environments</a></li>
+                <li><a href="#inquire" class="cta">Inquire</a></li>
             </ul>
-            <button class="hamburger" id="hamburger" aria-label="Toggle Menu Navigation">
+            <button class="hamburger" aria-label="Toggle Navigation">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -667,261 +612,232 @@
         </div>
     </nav>
 
-    <!-- Master Stage Header Section -->
-    <section class="hero" id="home">
+    <!-- Master Stage Header Section (100% Bright Background Asset) -->
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Before Everyone Else</h1>
-                <p>Antigua's premier private waterfront social club. An evolving environment where exceptional dining, premium cigars, handcrafted cocktails, and definitive networking converge under one roof.</p>
-                <div class="hero-actions">
-                    <a href="#membership" class="btn-copper">Review Memberships</a>
-                    <a href="#vision" class="btn-outline">Read The Vision</a>
-                </div>
+                <h1 class="serif-title">An escape designed for the <br><span class="serif-italic">few who appreciate the evening.</span></h1>
+                <p>A private waterfront sanctuary where fine dining, unmatched lounge spaces, and late-night energy transition effortlessly as the sun sets.</p>
+                <a href="#membership" class="btn btn-copper">View Memberships</a>
             </div>
         </div>
     </section>
 
-    <!-- Core Purpose & Waterfront Integration -->
-    <section class="section-padding" id="vision">
-        <div class="container split-grid">
-            <div class="vision-narrative">
-                <span class="section-tag">Identity Architecture</span>
-                <h2 class="section-title">A Unified Destination</h2>
-                <p class="narrative-p">The Orange Pair deliberately addresses a distinct operational void within Antigua's luxury space. Rather than forcing guests to migrate between scattered destinations across an evening, we gather premium waterfront dining, an elite cigar lounge environment, and sophisticated late-night social energy into a singular, integrated experience.</p>
-                <p class="narrative-p">Every decision is governed by clean service parameters: discretion, comfort, and uncompromising professionalism. Here, absolute privacy is executed as an approachable luxury asset.</p>
-            </div>
-            <div class="panel-preview">
-                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Dockside%20night%20vibes%20at%20the%20waterfront.png" alt="Dockside Night Atmosphere" />
-                <div class="panel-caption">Maritime Integration: Dockside Night Vibes</div>
-            </div>
+    <!-- Core Space Visual Layout -->
+    <section class="container editorial-split" id="about">
+        <div class="editorial-text">
+            <span class="section-tag">The Architecture of the Evening</span>
+            <h2 class="serif-title" style="margin-bottom: 30px;">A Singular <br><span class="serif-italic">Destination.</span></h2>
+            <p>We built The Orange Pair to solve a persistent dilemma: the disruption of moving between locations as an evening unfolds. Here, your entire night transitions smoothly under one roof.</p>
+            <p>Positioned elegantly on the water's edge, the venue pairs unobstructed harbor access with absolute interior discretion, ensuring privacy remains completely uncompromised.</p>
+        </div>
+        <div class="editorial-image-container">
+            <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Dockside%20night%20vibes%20at%20the%20waterfront.png" alt="Dockside Waterfront Ambience" />
         </div>
     </section>
 
-    <!-- Operational Progression Engine -->
-    <section class="section-padding" style="background-color: #0d131f;" id="evolution">
+    <!-- The Three-Stage Vibe Cycle -->
+    <section class="vibe-cycle-section" id="hours">
         <div class="container">
-            <span class="section-tag">The Evening Lifecycle</span>
-            <h2 class="section-title">The Evolving Atmosphere</h2>
-            <p class="section-subtitle">A night at The Orange Pair progresses seamlessly through defined emotional and operational phases, eliminating the need to relocate.</p>
+            <span class="section-tag">The Progression</span>
+            <h2 class="serif-title">The Evening <span class="serif-italic">Lifecycle</span></h2>
             
-            <div class="flow-grid">
-                <div class="flow-card">
-                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Elegant%20waterfront%20lounge%20at%20night.png" class="flow-card-img" alt="Elegant Waterfront Dining Phase" />
-                    <div class="flow-card-body">
-                        <span class="step">18:00 — Arrival &amp; Dining</span>
-                        <h3>Refined Comfort</h3>
-                        <p>Attentive greeting sequences transition seamlessly into elevated, Caribbean-inspired cuisine inflected with international techniques. Focus rests on high-presentation steaks, local seafood, and custom tableside presentations.</p>
+            <div class="vibe-grid">
+                <div class="vibe-card">
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Elegant%20waterfront%20lounge%20at%20night.png" alt="Fine Dining Experience" />
+                    <div class="vibe-card-body">
+                        <time>18:00 — Early Evening</time>
+                        <h3>Refined Dining</h3>
+                        <p>Impeccable tableside culinary presentations, focused on exceptional local seafood and premium cut steaks tailored for members and guests.</p>
                     </div>
                 </div>
-                <div class="flow-card">
-                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Elegant%20cigar%20lounge%20at%20night.png" class="flow-card-img" alt="Elite Cigar Lounge Environment" />
-                    <div class="flow-card-body">
-                        <span class="step">21:00 — Cocktails &amp; Cigars</span>
-                        <h3>Discreet Relaxation</h3>
-                        <p>The space evolves as ambient illumination shifts. Premium rum creations and rare whiskeys pair deliberately with custom cigar selections maintained in professionally controlled humidors.</p>
+                <div class="vibe-card">
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Elegant%20cigar%20lounge%20at%20night.png" alt="Cigar Lounge Lounge" />
+                    <div class="vibe-card-body">
+                        <time>21:00 — Dusk Transition</time>
+                        <h3>Cigars &amp; Spirits</h3>
+                        <p>The space transforms as lighting shifts. Custom humidor allocations and exceptional rum and spirit selections provide an atmosphere of quiet relaxation.</p>
                     </div>
                 </div>
-                <div class="flow-card">
-                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Glamorous%20waterfront%20nightclub%20with%20vibrant%20crowd.png" class="flow-card-img" alt="Vibrant Nightlife Phase" />
-                    <div class="flow-card-body">
-                        <span class="step">23:00 — Late Night Cycle</span>
+                <div class="vibe-card">
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Vibrant%20waterfront%20nightlife%20at%20The%20Orange%20Pair.png" alt="Late Night Energy" />
+                    <div class="vibe-card-body">
+                        <time>23:00 — Late Night</time>
                         <h3>Sustained Energy</h3>
-                        <p>The energy deepens via live acoustic profiles, curated jazz sessions, and precise cultural showcases. Gourmet shared plates, signature desserts, and fluid mixology carry through to close.</p>
+                        <p>The vibrant pulse of the club deepens with premium mixology, curated live profiles, and a high-energy dance floor environment right along the waterfront.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gated Membership Framework -->
-    <section class="section-padding" id="membership">
+    <!-- Gated Membership Framework using User Infrastructure -->
+    <section class="membership-section" id="membership">
         <div class="container">
-            <span class="section-tag">Access Architecture</span>
-            <h2 class="section-title">Membership Options</h2>
-            <p class="section-subtitle">Curation remains central to our identity. Every application undergoes systematic committee review to guarantee absolute alignment with club values.</p>
+            <span class="section-tag">Club Allocations</span>
+            <h2 class="serif-title" style="margin-bottom: 60px;">Membership <span class="serif-italic">Privileges</span></h2>
 
-            <div class="tier-stack">
+            <!-- Universal Benefits Container Panel -->
+            <div class="benefits-panel">
+                <h3 class="serif-title" style="font-size: 2rem; margin-bottom: 10px;">Universal Benefits</h3>
+                <p style="color: var(--text-muted); font-weight: 300;">Privileges extended uniformly across every tier of membership at The Orange Pair:</p>
+                <div class="benefits-grid">
+                    <div class="benefit-item">Complimentary admission to the club</div>
+                    <div class="benefit-item">Priority reservations over non-members</div>
+                    <div class="benefit-item">Dedicated concierge assistance</div>
+                    <div class="benefit-item">Invitations to member-exclusive events</div>
+                    <div class="benefit-item">Access to member communications &amp; networking</div>
+                    <div class="benefit-item">Access to educational cigar tastings</div>
+                    <div class="benefit-item">Access to curated cigar pairing experiences</div>
+                    <div class="benefit-item">Humidor privileges (subject to availability)</div>
+                    <div class="benefit-item">Eligibility to reserve private experiences</div>
+                    <div class="benefit-item">Preferred &amp; early access for major events</div>
+                    <div class="benefit-item">Member-only dining experiences</div>
+                    <div class="benefit-item">Birthday &amp; anniversary club recognitions</div>
+                    <div class="benefit-item">Exclusive member merchandise discounts</div>
+                    <div class="benefit-item">Members Entrance access (when arriving alone)</div>
+                </div>
+            </div>
+
+            <!-- Three Tier Structural Columns -->
+            <div class="tier-layout">
                 <!-- Social Tier -->
-                <div class="tier-card">
-                    <div>
-                        <h3>Social Membership</h3>
-                        <p class="description">Designed for individuals prioritizing network connectivity, exceptional dining access, and weekly live entertainment access.</p>
-                        <ul class="tier-features">
-                            <li>Premium Waterfront Dining Privileges</li>
-                            <li>Attentive Concierge Reservation Access</li>
-                            <li>Member-Only Cultural &amp; Jazz Events</li>
-                            <li>Personalized Club Onboarding</li>
+                <div class="tier-column">
+                    <div class="tier-header">
+                        <span class="badge">Tier One</span>
+                        <h3>Social</h3>
+                        <p>For patrons who heavily value the community network, premium waterfront dining access, and live entertainment cycles.</p>
+                        <ul class="tier-perks">
+                            <li>All Universal Club Benefits</li>
+                            <li>Preferred event access configurations</li>
+                            <li>Exclusive pricing allocations on premium cigars</li>
                         </ul>
                     </div>
-                    <div>
-                        <div class="metric"><small>Access Profile</small> Resident &amp; Guest</div>
-                        <a href="#application" class="btn-outline" style="display:block; text-align:center;">Request Access</a>
+                    <div class="tier-footer">
+                        <div class="discount">Designated Club Offers</div>
+                        <a href="#inquire" class="btn btn-outline" style="width: 100%; text-align: center;">Inquire for Access</a>
                     </div>
                 </div>
 
                 <!-- Founders Tier -->
-                <div class="tier-card featured">
-                    <span class="tier-badge">Scarce: 50 Allotted</span>
-                    <div>
+                <div class="tier-column featured">
+                    <div class="tier-header">
+                        <span class="badge" style="color: var(--copper);">Limited Allocation: 50 Slots</span>
                         <h3>Founder's Circle</h3>
-                        <p class="description">For committed visionaries dedicated to the foundational, long-term legacy of the club. Capped permanently at fifty allocations.</p>
-                        <ul class="tier-features">
-                            <li>Permanent, Definitive Board Recognition</li>
-                            <li>Handcrafted Physical Presentation Asset</li>
-                            <li>Maximum Priority Gated Table Allocations</li>
-                            <li>Unrestricted Access to Private Lounges</li>
-                            <li>Comprehensive Guest Sponsorship Privileges</li>
+                        <p>For foundational visionaries dedicated to building the long-term legacy of the property. Maximum priority structural privileges.</p>
+                        <ul class="tier-perks">
+                            <li>All Universal Club Benefits</li>
+                            <li>Permanent Founder's Designation</li>
+                            <li>Recognition on the physical Founders Wall</li>
+                            <li>Invitation to the Annual Founders Dinner</li>
+                            <li>Invitation to Founder-exclusive gatherings</li>
+                            <li>First consideration for future opportunities</li>
+                            <li>First priority for humidor locker assignments</li>
+                            <li>Access to premium size locker allocations</li>
                         </ul>
                     </div>
-                    <div>
-                        <div class="metric"><small>Invitation Pricing</small> Upon Inquiry</div>
-                        <a href="#application" class="btn-copper" style="display:block; text-align:center;">Secure Placement</a>
+                    <div class="tier-footer">
+                        <div class="discount">10% Member Discount Included</div>
+                        <a href="#inquire" class="btn btn-copper" style="width: 100%; text-align: center;">Apply for Invitation</a>
                     </div>
                 </div>
 
                 <!-- Cigar Tier -->
-                <div class="tier-card">
-                    <div>
-                        <h3>Cigar Membership</h3>
-                        <p class="description">For patrons who highly value premium cigar experiences, climate-controlled environments, and exclusive lounge benefits.</p>
-                        <ul class="tier-features">
-                            <li>Dedicated Humidor Storage Access</li>
-                            <li>Bespoke Spirit &amp; Cigar Pairings</li>
-                            <li>Priority Access to the Waterfront Lounge</li>
-                            <li>Invitation to Private Tasting Showcases</li>
+                <div class="tier-column">
+                    <div class="tier-header">
+                        <span class="badge">Tier Two</span>
+                        <h3>Cigar</h3>
+                        <p>Tailored specifically for connoisseurs requiring expert climate-controlled humidor structures and curated allocations.</p>
+                        <ul class="tier-perks">
+                            <li>All Universal Club Benefits</li>
+                            <li>Access to specialty premium cigar releases</li>
+                            <li>Second priority for humidor locker assignments</li>
+                            <li>Access to remaining locker sizes post-Founder</li>
                         </ul>
                     </div>
-                    <div>
-                        <div class="metric"><small>Access Profile</small> Connoisseur</div>
-                        <a href="#application" class="btn-outline" style="display:block; text-align:center;">Inquire Securely</a>
+                    <div class="tier-footer">
+                        <div class="discount">5% Member Discount Included</div>
+                        <a href="#inquire" class="btn btn-outline" style="width: 100%; text-align: center;">Inquire for Access</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Exploitation Protection Legal Clause -->
-            <div class="legal-notice">
-                To maintain the uncompromising standards of exclusivity, discretion, and operational excellence at The Orange Pair, the Membership Committee reserves the absolute right to curate, refine, or alter club privileges, benefits, and tier structures at any time.
+            <!-- Guest & Locker Program Guidelines -->
+            <div class="policy-block">
+                <div class="policy-col">
+                    <h4>Guest Policy</h4>
+                    <ul>
+                        <li>• Members are welcome to sponsor guests subject to capacity.</li>
+                        <li>• Sponsoring guests pay the applicable club admission fee.</li>
+                        <li>• Guests enter uniformly through the main entrance architecture.</li>
+                        <li>• Members arriving with guests must accompany them through arrival.</li>
+                        <li>• Members arriving alone retain exclusive use of the Members Entrance.</li>
+                    </ul>
+                </div>
+                <div class="policy-col">
+                    <h4>Locker Program</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; font-weight: 300;">Multiple locker dimensions are built across the space to accommodate custom collections. Allocations clear sequentially based on:</p>
+                    <ul>
+                        <li>1. Founder's Circle Members</li>
+                        <li>2. Cigar Members</li>
+                        <li>3. Remaining structural availability</li>
+                    </ul>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 15px; font-style: italic; font-weight: 300;">Lockers are handled as an optional privilege and are not guaranteed with standard membership.</p>
+                </div>
+                <div class="disclaimer-text">
+                    Benefits and experiences may evolve over time at the absolute discretion of The Orange Pair.
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Spatial Analysis Matrix Displaying Lifestyle Images -->
-    <section class="section-padding" style="background-color: #0d131f;">
+    <!-- Full Screen Bright Visual Intermission (The Crowd / Dance Floor Asset) -->
+    <section class="visual-intermission"></section>
+
+    <!-- Structural Environments Showcase Grid -->
+    <section class="gallery-section" id="spaces">
         <div class="container">
-            <span class="section-tag">Spatial Dimensions</span>
-            <h2 class="section-title">The Structural Environments</h2>
-            <p class="section-subtitle">The most memorable venues are discovered, not announced. We explicitly safeguard our absolute entrance architecture to preserve structural IP and guest anonymity.</p>
+            <span class="section-tag">The Footprint</span>
+            <h2 class="serif-title">Structural <span class="serif-italic">Environments</span></h2>
             
-            <div class="matrix-grid">
-                <div class="matrix-item">
+            <div class="gallery-grid">
+                <div class="gallery-item">
                     <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Rooftop%20bar%20with%20waterfront%20views.png" alt="Rooftop Waterfront Environment" />
-                    <div class="panel-caption">Rooftop Sky Bar Vibe</div>
                 </div>
-                <div class="matrix-item">
+                <div class="gallery-item">
                     <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Sophisticated%20waterfront%20lounge%20at%20night.png" alt="Sophisticated Waterfront Lounge Room" />
-                    <div class="panel-caption">Waterfront Lounge Matrix</div>
                 </div>
-                <div class="matrix-item">
-                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Vibrant%20waterfront%20nightlife%20at%20The%20Orange%20Pair.png" alt="Vibrant Waterfront Plaza Scene" />
-                    <div class="panel-caption">Plaza Nightlife Infrastructure</div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Luxurious%20evening%20at%20a%20bustling%20plaza.png" alt="Luxurious Bustling Plaza View" />
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Governance & Investor Interface -->
-    <section class="section-padding" id="governance">
-        <div class="container">
-            <div class="split-grid">
-                <div>
-                    <span class="section-tag">Capital Realization</span>
-                    <h2 class="section-title">Investor Relations &amp; De-risking Milestones</h2>
-                    <p class="narrative-p">The Orange Pair is constructed on definitive operational metrics. From formal site control through absolute design and permitting completion, our capitalization trajectory is built on risk mitigation and structured phases.</p>
-                    <p class="narrative-p">Qualified investment stakeholders can access core financial projections, square-footage allocations, and asset valuations via a secure, direct verification channel.</p>
-                </div>
-                <div>
-                    <div class="panel-preview">
-                        <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Luxurious%20evening%20at%20a%20bustling%20plaza.png" alt="Luxurious Bustling Plaza View" />
-                        <div class="panel-caption">Structural Scale Overview</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-strip">
-                <div class="strip-grid">
-                    <div class="strip-node">
-                        <span class="val">Verified</span>
-                        <span class="lbl">Site Control</span>
-                    </div>
-                    <div class="strip-node">
-                        <span class="val">Complete</span>
-                        <span class="lbl">Architectural IP</span>
-                    </div>
-                    <div class="strip-node">
-                        <span class="val">Phase 1</span>
-                        <span class="lbl">Capitalization</span>
-                    </div>
-                    <div class="strip-node">
-                        <span class="val">2027</span>
-                        <span class="lbl">Grand Opening</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Private Bookings Showcase Section -->
-    <section class="section-padding" style="background-color: #0d131f;">
-        <div class="container split-grid">
-            <div class="panel-preview">
+    <!-- Corporate Event Buyouts Integration Layout -->
+    <section class="buyout-section">
+        <div class="container editorial-split" style="padding: 0;">
+            <div class="editorial-image-container">
                 <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Nighttime%20luxury%20lounge%20with%20city%20view.png" alt="Private Booking Luxury Lounge View" />
-                <div class="panel-caption">Panoramic Gathering Matrix</div>
             </div>
-            <div>
-                <span class="section-tag">Private Execution</span>
-                <h2 class="section-title">Corporate Bookings &amp; Events</h2>
-                <p class="narrative-p">From executive corporate dinners and boardroom milestones to extensive maritime networking events or private vessel crew receptions, our layout footprint scales dynamically to host high-discretion functions seamlessly.</p>
-                <a href="#application" class="btn-outline">Inquire For Private Buyouts</a>
+            <div class="editorial-text">
+                <span class="section-tag">Private Collaborations</span>
+                <h2 class="serif-title" style="margin-bottom: 30px;">Corporate Events <br>&amp; Buyouts</h2>
+                <p>From private boardroom dinners and high-level client presentations to expansive waterfront receptions, our environments scale effortlessly to host discreet, impactful functions tailored to strict organizational parameters.</p>
+                <a href="#inquire" class="btn btn-outline">Request Buyout Guidelines</a>
             </div>
         </div>
     </section>
 
-    <!-- House Protocols (FAQ) -->
-    <section class="section-padding">
+    <!-- Clean Application Call to Action -->
+    <section class="cta-section" id="inquire">
         <div class="container">
-            <span class="section-tag">House Protocols</span>
-            <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">Operational Protocols</h2>
-            
-            <div class="faq-accordion">
-                <div class="faq-item">
-                    <div class="faq-trigger">Is membership mandatory to access the club?</div>
-                    <div class="faq-content">We operate primarily as a private member ecosystem. Gated table reservations and specific lounge access are prioritized exclusively for active membership holders and their sponsored guests.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-trigger">Are cigars required to be smoked by guests?</div>
-                    <div class="faq-content">No. While our custom cigar program and specialized ventilation lounge spaces serve as core components of our identity, they remain entirely optional for guests prioritizing our dining, mixology, or entertainment programs.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-trigger">What is the explicit camera and privacy policy?</div>
-                    <div class="faq-content">To protect high-profile members, yacht owners, and executives, recording or photographing other members within our club walls without express permission is strictly prohibited. Discretion is absolute.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-trigger">Can guests arrive by maritime transit or yacht?</div>
-                    <div class="faq-content">Yes. Our waterfront footprint provides convenient maritime access points, details of which are coordinated directly through the concierge team during reservation clearing.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Entry Point -->
-    <section class="section-padding" id="application" style="background-color: #0d131f;">
-        <div class="container" style="text-align: center; max-width: 700px;">
-            <span class="section-tag">Intent Submission</span>
-            <h2 class="section-title">Initiate Contact</h2>
-            <p class="section-subtitle" style="margin: 0 auto 40px;">Select your processing path. Whether requesting membership onboarding or submitting a confidential investor data room inquiry, our team responds within 24 hours.</p>
+            <span class="section-tag">Inquiry Portal</span>
+            <h2 class="serif-title">Request an <span class="serif-italic">Invitation</span></h2>
+            <p>Select your operational channel below. Our membership office reviews all incoming correspondence within a 24-hour cycle.</p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="mailto:concierge@theorangepair.com?subject=Membership%20Application%20Inquiry" class="btn-copper">✉️ Request Membership Invitation</a>
-                <a href="mailto:invest@theorangepair.com?subject=Confidential%20Investor%20Inquiry" class="btn-outline">💼 Secure Investor Channel</a>
+                <a href="mailto:concierge@theorangepair.com?subject=Membership%20Invitation%20Request" class="btn btn-copper">✉ Request Club Invitation</a>
+                <a href="mailto:invest@theorangepair.com?subject=Data%20Room%20Verification%20Inquiry" class="btn btn-outline">💼 Secure Corporate Channel</a>
             </div>
         </div>
     </section>
@@ -929,87 +845,60 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-cols">
+            <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo">
                         <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Orange%20Pair%20Logo%20blue%20and%20orange.png" alt="The Orange Pair Crest" />
-                        <span>The <span class="text-copper">Orange</span> Pair</span>
+                        <span>The Orange Pair</span>
                     </a>
-                    <p>Antigua's premier private waterfront social club. Where visionaries gather, transactions occur, and legacy is built.</p>
+                    <p>A private, multi-layer waterfront sanctuary offering seamless transition from twilight dining to elite late-night energy.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Operations</h4>
-                    <a href="#vision">Identity Architecture</a>
-                    <a href="#evolution">The Evening Lifecycle</a>
-                    <a href="#membership">Access Framework</a>
-                    <a href="#governance">De-risking Milestones</a>
+                    <h4>Navigation</h4>
+                    <a href="#about">The Destination</a>
+                    <a href="#hours">The Lifecycle</a>
+                    <a href="#membership">Membership</a>
+                    <a href="#spaces">Environments</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Inquiries</h4>
+                    <h4>Direct Inquiries</h4>
                     <a href="mailto:concierge@theorangepair.com">concierge@theorangepair.com</a>
                     <a href="mailto:invest@theorangepair.com">invest@theorangepair.com</a>
-                    <a href="#">Data Protections &amp; NDA</a>
                 </div>
             </div>
-            <div class="footer-base">
+            <div class="footer-bottom">
                 <p>&copy; 2026 The Orange Pair. All rights reserved.</p>
-                <p>Before Everyone Else.</p>
+                <p>Discretion is absolute.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Script Controllers -->
     <script>
+        // Clean Scrolled Navigation Tracking
         const navbar = document.getElementById('navbar');
-        let currentScroll = window.scrollY;
-        let isTicking = false;
-
-        function scrollManagement() {
-            if (currentScroll > 60) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
-            isTicking = false;
-        }
+        });
 
-        window.addEventListener('scroll', () => {
-            currentScroll = window.scrollY;
-            if (!isTicking) {
-                window.requestAnimationFrame(scrollManagement);
-                isTicking = true;
+        // Toggle Responsive Menu Links
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '80px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.background = 'var(--midnight)';
+                navLinks.style.padding = '30px';
+                navLinks.style.borderBottom = '1px solid var(--border)';
             }
-        });
-
-        // Mobile Nav Trigger Logic
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-
-        hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle('open');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!navbar.contains(e.target) && navLinks.classList.contains('open')) {
-                navLinks.classList.remove('open');
-            }
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(anchor => {
-            anchor.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-            });
-        });
-
-        // Interactive Accordion Controller
-        document.querySelectorAll('.faq-trigger').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const content = trigger.nextElementSibling;
-                const active = content.style.display === 'block';
-                document.querySelectorAll('.faq-content').forEach(c => c.style.display = 'none');
-                content.style.display = active ? 'none' : 'block';
-            });
         });
     </script>
 </body>
