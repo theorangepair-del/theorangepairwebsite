@@ -37,7 +37,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Utility Layouts --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -65,7 +64,6 @@
             text-decoration: none;
             transition: var(--transition-tactile);
             border: 1px solid var(--brushed-copper);
-            transform: translate3d(0,0,0);
         }
 
         .btn-copper:hover {
@@ -88,7 +86,6 @@
             text-decoration: none;
             transition: var(--transition-tactile);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            transform: translate3d(0,0,0);
         }
 
         .btn-outline:hover {
@@ -136,7 +133,7 @@
         }
 
         nav.scrolled {
-            background: rgba(11, 15, 25, 0.92);
+            background: rgba(11, 15, 25, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             padding: 16px 0;
@@ -157,8 +154,9 @@
         }
 
         .logo img {
-            height: 38px;
+            height: 42px;
             width: auto;
+            border-radius: 4px;
         }
 
         .logo span {
@@ -194,7 +192,6 @@
             padding: 10px 22px;
             border-radius: 2px;
             color: var(--brushed-copper) !important;
-            transition: var(--transition-tactile);
         }
 
         .nav-cta:hover {
@@ -206,30 +203,25 @@
             display: none;
             flex-direction: column;
             gap: 6px;
-            cursor: pointer;
             background: none;
             border: none;
+            cursor: pointer;
         }
 
         .hamburger span {
             width: 24px;
             height: 2px;
             background: var(--alabaster-cream);
-            transition: var(--transition-tactile);
         }
 
-        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-        .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-
-        /* --- Hero --- */
+        /* --- Hero Section --- */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
-            background: linear-gradient(180deg, var(--midnight-obsidian) 0%, #131924 100%);
             overflow: hidden;
+            background-color: var(--midnight-obsidian);
         }
 
         .hero::before {
@@ -239,15 +231,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cameras%20images.png') center center / cover no-repeat;
-            opacity: 0.08;
-            filter: grayscale(100%);
+            background: linear-gradient(180deg, rgba(11, 15, 25, 0.4) 0%, rgba(11, 15, 25, 0.95) 100%), 
+                        url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/The%20Orange%20Pair%20nightlife%20glamour.png') center center / cover no-repeat;
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 780px;
+            max-width: 800px;
         }
 
         .hero h1 {
@@ -260,7 +252,8 @@
 
         .hero p {
             font-size: 1.25rem;
-            color: var(--text-muted);
+            color: var(--alabaster-cream);
+            opacity: 0.9;
             line-height: 1.7;
             margin-bottom: 48px;
             font-weight: 300;
@@ -271,7 +264,7 @@
             gap: 20px;
         }
 
-        /* --- Dual Column Architecture Blocks --- */
+        /* --- Split Layouts --- */
         .split-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -291,12 +284,11 @@
             width: 100%;
             height: auto;
             display: block;
-            opacity: 0.75;
             transition: var(--transition-tactile);
         }
 
         .panel-preview:hover img {
-            opacity: 0.95;
+            transform: scale(1.01);
         }
 
         .panel-caption {
@@ -305,7 +297,7 @@
             left: 0;
             width: 100%;
             padding: 16px 24px;
-            background: linear-gradient(0deg, rgba(11,15,25,0.9) 0%, rgba(11,15,25,0) 100%);
+            background: linear-gradient(0deg, rgba(11,15,25,0.95) 0%, rgba(11,15,25,0) 100%);
             font-size: 0.75rem;
             letter-spacing: 1px;
             color: var(--text-muted);
@@ -320,7 +312,7 @@
             line-height: 1.8;
         }
 
-        /* --- Dynamic Flow Grid --- */
+        /* --- Card Architecture --- */
         .flow-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -331,9 +323,20 @@
         .flow-card {
             background: var(--smoked-charcoal);
             border: 1px solid var(--border-muted);
-            padding: 40px;
             border-radius: 4px;
+            overflow: hidden;
             transition: var(--transition-tactile);
+        }
+
+        .flow-card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-muted);
+        }
+
+        .flow-card-body {
+            padding: 36px;
         }
 
         .flow-card:hover {
@@ -363,7 +366,7 @@
             font-weight: 300;
         }
 
-        /* --- Interactive Membership Framework --- */
+        /* --- Membership Cards --- */
         .tier-stack {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -384,7 +387,7 @@
 
         .tier-card.featured {
             border-color: var(--brushed-copper);
-            background: linear-gradient(180deg, var(--smoked-charcoal) 0%, rgba(217,119,54,0.03) 100%);
+            background: linear-gradient(180deg, var(--smoked-charcoal) 0%, rgba(217,119,54,0.02) 100%);
         }
 
         .tier-badge {
@@ -415,17 +418,18 @@
         }
 
         .tier-card .metric {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: var(--alabaster-cream);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--brushed-copper);
             margin-bottom: 32px;
         }
 
         .tier-card .metric small {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
             font-weight: 400;
-            letter-spacing: 1px;
+            display: block;
+            margin-top: 4px;
         }
 
         .tier-features {
@@ -446,7 +450,18 @@
         .tier-features li::before {
             content: '▫';
             color: var(--brushed-copper);
-            font-weight: 700;
+        }
+
+        .legal-notice {
+            margin-top: 40px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--border-muted);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            text-align: center;
         }
 
         /* --- Spatial Blueprint Matrix --- */
@@ -458,7 +473,7 @@
 
         .matrix-item {
             position: relative;
-            height: 280px;
+            height: 320px;
             border-radius: 4px;
             overflow: hidden;
             border: 1px solid var(--border-muted);
@@ -468,17 +483,16 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.6;
+            opacity: 0.7;
             transition: var(--transition-tactile);
-            filter: grayscale(30%);
         }
 
         .matrix-item:hover img {
-            opacity: 0.85;
-            transform: scale(1.02);
+            opacity: 0.95;
+            transform: scale(1.03);
         }
 
-        /* --- Investor & Governance Blocks --- */
+        /* --- Info Strip --- */
         .info-strip {
             background: var(--smoked-charcoal);
             border: 1px solid var(--border-muted);
@@ -509,6 +523,7 @@
             color: var(--text-muted);
         }
 
+        /* --- FAQ Architecture --- */
         .faq-accordion {
             max-width: 800px;
             margin: 0 auto;
@@ -532,7 +547,6 @@
         .faq-trigger::after {
             content: '+';
             color: var(--brushed-copper);
-            font-size: 1.2rem;
         }
 
         .faq-content {
@@ -562,7 +576,7 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-top: 16px;
-            max-width: 300px;
+            max-width: 320px;
             font-weight: 300;
         }
 
@@ -597,7 +611,7 @@
             color: rgba(255, 255, 255, 0.25);
         }
 
-        /* --- Responsive Viewport Mechanics --- */
+        /* --- Responsive Breaks --- */
         @media (max-width: 1024px) {
             .split-grid, .tier-stack { grid-template-columns: 1fr; gap: 48px; }
             .flow-grid, .matrix-grid { grid-template-columns: 1fr 1fr; }
@@ -631,11 +645,11 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Header Navigation Container -->
     <nav id="navbar">
         <div class="container nav-inner">
             <a href="#" class="logo">
-                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/The%20orange%20Pair%20no%20words.png" alt="The Orange Pair Icon" />
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Orange%20Pair%20Logo%20blue%20and%20orange.png" alt="The Orange Pair Icon" />
                 <span>The <span class="text-copper">Orange</span> Pair</span>
             </a>
             <ul class="nav-links" id="navLinks">
@@ -653,7 +667,7 @@
         </div>
     </nav>
 
-    <!-- Master Stage Header -->
+    <!-- Master Stage Header Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -667,7 +681,7 @@
         </div>
     </section>
 
-    <!-- Core Purpose & IP Protection Strategy -->
+    <!-- Core Purpose & Waterfront Integration -->
     <section class="section-padding" id="vision">
         <div class="container split-grid">
             <div class="vision-narrative">
@@ -677,8 +691,8 @@
                 <p class="narrative-p">Every decision is governed by clean service parameters: discretion, comfort, and uncompromising professionalism. Here, absolute privacy is executed as an approachable luxury asset.</p>
             </div>
             <div class="panel-preview">
-                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cam%2003%20Main%20Floor.png" alt="Interior Architecture Analysis" />
-                <div class="panel-caption">Spatial Layout: Main Social Floor Matrix</div>
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Dockside%20night%20vibes%20at%20the%20waterfront.png" alt="Dockside Night Atmosphere" />
+                <div class="panel-caption">Maritime Integration: Dockside Night Vibes</div>
             </div>
         </div>
     </section>
@@ -692,29 +706,38 @@
             
             <div class="flow-grid">
                 <div class="flow-card">
-                    <span class="step">18:00 — Arrival &amp; Dining</span>
-                    <h3>Refined Comfort</h3>
-                    <p>Attentive greeting sequences transition seamlessly into elevated, Caribbean-inspired cuisine inflected with international techniques. Focus rests on high-presentation steaks, local seafood, and custom tableside presentations.</p>
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Elegant%20waterfront%20lounge%20at%20night.png" class="flow-card-img" alt="Elegant Waterfront Dining Phase" />
+                    <div class="flow-card-body">
+                        <span class="step">18:00 — Arrival &amp; Dining</span>
+                        <h3>Refined Comfort</h3>
+                        <p>Attentive greeting sequences transition seamlessly into elevated, Caribbean-inspired cuisine inflected with international techniques. Focus rests on high-presentation steaks, local seafood, and custom tableside presentations.</p>
+                    </div>
                 </div>
                 <div class="flow-card">
-                    <span class="step">21:00 — Cocktails &amp; Cigars</span>
-                    <h3>Discreet Relaxation</h3>
-                    <p>The space evolves as ambient illumination shifts. Premium rum creations and rare whiskeys pair deliberately with custom cigar selections maintained in professionally controlled humidors.</p>
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Elegant%20cigar%20lounge%20at%20night.png" class="flow-card-img" alt="Elite Cigar Lounge Environment" />
+                    <div class="flow-card-body">
+                        <span class="step">21:00 — Cocktails &amp; Cigars</span>
+                        <h3>Discreet Relaxation</h3>
+                        <p>The space evolves as ambient illumination shifts. Premium rum creations and rare whiskeys pair deliberately with custom cigar selections maintained in professionally controlled humidors.</p>
+                    </div>
                 </div>
                 <div class="flow-card">
-                    <span class="step">23:00 — Late Night Cycle</span>
-                    <h3>Sustained Energy</h3>
-                    <p>The energy deepens via live acoustic profiles, curated jazz sessions, and precise cultural showcases. Gourmet shared plates, signature desserts, and fluid mixology carry through to close.</p>
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Glamorous%20waterfront%20nightclub%20with%20vibrant%20crowd.png" class="flow-card-img" alt="Vibrant Nightlife Phase" />
+                    <div class="flow-card-body">
+                        <span class="step">23:00 — Late Night Cycle</span>
+                        <h3>Sustained Energy</h3>
+                        <p>The energy deepens via live acoustic profiles, curated jazz sessions, and precise cultural showcases. Gourmet shared plates, signature desserts, and fluid mixology carry through to close.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gated Membership Architecture -->
+    <!-- Gated Membership Framework -->
     <section class="section-padding" id="membership">
         <div class="container">
             <span class="section-tag">Access Architecture</span>
-            <h2 class="section-title">Membership Structure</h2>
+            <h2 class="section-title">Membership Options</h2>
             <p class="section-subtitle">Curation remains central to our identity. Every application undergoes systematic committee review to guarantee absolute alignment with club values.</p>
 
             <div class="tier-stack">
@@ -731,7 +754,7 @@
                         </ul>
                     </div>
                     <div>
-                        <div class="metric"><small>Tier Profile</small> Resident</div>
+                        <div class="metric"><small>Access Profile</small> Resident &amp; Guest</div>
                         <a href="#application" class="btn-outline" style="display:block; text-align:center;">Request Access</a>
                     </div>
                 </div>
@@ -741,7 +764,7 @@
                     <span class="tier-badge">Scarce: 50 Allotted</span>
                     <div>
                         <h3>Founder's Circle</h3>
-                        <p class="description">For committed visionaries dedicated to the foundational, long-term legacy of the club. Capped permanently at fifty seats.</p>
+                        <p class="description">For committed visionaries dedicated to the foundational, long-term legacy of the club. Capped permanently at fifty allocations.</p>
                         <ul class="tier-features">
                             <li>Permanent, Definitive Board Recognition</li>
                             <li>Handcrafted Physical Presentation Asset</li>
@@ -751,51 +774,56 @@
                         </ul>
                     </div>
                     <div>
-                        <div class="metric">$10,000 <small>/ Lifetime</small></div>
+                        <div class="metric"><small>Invitation Pricing</small> Upon Inquiry</div>
                         <a href="#application" class="btn-copper" style="display:block; text-align:center;">Secure Placement</a>
                     </div>
                 </div>
 
-                <!-- Specialized Seasonal Tier -->
+                <!-- Cigar Tier -->
                 <div class="tier-card">
                     <div>
-                        <h3>Corporate &amp; Seasonal</h3>
-                        <p class="description">Optimized for international yachting crews, private aviation travelers, and multi-executive enterprises visiting seasonally.</p>
+                        <h3>Cigar Membership</h3>
+                        <p class="description">For patrons who highly value premium cigar experiences, climate-controlled environments, and exclusive lounge benefits.</p>
                         <ul class="tier-features">
-                            <li>Flexible Annual Fleet/Crew Configuration</li>
-                            <li>Discreet Waterfront Docking Coordination</li>
-                            <li>Executive Boardroom &amp; Lounge Bookings</li>
-                            <li>Reciprocal Network Privileges</li>
+                            <li>Dedicated Humidor Storage Access</li>
+                            <li>Bespoke Spirit &amp; Cigar Pairings</li>
+                            <li>Priority Access to the Waterfront Lounge</li>
+                            <li>Invitation to Private Tasting Showcases</li>
                         </ul>
                     </div>
                     <div>
-                        <div class="metric"><small>Tier Profile</small> Enterprise</div>
+                        <div class="metric"><small>Access Profile</small> Connoisseur</div>
                         <a href="#application" class="btn-outline" style="display:block; text-align:center;">Inquire Securely</a>
                     </div>
                 </div>
             </div>
+
+            <!-- Exploitation Protection Legal Clause -->
+            <div class="legal-notice">
+                To maintain the uncompromising standards of exclusivity, discretion, and operational excellence at The Orange Pair, the Membership Committee reserves the absolute right to curate, refine, or alter club privileges, benefits, and tier structures at any time.
+            </div>
         </div>
     </section>
 
-    <!-- Restricted Spatial Analysis Matrix -->
+    <!-- Spatial Analysis Matrix Displaying Lifestyle Images -->
     <section class="section-padding" style="background-color: #0d131f;">
         <div class="container">
-            <span class="section-tag">Spatial Blueprints</span>
-            <h2 class="section-title">The Interior Dimensions</h2>
-            <p class="section-subtitle">The most memorable venues are discovered, not announced. We explicitly safeguard our entrance architecture to preserve structural IP and guest anonymity.</p>
+            <span class="section-tag">Spatial Dimensions</span>
+            <h2 class="section-title">The Structural Environments</h2>
+            <p class="section-subtitle">The most memorable venues are discovered, not announced. We explicitly safeguard our absolute entrance architecture to preserve structural IP and guest anonymity.</p>
             
             <div class="matrix-grid">
                 <div class="matrix-item">
-                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cam%2007%20Kitchen.png" alt="Culinary Workspace Matrix" />
-                    <div class="panel-caption">Culinary Zone / Spatial Control 07</div>
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Rooftop%20bar%20with%20waterfront%20views.png" alt="Rooftop Waterfront Environment" />
+                    <div class="panel-caption">Rooftop Sky Bar Vibe</div>
                 </div>
                 <div class="matrix-item">
-                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cam%2008%20Cigar%20lounge.png" alt="Cigar Lounge Internal Rendering" />
-                    <div class="panel-caption">Lounge Environment / Control 08</div>
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Sophisticated%20waterfront%20lounge%20at%20night.png" alt="Sophisticated Waterfront Lounge Room" />
+                    <div class="panel-caption">Waterfront Lounge Matrix</div>
                 </div>
                 <div class="matrix-item">
-                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cam%2008%20Fire%20in%20cigar%20lounge%20demonstration.png" alt="Acoustic & Hearth Evaluation" />
-                    <div class="panel-caption">Atmospheric Hearth / Internal 08</div>
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Vibrant%20waterfront%20nightlife%20at%20The%20Orange%20Pair.png" alt="Vibrant Waterfront Plaza Scene" />
+                    <div class="panel-caption">Plaza Nightlife Infrastructure</div>
                 </div>
             </div>
         </div>
@@ -813,8 +841,8 @@
                 </div>
                 <div>
                     <div class="panel-preview">
-                        <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/bfef342ac954861627d94f9b269111be3d8c9b38/images/Cam%2008%20diff%20cigar%20lounge.png" alt="Alternative Internal Structural Perspective" />
-                        <div class="panel-caption">Alternate Perspective Layout Matrix</div>
+                        <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Luxurious%20evening%20at%20a%20bustling%20plaza.png" alt="Luxurious Bustling Plaza View" />
+                        <div class="panel-caption">Structural Scale Overview</div>
                     </div>
                 </div>
             </div>
@@ -842,8 +870,24 @@
         </div>
     </section>
 
-    <!-- Essential Operational Cleansing (FAQ) -->
+    <!-- Private Bookings Showcase Section -->
     <section class="section-padding" style="background-color: #0d131f;">
+        <div class="container split-grid">
+            <div class="panel-preview">
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Nighttime%20luxury%20lounge%20with%20city%20view.png" alt="Private Booking Luxury Lounge View" />
+                <div class="panel-caption">Panoramic Gathering Matrix</div>
+            </div>
+            <div>
+                <span class="section-tag">Private Execution</span>
+                <h2 class="section-title">Corporate Bookings &amp; Events</h2>
+                <p class="narrative-p">From executive corporate dinners and boardroom milestones to extensive maritime networking events or private vessel crew receptions, our layout footprint scales dynamically to host high-discretion functions seamlessly.</p>
+                <a href="#application" class="btn-outline">Inquire For Private Buyouts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- House Protocols (FAQ) -->
+    <section class="section-padding">
         <div class="container">
             <span class="section-tag">House Protocols</span>
             <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">Operational Protocols</h2>
@@ -869,8 +913,8 @@
         </div>
     </section>
 
-    <!-- Secure Application Form Vector -->
-    <section class="section-padding" id="application">
+    <!-- Contact Entry Point -->
+    <section class="section-padding" id="application" style="background-color: #0d131f;">
         <div class="container" style="text-align: center; max-width: 700px;">
             <span class="section-tag">Intent Submission</span>
             <h2 class="section-title">Initiate Contact</h2>
@@ -882,13 +926,13 @@
         </div>
     </section>
 
-    <!-- Structural Footer -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-cols">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/The%20orange%20Pair%20no%20words.png" alt="The Orange Pair Crest" />
+                        <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Orange%20Pair%20Logo%20blue%20and%20orange.png" alt="The Orange Pair Crest" />
                         <span>The <span class="text-copper">Orange</span> Pair</span>
                     </a>
                     <p>Antigua's premier private waterfront social club. Where visionaries gather, transactions occur, and legacy is built.</p>
@@ -914,9 +958,8 @@
         </div>
     </footer>
 
-    <!-- Behavioral Engine scripts -->
+    <!-- Script Controllers -->
     <script>
-        // High-performance scroll tracking via requestAnimationFrame
         const navbar = document.getElementById('navbar');
         let currentScroll = window.scrollY;
         let isTicking = false;
@@ -938,26 +981,23 @@
             }
         });
 
-        // Mobile Gated Navigation Logic
+        // Mobile Nav Trigger Logic
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
 
         hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
-            hamburger.classList.toggle('open');
             navLinks.classList.toggle('open');
         });
 
         document.addEventListener('click', (e) => {
             if (!navbar.contains(e.target) && navLinks.classList.contains('open')) {
-                hamburger.classList.remove('open');
                 navLinks.classList.remove('open');
             }
         });
 
         document.querySelectorAll('.nav-links a').forEach(anchor => {
             anchor.addEventListener('click', () => {
-                hamburger.classList.remove('open');
                 navLinks.classList.remove('open');
             });
         });
@@ -967,11 +1007,7 @@
             trigger.addEventListener('click', () => {
                 const content = trigger.nextElementSibling;
                 const active = content.style.display === 'block';
-                
-                // Reset all panels cleanly
                 document.querySelectorAll('.faq-content').forEach(c => c.style.display = 'none');
-                
-                // Toggle clicked panel state
                 content.style.display = active ? 'none' : 'block';
             });
         });
