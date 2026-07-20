@@ -45,6 +45,19 @@
             padding: 0 40px;
         }
 
+        /* --- Live Operational Status Bar --- */
+        .status-bar {
+            background: var(--surface-accent);
+            border-bottom: 1px solid var(--border);
+            padding: 8px 0;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--copper);
+            text-align: center;
+            font-weight: 500;
+        }
+
         /* --- Elegant Typography & Headings --- */
         .serif-title {
             font-family: var(--font-serif);
@@ -82,11 +95,13 @@
             text-decoration: none;
             transition: all 0.3s ease;
             border-radius: 0;
+            cursor: pointer;
         }
 
         .btn-copper {
             background-color: var(--copper);
             color: var(--midnight);
+            border: none;
         }
 
         .btn-copper:hover {
@@ -97,6 +112,7 @@
         .btn-outline {
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: var(--cream);
+            background: transparent;
         }
 
         .btn-outline:hover {
@@ -108,7 +124,7 @@
         /* --- Navigation --- */
         nav {
             position: fixed;
-            top: 0;
+            top: 33px; /* Offset for status bar */
             left: 0;
             width: 100%;
             padding: 30px 0;
@@ -118,6 +134,7 @@
         }
 
         nav.scrolled {
+            top: 0;
             background: rgba(7, 10, 18, 0.95);
             backdrop-filter: blur(10px);
             padding: 20px 0;
@@ -148,7 +165,7 @@
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             align-items: center;
             list-style: none;
         }
@@ -193,17 +210,16 @@
             background: var(--cream);
         }
 
-        /* --- Showcase Hero Section (100% Brightness & Vibrant) --- */
+        /* --- Showcase Hero Section (100% Brightness) --- */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: flex-end;
             position: relative;
-            padding-bottom: 100px;
+            padding-bottom: 120px;
             background: url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/The%20Orange%20Pair%20nightlife%20glamour.png') center center / cover no-repeat;
         }
 
-        /* Ambient gradient only at the very bottom text area so typography reads flawlessly without tinting the photo */
         .hero::before {
             content: '';
             position: absolute;
@@ -218,7 +234,7 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 950px;
         }
 
         .hero h1 {
@@ -227,14 +243,80 @@
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: var(--cream);
-            max-width: 650px;
+            max-width: 700px;
             margin-bottom: 40px;
             font-weight: 300;
         }
 
-        /* --- Full-Width Unfiltered Image Editorial Block --- */
+        /* --- Master Menu Drawer Infrastructure --- */
+        .menu-drawer-section {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            display: none;
+            padding: 60px 0;
+        }
+
+        .menu-drawer-section.active {
+            display: block;
+        }
+
+        .menu-tabs {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .menu-tab-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 12px 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-tab-btn.active, .menu-tab-btn:hover {
+            border-color: var(--copper);
+            color: var(--copper);
+        }
+
+        .menu-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .menu-item h5 {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--cream);
+        }
+
+        .menu-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+            font-weight: 300;
+        }
+
+        /* --- Editorial Split Sections --- */
         .editorial-split {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -251,7 +333,7 @@
         }
 
         .editorial-text {
-            max-width: 520px;
+            max-width: 540px;
         }
 
         .editorial-text p {
@@ -318,7 +400,61 @@
             font-weight: 300;
         }
 
-        /* --- Membership Experience Framework --- */
+        /* --- Live Schedule & Entertainment Roster --- */
+        .roster-section {
+            padding: 140px 0;
+        }
+
+        .roster-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .roster-row {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .roster-info h4 {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+
+        .roster-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .roster-date {
+            text-align: right;
+            border-left: 1px solid var(--border);
+            padding-left: 30px;
+        }
+
+        .roster-date span {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--copper);
+        }
+
+        .roster-date small {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* --- Membership Framework --- */
         .membership-section {
             padding: 140px 0;
         }
@@ -465,7 +601,7 @@
             font-style: italic;
         }
 
-        /* --- Full Screen Visual Intermission (The Dance Floor Asset) --- */
+        /* --- Full Screen Visual Intermission --- */
         .visual-intermission {
             height: 70vh;
             background: url('https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Glamorous%20waterfront%20nightclub%20with%20vibrant%20crowd.png') center center / cover no-repeat;
@@ -497,7 +633,7 @@
             display: block;
         }
 
-        /* --- Private Buyouts / Lounge Matrix --- */
+        /* --- Private Buyouts --- */
         .buyout-section {
             background-color: #0b0f19;
             padding: 140px 0;
@@ -510,14 +646,14 @@
         }
 
         .cta-section p {
-            max-width: 600px;
+            max-width: 650px;
             margin: 20px auto 45px;
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 300;
         }
 
-        /* --- Footer --- */
+        /* --- Footer Setup --- */
         footer {
             background: #04060b;
             padding: 100px 0 40px;
@@ -561,6 +697,30 @@
             color: var(--cream);
         }
 
+        .social-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-row a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 33px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-row a:hover {
+            border-color: var(--copper);
+            color: var(--copper);
+        }
+
         .footer-bottom {
             border-top: 1px solid var(--border);
             padding-top: 40px;
@@ -573,7 +733,8 @@
 
         /* --- Responsive Viewports --- */
         @media (max-width: 1100px) {
-            .tier-layout, .vibe-grid, .gallery-grid, .benefits-grid { grid-template-columns: 1fr 1fr; }
+            .tier-layout, .vibe-grid, .gallery-grid, .benefits-grid, .roster-grid { grid-template-columns: 1fr 1fr; }
+            .menu-content-grid { grid-template-columns: 1fr; }
             .editorial-split { grid-template-columns: 1fr; gap: 50px; }
             .policy-block { grid-template-columns: 1fr; gap: 40px; }
         }
@@ -582,13 +743,20 @@
             .nav-links { display: none; }
             .hamburger { display: flex; }
             .serif-title { font-size: 2.6rem; }
-            .tier-layout, .vibe-grid, .gallery-grid, .benefits-grid, .footer-grid { grid-template-columns: 1fr; }
+            .tier-layout, .vibe-grid, .gallery-grid, .benefits-grid, .footer-grid, .roster-grid { grid-template-columns: 1fr; }
             .benefits-panel { padding: 30px; }
             .hero h1 { font-size: 3rem; }
+            nav { top: 0; }
+            .status-bar { display: none; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Dynamic Operational Alert System Bar -->
+    <div class="status-bar">
+        Live Operations Profile: Open Tonight from 18:00 — Late • Special Holiday Curations Active
+    </div>
 
     <!-- Header Navigation Container -->
     <nav id="navbar">
@@ -598,10 +766,10 @@
                 <span>The Orange Pair</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#about">The Space</a></li>
-                <li><a href="#hours">The Atmosphere</a></li>
+                <li><a href="#about">The Concept</a></li>
+                <li><a href="javascript:void(0)" id="menuToggleBtn">Menus &amp; Cellars</a></li>
+                <li><a href="#roster">Live Events</a></li>
                 <li><a href="#membership">Membership</a></li>
-                <li><a href="#spaces">Environments</a></li>
                 <li><a href="#inquire" class="cta">Inquire</a></li>
             </ul>
             <button class="hamburger" aria-label="Toggle Navigation">
@@ -612,24 +780,61 @@
         </div>
     </nav>
 
-    <!-- Master Stage Header Section (100% Bright Background Asset) -->
+    <!-- Master Stage Header Section (The Urgency Hook) -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="serif-title">An escape designed for the <br><span class="serif-italic">few who appreciate the evening.</span></h1>
-                <p>A private waterfront sanctuary where fine dining, unmatched lounge spaces, and late-night energy transition effortlessly as the sun sets.</p>
-                <a href="#membership" class="btn btn-copper">View Memberships</a>
+                <h1 class="serif-title">Dominate your evening <br><span class="serif-italic">under a single waterfront roof.</span></h1>
+                <p>Instead of fragmented reservations and forced island migrations, The Orange Pair captures fine dining, unparalleled humidor lounges, and vibrant late-night energy into one seamless social experience.</p>
+                <a href="#membership" class="btn btn-copper">Secure Placement</a>
             </div>
         </div>
     </section>
 
-    <!-- Core Space Visual Layout -->
+    <!-- Integrated Menu Framework Grid Drawer (Toggled via JavaScript) -->
+    <section class="menu-drawer-section" id="menuDrawer">
+        <div class="container">
+            <div class="menu-tabs">
+                <button class="menu-tab-btn active">Dinner Selections</button>
+                <button class="menu-tab-btn">Rum &amp; Reserve Wine</button>
+                <button class="menu-tab-btn">Waterfront Brunch</button>
+            </div>
+            <div class="menu-content-grid">
+                <div class="menu-item">
+                    <div>
+                        <h5>Prime Cut Dry-Aged Ribeye</h5>
+                        <p>Smoked sea salt, signature compound alignment, tableside carving</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h5>Seared Local Island Snapper</h5>
+                        <p>Citrus reduction, locally sourced aromatics, charred maritime crisp</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h5>Bespoke Old Fashioned Reserve</h5>
+                        <p>25-year premium dark rum base, tailored wood smoke infusion</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h5>Hand-Selected Vintage Cohiba Pairings</h5>
+                        <p>Curated alongside single-barrel reserve spirits by our lounge concierge</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Member "Why" Strategic Narrative -->
     <section class="container editorial-split" id="about">
         <div class="editorial-text">
-            <span class="section-tag">The Architecture of the Evening</span>
-            <h2 class="serif-title" style="margin-bottom: 30px;">A Singular <br><span class="serif-italic">Destination.</span></h2>
-            <p>We built The Orange Pair to solve a persistent dilemma: the disruption of moving between locations as an evening unfolds. Here, your entire night transitions smoothly under one roof.</p>
-            <p>Positioned elegantly on the water's edge, the venue pairs unobstructed harbor access with absolute interior discretion, ensuring privacy remains completely uncompromised.</p>
+            <span class="section-tag">The Member Value Proposition</span>
+            <h2 class="serif-title" style="margin-bottom: 30px;">Eliminating the <br><span class="serif-italic">Relocation Friction.</span></h2>
+            <p>True luxury is the preservation of momentum. The Orange Pair functions as a completely integrated ecosystem, shielding high-profile guests, vessel captains, and visionaries from the constant need to switch locations as dinner transitions into nightlife.</p>
+            <p>With dedicated maritime access points directly to the deck and an absolute protective interior layout, members command an elite environment designed entirely for uninterrupted entertainment and complete privacy.</p>
         </div>
         <div class="editorial-image-container">
             <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Dockside%20night%20vibes%20at%20the%20waterfront.png" alt="Dockside Waterfront Ambience" />
@@ -637,34 +842,66 @@
     </section>
 
     <!-- The Three-Stage Vibe Cycle -->
-    <section class="vibe-cycle-section" id="hours">
+    <section class="vibe-cycle-section">
         <div class="container">
-            <span class="section-tag">The Progression</span>
-            <h2 class="serif-title">The Evening <span class="serif-italic">Lifecycle</span></h2>
+            <span class="section-tag">The Horizon Progression</span>
+            <h2 class="serif-title">The Operational <span class="serif-italic">Lifecycle</span></h2>
             
             <div class="vibe-grid">
                 <div class="vibe-card">
                     <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Elegant%20waterfront%20lounge%20at%20night.png" alt="Fine Dining Experience" />
                     <div class="vibe-card-body">
-                        <time>18:00 — Early Evening</time>
-                        <h3>Refined Dining</h3>
-                        <p>Impeccable tableside culinary presentations, focused on exceptional local seafood and premium cut steaks tailored for members and guests.</p>
+                        <time>18:00 — Dining Alignment</time>
+                        <h3>Refined Tableside Dining</h3>
+                        <p>High-presentation culinary concepts featuring freshly cleared seafood and premium cuts crafted under precise operational standards.</p>
                     </div>
                 </div>
                 <div class="vibe-card">
-                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Elegant%20cigar%20lounge%20at%20night.png" alt="Cigar Lounge Lounge" />
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Elegant%20cigar%20lounge%20at%20night.png" alt="Cigar Lounge Environment" />
                     <div class="vibe-card-body">
-                        <time>21:00 — Dusk Transition</time>
-                        <h3>Cigars &amp; Spirits</h3>
-                        <p>The space transforms as lighting shifts. Custom humidor allocations and exceptional rum and spirit selections provide an atmosphere of quiet relaxation.</p>
+                        <time>21:00 — Lounge Transition</time>
+                        <h3>Discreet Cigar Lounges</h3>
+                        <p>Ambient adjustments reveal custom humidor setups and rare rum selections designed for high-level conversations and absolute quietude.</p>
                     </div>
                 </div>
                 <div class="vibe-card">
                     <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Vibrant%20waterfront%20nightlife%20at%20The%20Orange%20Pair.png" alt="Late Night Energy" />
                     <div class="vibe-card-body">
-                        <time>23:00 — Late Night</time>
-                        <h3>Sustained Energy</h3>
-                        <p>The vibrant pulse of the club deepens with premium mixology, curated live profiles, and a high-energy dance floor environment right along the waterfront.</p>
+                        <time>23:00 — Late Night Cycle</time>
+                        <h3>High-Energy Waterfront Pulse</h3>
+                        <p>The night deepens directly into an upscale, energetic dance floor environment paired with premium, fast-velocity mixology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Live Roster Showcase Architecture -->
+    <section class="roster-section" id="roster">
+        <div class="container">
+            <span class="section-tag">Cultural Alignments</span>
+            <h2 class="serif-title">Upcoming <span class="serif-italic">Showcases</span></h2>
+            <p style="color:var(--text-muted); max-width:600px; margin-top:15px; font-weight:300;">Members receive maximum priority table allocations and early cleared ticketing paths for all live performances and international guest sets.</p>
+            
+            <div class="roster-grid">
+                <div class="roster-row">
+                    <div class="roster-info">
+                        <h4>Acoustic Waterfront Jazz Profile</h4>
+                        <p>Curated late twilight dining sets featuring coastal arrangements.</p>
+                    </div>
+                    <div class="roster-date">
+                        <span>Fri</span>
+                        <small>Weekly</small>
+                    </div>
+                </div>
+                <div class="roster-row">
+                    <div class="roster-info">
+                        <h4>Late Night High-Energy Showcase</h4>
+                        <p>Guest electronic music sets transitioning into early morning hours.</p>
+                    </div>
+                    <div class="roster-date">
+                        <span>Sat</span>
+                        <small>Weekend Close</small>
                     </div>
                 </div>
             </div>
@@ -719,12 +956,12 @@
                     </div>
                 </div>
 
-                <!-- Founders Tier -->
+                <!-- Founders Tier (The Capital Urgency Value Hook) -->
                 <div class="tier-column featured">
                     <div class="tier-header">
-                        <span class="badge" style="color: var(--copper);">Limited Allocation: 50 Slots</span>
+                        <span class="badge" style="color: var(--copper);">Limited Allocation: 50 Slots Permanent</span>
                         <h3>Founder's Circle</h3>
-                        <p>For foundational visionaries dedicated to building the long-term legacy of the property. Maximum priority structural privileges.</p>
+                        <p>For foundational visionaries dedicated to building the long-term legacy of the property. Capped permanently at fifty allocations to preserve scarcity.</p>
                         <ul class="tier-perks">
                             <li>All Universal Club Benefits</li>
                             <li>Permanent Founder's Designation</li>
@@ -791,7 +1028,7 @@
         </div>
     </section>
 
-    <!-- Full Screen Bright Visual Intermission (The Crowd / Dance Floor Asset) -->
+    <!-- Full Screen Bright Visual Intermission -->
     <section class="visual-intermission"></section>
 
     <!-- Structural Environments Showcase Grid -->
@@ -814,30 +1051,30 @@
         </div>
     </section>
 
-    <!-- Corporate Event Buyouts Integration Layout -->
+    <!-- The Investor "Why" Strategic Asset Narrative -->
     <section class="buyout-section">
         <div class="container editorial-split" style="padding: 0;">
             <div class="editorial-image-container">
                 <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Nighttime%20luxury%20lounge%20with%20city%20view.png" alt="Private Booking Luxury Lounge View" />
             </div>
             <div class="editorial-text">
-                <span class="section-tag">Private Collaborations</span>
-                <h2 class="serif-title" style="margin-bottom: 30px;">Corporate Events <br>&amp; Buyouts</h2>
-                <p>From private boardroom dinners and high-level client presentations to expansive waterfront receptions, our environments scale effortlessly to host discreet, impactful functions tailored to strict organizational parameters.</p>
-                <a href="#inquire" class="btn btn-outline">Request Buyout Guidelines</a>
+                <span class="section-tag">Confidential Allocation Framework</span>
+                <h2 class="serif-title" style="margin-bottom: 30px;">A Capitalization <br>&amp; Real Estate Asset</h2>
+                <p>This is not a speculative hospitality launch; it is a meticulously structured, high-margin asset model filling an unserviced luxury vacuum in Antigua. Backed by verified site control and completed architectural property rights, capital growth is tied directly to a highly predictable, recurring luxury network revenue framework.</p>
+                <p>Qualified stakeholders can initiate a data room verification review to examine architectural scale parameters, asset valuations, and structural timelines through our secure channel below.</p>
             </div>
         </div>
     </section>
 
-    <!-- Clean Application Call to Action -->
+    <!-- Clean Application Inquiry Portal (Updated Routing Targets) -->
     <section class="cta-section" id="inquire">
         <div class="container">
             <span class="section-tag">Inquiry Portal</span>
             <h2 class="serif-title">Request an <span class="serif-italic">Invitation</span></h2>
-            <p>Select your operational channel below. Our membership office reviews all incoming correspondence within a 24-hour cycle.</p>
+            <p>Select your operational channel below. Our administration office processes all confidential incoming correspondence within a 24-hour cycle.</p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="mailto:concierge@theorangepair.com?subject=Membership%20Invitation%20Request" class="btn btn-copper">✉ Request Club Invitation</a>
-                <a href="mailto:invest@theorangepair.com?subject=Data%20Room%20Verification%20Inquiry" class="btn btn-outline">💼 Secure Corporate Channel</a>
+                <a href="mailto:concierge@orangepair.com?subject=Membership%20Invitation%20Request" class="btn btn-copper">✉ Request Club Invitation</a>
+                <a href="mailto:invest@orangepair.com?subject=Confidential%20Data%20Room%20Verification%20Inquiry" class="btn btn-outline">💼 Secure Investor Channel</a>
             </div>
         </div>
     </section>
@@ -851,19 +1088,26 @@
                         <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/90cef84eb9c3143841e330d379e1bce404cd66fc/images/Orange%20Pair%20Logo%20blue%20and%20orange.png" alt="The Orange Pair Crest" />
                         <span>The Orange Pair</span>
                     </a>
-                    <p>A private, multi-layer waterfront sanctuary offering seamless transition from twilight dining to elite late-night energy.</p>
+                    <p>A multi-layer waterfront sanctuary offering smooth transitions from twilight dining to elite late-night club dynamics.</p>
+                    
+                    <!-- Pre-built Social Media Framework Channels -->
+                    <div class="social-row">
+                        <a href="#" title="Instagram Channel">IG</a>
+                        <a href="#" title="YouTube Channel">YT</a>
+                        <a href="#" title="Facebook Platform">FB</a>
+                    </div>
                 </div>
                 <div class="footer-col">
                     <h4>Navigation</h4>
                     <a href="#about">The Destination</a>
-                    <a href="#hours">The Lifecycle</a>
+                    <a href="#roster">The Lifecycle</a>
                     <a href="#membership">Membership</a>
                     <a href="#spaces">Environments</a>
                 </div>
                 <div class="footer-col">
                     <h4>Direct Inquiries</h4>
-                    <a href="mailto:concierge@theorangepair.com">concierge@theorangepair.com</a>
-                    <a href="mailto:invest@theorangepair.com">invest@theorangepair.com</a>
+                    <a href="mailto:concierge@orangepair.com">concierge@orangepair.com</a>
+                    <a href="mailto:invest@orangepair.com">invest@orangepair.com</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -874,7 +1118,7 @@
     </footer>
 
     <script>
-        // Clean Scrolled Navigation Tracking
+        // Scrolled Navigation Styling Transitions
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -884,21 +1128,24 @@
             }
         });
 
-        // Toggle Responsive Menu Links
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '80px';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.background = 'var(--midnight)';
-                navLinks.style.padding = '30px';
-                navLinks.style.borderBottom = '1px solid var(--border)';
+        // Toggle Digital Ledger Menu Drawer Viewports
+        const menuToggleBtn = document.getElementById('menuToggleBtn');
+        const menuDrawer = document.getElementById('menuDrawer');
+        
+        menuToggleBtn.addEventListener('click', () => {
+            menuDrawer.classList.toggle('active');
+            if(menuDrawer.classList.contains('active')) {
+                menuDrawer.scrollIntoView({ behavior: 'smooth' });
             }
+        });
+
+        // Simple Tab Switcher Infrastructure inside Menu Drawer
+        const tabs = document.querySelectorAll('.menu-tab-btn');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
         });
     </script>
 </body>
