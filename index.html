@@ -160,7 +160,7 @@
             border-color: var(--sunset-amber);
         }
 
-        /* Hero Split Section (Crisp Un-darkened Image) */
+        /* Hero Split Section */
         .hero-split {
             min-height: 100vh;
             display: grid;
@@ -224,7 +224,8 @@
         /* Master Portal Strip */
         .portal-strip {
             background: var(--bg-surface);
-            border-y: 1px solid var(--line-subtle);
+            border-top: 1px solid var(--line-subtle);
+            border-bottom: 1px solid var(--line-subtle);
             padding: 35px 0;
         }
 
@@ -347,7 +348,8 @@
         /* Feature Sections Layout */
         .feature-split {
             background: var(--bg-surface);
-            border-y: 1px solid var(--line-subtle);
+            border-top: 1px solid var(--line-subtle);
+            border-bottom: 1px solid var(--line-subtle);
             padding: 100px 40px;
             margin: 40px 0;
         }
@@ -389,7 +391,7 @@
             object-fit: cover;
         }
 
-        /* Membership Block with Founders Wall Asset */
+        /* Membership Block */
         .membership-block {
             padding: 120px 40px;
             max-width: 1400px;
@@ -471,8 +473,9 @@
 
         .journal-card img {
             width: 100%;
-            height: 220px;
+            height: 240px;
             object-fit: cover;
+            display: block;
         }
 
         .journal-body { padding: 25px; }
@@ -582,7 +585,7 @@
         </div>
     </nav>
 
-    <!-- Unfiltered Hero (Unique Asset: Landing Image 2) -->
+    <!-- Unfiltered Hero (Landing Image 2) -->
     <section class="hero-split">
         <div class="hero-left">
             <span class="hero-tag">Antigua, West Indies</span>
@@ -624,7 +627,7 @@
         </div>
     </div>
 
-    <!-- Complete Image Showcase (100% Unique Assets) -->
+    <!-- Complete Image Showcase Masonry -->
     <section class="gallery-showcase" id="gallery">
         <div class="section-headline">
             <span class="hero-tag">Pure Atmosphere</span>
@@ -698,7 +701,7 @@
         </div>
     </section>
 
-    <!-- Locked Feature: Sunday Jazz Nights (Asset: Nighttime Luxury Lounge) -->
+    <!-- Sunday Jazz Nights Section -->
     <section class="feature-split" id="jazz">
         <div class="feature-grid">
             <div class="feature-text">
@@ -713,7 +716,7 @@
         </div>
     </section>
 
-    <!-- Dedicated Cigar Lounge Feature (Assets: Fire Demonstration & Cigar Lounge) -->
+    <!-- Dedicated Cigar Lounge Section -->
     <section class="feature-split" id="cigars" style="background: var(--bg-void);">
         <div class="feature-grid">
             <div class="feature-media">
@@ -728,7 +731,7 @@
         </div>
     </section>
 
-    <!-- Marina & Yachting Arrival (Asset: Orange Pair from the Marina) -->
+    <!-- Marina & Yachting Arrival Section -->
     <section class="feature-split" id="marina">
         <div class="feature-grid">
             <div class="feature-text">
@@ -751,7 +754,7 @@
         <a href="mailto:events@orangepair.com" class="btn-amber">Plan an Event</a>
     </section>
 
-    <!-- Memberships Section (Asset: Founders Wall) -->
+    <!-- Memberships Section -->
     <section class="membership-block" id="membership">
         <div class="section-headline">
             <span class="hero-tag">Privileges of Belonging</span>
@@ -764,7 +767,6 @@
         </div>
 
         <div class="tiers-grid">
-            <!-- Tier 1: Social Membership -->
             <div class="tier-card">
                 <div>
                     <span class="hero-tag">Tier I</span>
@@ -779,7 +781,6 @@
                 <a href="mailto:concierge@orangepair.com" class="btn-ghost">Inquire Social</a>
             </div>
 
-            <!-- Tier 2: Founder's Membership -->
             <div class="tier-card highlight">
                 <div>
                     <span class="hero-tag">Tier II • Permanent</span>
@@ -795,7 +796,6 @@
                 <a href="mailto:concierge@orangepair.com" class="btn-amber" style="text-align: center;">Join Founder's Circle</a>
             </div>
 
-            <!-- Tier 3: English Harbour Membership -->
             <div class="tier-card">
                 <div>
                     <span class="hero-tag">Tier III • Connoisseur</span>
@@ -813,7 +813,7 @@
         </div>
     </section>
 
-   <!-- The Antigua Journal Section (Updated with Proper Editorial Assets) -->
+    <!-- The Antigua Journal Section (Fully Encoded Image URLs) -->
     <section id="journal" style="padding: 100px 40px; max-width: 1400px; margin: 0 auto;">
         <div class="section-headline">
             <span class="hero-tag">Stories &amp; Culture</span>
@@ -822,7 +822,7 @@
         </div>
 
         <div class="journal-grid">
-            <!-- Article 1: Aged Caribbean Rums -->
+            <!-- Article 1: Aged Rums -->
             <a href="#" class="journal-card">
                 <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/f75d4b1e08eb271d0a95bebdc99a87b1dde51dfc/images/Luxury%20experiences%20at%20The%20Orange%20Pair.png" alt="Luxury Experiences at The Orange Pair" />
                 <div class="journal-body">
@@ -832,7 +832,7 @@
                 </div>
             </a>
 
-            <!-- Article 2: Cigar Spotlight & Destination -->
+            <!-- Article 2: Cigar & Tobacco (URL-encoded Colon fix) -->
             <a href="#" class="journal-card">
                 <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/f75d4b1e08eb271d0a95bebdc99a87b1dde51dfc/images/The%20Orange%20Pair%3A%20a%20luxury%20destination.png" alt="The Orange Pair A Luxury Destination" />
                 <div class="journal-body">
@@ -842,7 +842,7 @@
                 </div>
             </a>
 
-            <!-- Article 3: Sailing Week Highlights -->
+            <!-- Article 3: Sailing Week -->
             <a href="#" class="journal-card">
                 <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/f75d4b1e08eb271d0a95bebdc99a87b1dde51dfc/images/Antigua%20Sailing%20Week%20highlights.png" alt="Antigua Sailing Week Highlights" />
                 <div class="journal-body">
@@ -853,6 +853,42 @@
             </a>
         </div>
     </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="#" class="brand">
+                    <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/f75d4b1e08eb271d0a95bebdc99a87b1dde51dfc/images/The%20Orange%20Pair%20Door%20logo.png" alt="The Orange Pair Door Logo" style="height: 60px;" />
+                </a>
+                <p>Antigua's premier waterfront hospitality destination combining fine dining, rare spirits, cigar lounge culture, and live entertainment.</p>
+            </div>
+            <div class="footer-col">
+                <h5>NAVIGATION</h5>
+                <a href="#about">Destination</a>
+                <a href="#gallery">Showcase</a>
+                <a href="#jazz">Sunday Jazz</a>
+                <a href="#cigars">Cigar Lounge</a>
+                <a href="#marina">Marina Arrival</a>
+                <a href="#membership">Memberships</a>
+            </div>
+            <div class="footer-col">
+                <h5>INQUIRIES</h5>
+                <a href="mailto:concierge@orangepair.com">Concierge</a>
+                <a href="mailto:invest@orangepair.com">Investor Portal</a>
+                <a href="mailto:events@orangepair.com">Private Events</a>
+                <a href="mailto:press@orangepair.com">Press &amp; Media Kit</a>
+            </div>
+            <div class="footer-col">
+                <h5>THE ANTIGUA JOURNAL</h5>
+                <p style="font-size: 0.85rem; color: var(--sand-muted);">Articles on West Indies culinary craft, spirits, and island living.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Orange Pair. Antigua &amp; Barbuda. All rights reserved.</p>
+            <p>Designed for World-Class Hospitality</p>
+        </div>
+    </footer>
 
     <!-- Interactive Navigation Listener -->
     <script>
