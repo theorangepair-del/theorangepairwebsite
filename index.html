@@ -3,29 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Orange Pair | Private Waterfront Sanctuary & Club</title>
-  
-  <!-- Google Fonts -->
+  <title>The Orange Pair — Luxury Destination & Private Estate</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <style>
-    /* ==========================================================================
-       GLOBAL STYLES & LUXURY SYSTEM
-       ========================================================================== */
     :root {
-      --bg-dark: #050608;
-      --bg-card: #090a0f;
-      --bg-card-alt: #0e1017;
-      --amber-main: #e67e33;
-      --amber-glow: #f5ad52;
-      --gold-accent: #d4af37;
-      --text-light: #f4f4f6;
-      --text-muted: #a0a5b5;
-      --border-subtle: rgba(245, 173, 82, 0.2);
-      --font-heading: 'Cormorant Garamond', serif;
-      --font-body: 'Space Grotesk', sans-serif;
+      --bg-color: #0d0e0e;
+      --surface-color: #141616;
+      --surface-accent: #1c1f1f;
+      --text-main: #f4f1ea;
+      --text-muted: #a39e93;
+      --accent-terracotta: #d97736;
+      --accent-gold: #c5a059;
+      --border-color: rgba(244, 241, 234, 0.08);
+      
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     * {
@@ -39,613 +36,585 @@
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      font-family: var(--font-body);
-      line-height: 1.6;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
       overflow-x: hidden;
     }
 
-    .container {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .section-padding {
-      padding: 120px 0;
-    }
-
-    .section-title-wrap {
-      text-align: center;
-      margin-bottom: 70px;
-    }
-
-    .section-subtitle {
-      color: var(--amber-glow);
-      text-transform: uppercase;
-      letter-spacing: 0.3em;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: 3.5rem;
-      font-weight: 600;
+    h1, h2, h3, h4, .serif {
+      font-family: var(--font-serif);
+      font-weight: 400;
       letter-spacing: 0.02em;
-      line-height: 1.1;
     }
 
-    /* Buttons */
-    .btn-outline, .btn-gold {
-      display: inline-block;
-      text-align: center;
-      padding: 16px 32px;
-      border-radius: 8px;
+    a {
+      color: inherit;
       text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-      cursor: pointer;
+      transition: color 0.3s var(--transition-smooth);
     }
 
-    .btn-outline {
-      border: 1px solid var(--border-subtle);
-      color: var(--text-light);
-      background: transparent;
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
-    .btn-outline:hover {
-      border-color: var(--amber-glow);
-      color: var(--amber-glow);
-      background: rgba(245, 173, 82, 0.05);
-    }
-
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--amber-main) 100%);
-      color: #000;
-    }
-
-    .btn-gold:hover {
-      opacity: 0.95;
-      box-shadow: 0 0 25px rgba(245, 173, 82, 0.4);
-    }
-
-    /* Experience Grid */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 60px;
-      align-items: center;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-
-    /* Feature Cards */
-    .feature-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 40px;
-      transition: transform 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--amber-glow);
-    }
-
-    .feature-card h3 {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      margin-bottom: 16px;
-      color: var(--amber-glow);
-    }
-
-    /* Image Placeholders / Gallery */
-    .img-frame {
+    /* --- Navigation --- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 400px;
-      background: linear-gradient(135deg, #11141d 0%, #08090d 100%);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 4rem;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(13, 14, 14, 0.9) 0%, rgba(13, 14, 14, 0) 100%);
+      transition: padding 0.4s var(--transition-smooth), background-color 0.4s var(--transition-smooth);
+    }
+
+    .navbar.scrolled {
+      padding: 1.25rem 4rem;
+      background-color: rgba(13, 14, 14, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-brand {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--text-muted);
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: var(--accent-terracotta);
+      transition: width 0.3s var(--transition-smooth);
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 101;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background-color: var(--text-main);
+      margin: 6px 0;
+      transition: transform 0.3s var(--transition-smooth), opacity 0.3s var(--transition-smooth);
+    }
+
+    /* Mobile Menu Drawer */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--surface-color);
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      transition: right 0.5s var(--transition-smooth);
+      z-index: 99;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--text-main);
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-muted);
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.5) contrast(1.05);
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin-top: 4rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      color: var(--accent-terracotta);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .hero-title i {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      border: 1px solid var(--text-main);
+      background: transparent;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.4s var(--transition-smooth);
       position: relative;
       overflow: hidden;
     }
 
-    .img-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
+    .btn:hover {
+      background-color: var(--text-main);
+      color: var(--bg-color);
     }
 
-    .gallery-grid {
+    /* --- About / Intro Section --- */
+    .section-padding {
+      padding: 8rem 4rem;
+    }
+
+    .about {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .gallery-item {
-      height: 320px;
+    .about-text h2 {
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 2rem;
     }
 
-    /* Pricing Section */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-    }
-
-    .pricing-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 40px 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .pricing-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--amber-glow);
-    }
-
-    .pricing-card.featured {
-      border: 1px solid var(--gold-accent);
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
-    }
-
-    .tier-name {
-      font-family: var(--font-heading);
-      font-size: 2.2rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .tier-price {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    .tier-price span {
-      font-size: 0.9rem;
+    .about-text p {
       color: var(--text-muted);
-      font-weight: 400;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
     }
 
-    .tier-features {
-      list-style: none;
-      margin: 24px 0;
-      flex-grow: 1;
-    }
-
-    .tier-features li {
-      margin-bottom: 12px;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      padding-left: 20px;
+    .about-image-wrapper {
       position: relative;
     }
 
-    .tier-features li::before {
-      content: "•";
-      color: var(--amber-glow);
-      position: absolute;
-      left: 0;
-      font-size: 1.2rem;
-      line-height: 1;
+    .about-image-wrapper img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 2px;
     }
 
-    .tier-features li strong {
-      color: var(--text-light);
+    /* --- Gallery Masonry Section --- */
+    .gallery {
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .text-amber { color: var(--amber-glow); }
-    .text-gold { color: var(--gold-accent); }
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
 
-    @media (max-width: 900px) {
-      .grid-2, .grid-3, .gallery-grid {
+    .section-header h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .masonry-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      background-color: var(--surface-color);
+    }
+
+    .masonry-item img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      transition: transform 0.7s var(--transition-smooth);
+    }
+
+    .masonry-item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* --- Experience Cards --- */
+    .experience {
+      background-color: var(--surface-color);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: var(--bg-color);
+      padding: 3rem 2.5rem;
+      border: 1px solid var(--border-color);
+      transition: border-color 0.4s var(--transition-smooth), transform 0.4s var(--transition-smooth);
+    }
+
+    .card:hover {
+      border-color: var(--accent-terracotta);
+      transform: translateY(-5px);
+    }
+
+    .card-number {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--accent-terracotta);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* --- Footer --- */
+    footer {
+      padding: 6rem 4rem 3rem 4rem;
+      background-color: var(--bg-color);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 5rem;
+    }
+
+    .footer-brand h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      max-width: 400px;
+      font-size: 0.95rem;
+    }
+
+    .footer-column h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 1.5rem;
+      color: var(--accent-gold);
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-column a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-column a:hover {
+      color: var(--text-main);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* --- Responsive Queries --- */
+    @media (max-width: 1024px) {
+      .navbar {
+        padding: 1.5rem 2rem;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .section-padding {
+        padding: 5rem 2rem;
+      }
+      .about {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .about-image-wrapper img {
+        height: 400px;
+      }
+      .masonry-grid, .cards-grid {
         grid-template-columns: 1fr;
       }
-      .section-title { font-size: 2.5rem; }
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ==========================================================================
-       START: HEADER / NAVIGATION DOCK SECTION
-       ========================================================================== -->
-  <header style="padding: 24px 0; border-bottom: 1px solid var(--border-subtle); position: sticky; top: 0; background: rgba(5,6,8,0.95); backdrop-filter: blur(10px); z-index: 1000;">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-      <div class="logo">
-        <h1 style="font-family: var(--font-heading); font-size: 1.8rem; letter-spacing: 0.1em; color: #fff;">THE ORANGE <span style="color: var(--amber-main);">PAIR®</span></h1>
-        <p style="font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber-glow);">English Harbour • Antigua</p>
-      </div>
-      <nav style="display: flex; gap: 24px; align-items: center;">
-        <a href="#about" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">The Vision</a>
-        <a href="#experience" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Sanctuary</a>
-        <a href="#gallery" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Atmosphere</a>
-        <a href="#membership" class="btn-outline" style="padding: 10px 20px; font-size: 0.75rem;">Private Access</a>
-      </nav>
+  <!-- Navigation -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <a href="#" class="nav-brand">The Orange Pair</a>
+    <ul class="nav-menu">
+      <li><a href="#about" class="nav-link">Destination</a></li>
+      <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#experience" class="nav-link">Experiences</a></li>
+      <li><a href="#contact" class="nav-link">Inquiries</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-nav-link">Destination</a>
+    <a href="#gallery" class="mobile-nav-link">Gallery</a>
+    <a href="#experience" class="mobile-nav-link">Experiences</a>
+    <a href="#contact" class="mobile-nav-link">Inquiries</a>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80" alt="Estate Grounds" class="hero-bg">
+    <div class="hero-content">
+      <span class="hero-subtitle">Private Sanctuary</span>
+      <h1 class="hero-title">Where refined luxury meets <i>effortless grace</i>.</h1>
+      <a href="#about" class="btn">Explore The Property</a>
     </div>
   </header>
-  <!-- ==========================================================================
-       END: HEADER / NAVIGATION DOCK SECTION
-       ========================================================================== -->
 
+  <!-- About Section -->
+  <section id="about" class="section-padding about">
+    <div class="about-text">
+      <h2>A sanctuary designed for quiet contemplation & connection.</h2>
+      <p>Nestled among coastal ridges, The Orange Pair offers an exclusive retreat designed for those who appreciate understated elegance and architectural detail.</p>
+      <p>Every corner is curated to provide balance, security, and an inspiring backdrop for restorative stays and intimate gatherings.</p>
+    </div>
+    <div class="about-image-wrapper">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Architectural Interior" loading="lazy">
+    </div>
+  </section>
 
-  <!-- ==========================================================================
-       START: HERO SHOWCASE SECTION
-       ========================================================================== -->
-  <section class="section-padding" style="position: relative; text-align: center; background: radial-gradient(circle at center, rgba(230, 126, 51, 0.15) 0%, rgba(5, 6, 8, 1) 75%); padding: 16px0 120px;">
-    <div class="container">
-      <p class="section-subtitle">Private Waterfront Sanctuary</p>
-      <h2 style="font-family: var(--font-heading); font-size: 4.8rem; max-width: 1000px; margin: 0 auto 24px; line-height: 1.05; color: #ffffff;">Where Discretion Meets Maritime Legacy.</h2>
-      <p style="color: var(--text-muted); max-width: 720px; margin: 0 auto 40px; font-size: 1.2rem; font-weight: 300;">An unparalleled private enclave in English Harbour, Antigua. Engineered for global patrons, founders, and maritime connoisseurs seeking privacy, fine dining, and uncompromised peace.</p>
-      <div style="display: flex; gap: 16px; justify-content: center;">
-        <a href="#membership" class="btn-gold">Request Access</a>
-        <a href="#about" class="btn-outline">Explore The Vision</a>
+  <!-- Gallery Section -->
+  <section id="gallery" class="section-padding gallery">
+    <div class="section-header">
+      <p>Visual Journal</p>
+      <h2>The Atmosphere</h2>
+    </div>
+    <div class="masonry-grid">
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Living Spaces" loading="lazy">
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Patio Views" loading="lazy">
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80" alt="Dining Detail" loading="lazy">
       </div>
     </div>
   </section>
-  <!-- ==========================================================================
-       END: HERO SHOWCASE SECTION
-       ========================================================================== -->
 
-
-  <!-- ==========================================================================
-       START: ABOUT & PHILOSOPHY SECTION
-       ========================================================================== -->
-  <section id="about" class="section-padding" style="background: var(--bg-card); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
-    <div class="container">
-      <div class="grid-2">
-        <div>
-          <p class="section-subtitle">The Philosophy</p>
-          <h2 class="section-title" style="margin-bottom: 24px; text-align: left;">A Refuge From The Noise.</h2>
-          <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.05rem;">The Orange Pair® was built on a singular premise: true luxury is no longer about spectacle—it is about sanctuary. Nestled along the historic shores of English Harbour, our venue combines sunset ocean views with absolute privacy.</p>
-          <p style="color: var(--text-muted); margin-bottom: 32px; font-size: 1.05rem;">From our custom humidors and private spirit vaults to our secluded dockage for arrival by sea, every square foot is managed under <strong>The Founder's Charter</strong> to guarantee peace, dignity, and elevated hospitality.</p>
-          <div style="display: flex; gap: 40px; border-top: 1px solid var(--border-subtle); padding-top: 24px;">
-            <div>
-              <div style="font-family: var(--font-heading); font-size: 2.5rem; color: var(--gold-accent);">50</div>
-              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em;">Inaugural Wall Patrons</div>
-            </div>
-            <div>
-              <div style="font-family: var(--font-heading); font-size: 2.5rem; color: var(--amber-glow);">100%</div>
-              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em;">Private Access</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Hero Visual / Showcase Frame -->
-        <div class="img-frame">
-          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80" alt="The Orange Pair Sanctuary View" loading="lazy">
-        </div>
+  <!-- Experiences Section -->
+  <section id="experience" class="section-padding experience">
+    <div class="section-header">
+      <p>Curated Amenities</p>
+      <h2>Tailored Living</h2>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <span class="card-number">01</span>
+        <h3>Private Dining</h3>
+        <p>Custom culinary programs crafted on-site, showcasing seasonal, locally sourced regional ingredients.</p>
+      </div>
+      <div class="card">
+        <span class="card-number">02</span>
+        <h3>Wellness Spaces</h3>
+        <p>Dedicated pavilions for meditation, restorative therapies, and private bodywork instruction.</p>
+      </div>
+      <div class="card">
+        <span class="card-number">03</span>
+        <h3>Concierge Access</h3>
+        <p>Seamless management of transit, private charters, and tailored local excursions.</p>
       </div>
     </div>
   </section>
-  <!-- ==========================================================================
-       END: ABOUT & PHILOSOPHY SECTION
-       ========================================================================== -->
 
-
-  <!-- ==========================================================================
-       START: THE EXPERIENCE & AMENITIES SECTION
-       ========================================================================== -->
-  <section id="experience" class="section-padding">
-    <div class="container">
-      
-      <div class="section-title-wrap">
-        <p class="section-subtitle">The Sanctuary Pillars</p>
-        <h2 class="section-title">Designed For Connoisseurs</h2>
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2>The Orange Pair</h2>
+        <p>An private estate sanctuary tailored for timeless stays and meaningful experiences.</p>
       </div>
-
-      <div class="grid-3">
-        <!-- Feature 1 -->
-        <div class="feature-card">
-          <h3>Culinary & Mixology</h3>
-          <p style="color: var(--text-muted);">Curated coastal gastronomy, rare vintage spirits, and bespoke cocktail craft served directly overlooking the harbor deck at sunset.</p>
-        </div>
-
-        <!-- Feature 2 -->
-        <div class="feature-card">
-          <h3>Humidor & Private Vaults</h3>
-          <p style="color: var(--text-muted);">Climate-controlled mahogany lockers and personal spirit vaults for members to house their private cigar collections and rare bottles.</p>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="feature-card">
-          <h3>Maritime & Dockage</h3>
-          <p style="color: var(--text-muted);">Direct deep-water tender access and priority berthing privileges for members arriving directly from English Harbour waters.</p>
-        </div>
+      <div class="footer-column">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#about">Destination</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#experience">Experiences</a></li>
+        </ul>
       </div>
-
-    </div>
-  </section>
-  <!-- ==========================================================================
-       END: THE EXPERIENCE & AMENITIES SECTION
-       ========================================================================== -->
-
-
-  <!-- ==========================================================================
-       START: MASONRY VISUAL GALLERY SECTION
-       ========================================================================== -->
-  <section id="gallery" class="section-padding" style="background: var(--bg-card); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
-    <div class="container">
-      
-      <div class="section-title-wrap">
-        <p class="section-subtitle">Visual Atmosphere</p>
-        <h2 class="section-title">Inside The Sanctuary</h2>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="img-frame gallery-item">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Lounge Area" loading="lazy">
-        </div>
-        <div class="img-frame gallery-item">
-          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80" alt="Fine Spirits Bar" loading="lazy">
-        </div>
-        <div class="img-frame gallery-item">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Sunset Harbor Deck" loading="lazy">
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <!-- ==========================================================================
-       END: MASONRY VISUAL GALLERY SECTION
-       ========================================================================== -->
-
-
-  <!-- ==========================================================================
-       START: INVESTOR & CAPITAL VISION SECTION
-       ========================================================================== -->
-  <section class="section-padding" style="background: linear-gradient(135deg, #0e1017 0%, #050608 100%);">
-    <div class="container">
-      <div class="grid-2">
-        <div class="img-frame">
-          <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1200&q=80" alt="Investor & Founder Vision" loading="lazy">
-        </div>
-        <div>
-          <p class="section-subtitle">Capital & Expansion</p>
-          <h2 class="section-title" style="margin-bottom: 24px; text-align: left;">Investor & Founder Portal</h2>
-          <p style="color: var(--text-muted); margin-bottom: 20px;">The Orange Pair® represents a disciplined, high-margin hospitality model built on recurring annual membership dues, ultra-premium food & beverage yield, and low-cap land lease efficiency.</p>
-          <p style="color: var(--text-muted); margin-bottom: 32px;">For accredited strategic partners, equity inquiries, or institutional prospectus materials, direct confidential contact is maintained via our founder's desk.</p>
-          <a href="mailto:founder@orangepair.com?subject=Investor%20Prospectus%20Inquiry" class="btn-gold">Request Investor Briefing</a>
-        </div>
+      <div class="footer-column">
+        <h4>Inquiries</h4>
+        <ul>
+          <li><a href="mailto:concierge@theorangepair.com">concierge@theorangepair.com</a></li>
+          <li><a href="#">Private Member Portal</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-  <!-- ==========================================================================
-       END: INVESTOR & CAPITAL VISION SECTION
-       ========================================================================== -->
-
-
-  <!-- ==========================================================================
-       START: MEMBERSHIP TIERS SECTION
-       ========================================================================== -->
-  <section id="membership" class="section-padding">
-    <div class="container">
-      
-      <div class="section-title-wrap">
-        <p class="section-subtitle">Inaugural Access</p>
-        <h2 class="section-title">Membership Tiers</h2>
-      </div>
-
-      <div class="pricing-grid">
-        
-        <!-- ------------------------------------------------------------------
-             START: TIER 1 - THE SOCIAL ($2,500)
-             ------------------------------------------------------------------ -->
-        <div class="pricing-card">
-          <div>
-            <h3 class="tier-name">The Social</h3>
-            <div class="tier-price">$2,500 <span>USD / yr</span></div>
-
-            <!-- CARD PREVIEW: THE SOCIAL -->
-            <div class="card-preview" style="
-              width: 100%; 
-              height: 180px; 
-              background: linear-gradient(135deg, #0d0f14 0%, #050608 100%); 
-              border: 1px solid rgba(255, 255, 255, 0.15); 
-              border-radius: 10px; 
-              padding: 16px; 
-              margin-bottom: 20px; 
-              display: flex; 
-              flex-direction: column; 
-              justify-content: space-between;
-              position: relative;
-            ">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div>
-                  <div style="font-family: var(--font-heading); font-size: 0.85rem; letter-spacing: 0.1em;">THE ORANGE PAIR®</div>
-                  <div style="font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted);">Waterfront Sanctuary</div>
-                </div>
-                <div style="width: 28px; height: 28px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: #fff; font-family: 'Syne', sans-serif;">S</div>
-              </div>
-              <div>
-                <div style="font-size: 0.5rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em;">Charter Member</div>
-                <div style="font-family: var(--font-heading); font-size: 1.1rem; color: #fff;">PATRON NAME</div>
-              </div>
-              <div style="display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 6px;">
-                <span style="font-size: 0.6rem; text-transform: uppercase; color: var(--text-muted);">Tier Status</span>
-                <span style="font-size: 0.6rem; text-transform: uppercase; color: #fff; font-weight: 600;">THE SOCIAL</span>
-              </div>
-            </div>
-          </div>
-
-          <ul class="tier-features">
-            <li><strong>Full Access</strong> to the Sanctuary & Lounge</li>
-            <li>Invitations to Private Member-Only Events</li>
-            <li>Priority Table & Sunset Deck Reservations</li>
-            <li>Standard Pricing Across All Venue Menus</li>
-          </ul>
-
-          <a href="mailto:concierge@orangepair.com?subject=The%20Social%20Membership%20Application" class="btn-outline" style="width: 100%;">Request Access</a>
-        </div>
-        <!-- ------------------------------------------------------------------
-             END: TIER 1 - THE SOCIAL ($2,500)
-             ------------------------------------------------------------------ -->
-
-
-        <!-- ------------------------------------------------------------------
-             START: TIER 2 - THE ENGLISH HARBOUR ($5,000)
-             ------------------------------------------------------------------ -->
-        <div class="pricing-card">
-          <div>
-            <h3 class="tier-name text-amber">The English Harbour</h3>
-            <div class="tier-price">$5,000 <span>USD / yr</span></div>
-
-            <!-- CARD PREVIEW: THE ENGLISH HARBOUR -->
-            <div class="card-preview" style="
-              width: 100%; 
-              height: 180px; 
-              background: linear-gradient(135deg, #09131a 0%, #050608 100%); 
-              border: 1px solid rgba(245, 173, 82, 0.4); 
-              border-radius: 10px; 
-              padding: 16px; 
-              margin-bottom: 20px; 
-              display: flex; 
-              flex-direction: column; 
-              justify-content: space-between;
-              position: relative;
-            ">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div>
-                  <div style="font-family: var(--font-heading); font-size: 0.85rem; letter-spacing: 0.1em;">THE ORANGE <span style="color: var(--amber-glow);">PAIR®</span></div>
-                  <div style="font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber-glow);">Waterfront Sanctuary</div>
-                </div>
-                <div style="width: 28px; height: 28px; border: 1px solid var(--amber-glow); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(245, 173, 82, 0.1);">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f5ad52" stroke-width="2"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="21"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
-                </div>
-              </div>
-              <div>
-                <div style="font-size: 0.5rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em;">Charter Member</div>
-                <div style="font-family: var(--font-heading); font-size: 1.1rem; color: #fff;">PATRON NAME</div>
-              </div>
-              <div style="display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 6px;">
-                <span style="font-size: 0.6rem; text-transform: uppercase; color: var(--text-muted);">Tier Status</span>
-                <span style="font-size: 0.6rem; text-transform: uppercase; color: var(--amber-glow); font-weight: 600;">ENGLISH HARBOUR</span>
-              </div>
-            </div>
-          </div>
-
-          <ul class="tier-features">
-            <li><strong>5% Preferred Rate</strong> Across Food, Spirits, Cigars & Holds</li>
-            <li>Priority Maritime Berthing & Preferred Dockage Access</li>
-            <li>Humidor Vault Privileges & Private Lockers</li>
-            <li>Exclusive Member Masterclass Tasting Invitations</li>
-          </ul>
-
-          <a href="mailto:concierge@orangepair.com?subject=The%20English%20Harbour%20Membership%20Application" class="btn-outline" style="width: 100%;">Request Access</a>
-        </div>
-        <!-- ------------------------------------------------------------------
-             END: TIER 2 - THE ENGLISH HARBOUR ($5,000)
-             ------------------------------------------------------------------ -->
-
-
-        <!-- ------------------------------------------------------------------
-             START: TIER 3 - THE FOUNDER'S CIRCLE ($10,000)
-             ------------------------------------------------------------------ -->
-        <div class="pricing-card featured">
-          <div>
-            <h3 class="tier-name text-gold">The Founder's Circle</h3>
-            <div class="tier-price">$10,000 <span>USD / yr</span></div>
-
-            <!-- CARD PREVIEW: THE FOUNDER'S CIRCLE -->
-            <div class="card-preview" style="
-              width: 100%; 
-              height: 180px; 
-              background: linear-gradient(135deg, #141008 0%, #050608 100%); 
-              border: 1px solid var(--gold-accent); 
-              border-radius: 10px; 
-              padding: 16px; 
-              margin-bottom: 20px; 
-              display: flex; 
-              flex-direction: column; 
-              justify-content: space-between;
-              position: relative;
-              box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-            ">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div>
-                  <div style="font-family: var(--font-heading); font-size: 0.85rem; letter-spacing: 0.1em; color: #fff;">THE ORANGE <span style="color: var(--gold-accent);">PAIR®</span></div>
-                  <div style="font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-accent);">Waterfront Sanctuary</div>
-                </div>
-                <div style="width: 28px; height: 28px; border: 1px solid var(--gold-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(212, 175, 55, 0.15); font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 800; color: var(--gold-accent);">FC</div>
-              </div>
-              <div>
-                <div style="font-size: 0.5rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em;">Charter Member</div>
-                <div style="font-family: var(--font-heading); font-size: 1.1rem; color: #fff;">MICHAEL SMITH</div>
-              </div>
-              <div style="display: flex; justify-content: space-between; border-top: 1px solid rgba(212,175,55,0.2); padding-top: 6px;">
-                <span style="font-size: 0.6rem; text-transform: uppercase; color: var(--gold-accent);">FOUNDER'S CIRCLE</span>
-                <span style="font-size: 0.55rem; text-transform: uppercase; color: var(--amber-glow); font-weight: 600;">PERMANENT WALL INSCRIPTION</span>
-              </div>
-            </div>
-          </div>
-
-          <ul class="tier-features">
-            <li><strong>Permanent Name Inscribed on Founder's Wall</strong> (Inaugural Patrons)</li>
-            <li><strong>10% Preferred Rate</strong> Across All Food, Beverage, Cigars & Holds</li>
-            <li>Guaranteed Sunset Deck & VIP Table Priority Seating</li>
-            <li>Private Spirits Vault & Personalized Locker Privilege</li>
-            <li>Direct Founder & Concierge Liaison Access</li>
-          </ul>
-
-          <a href="mailto:concierge@orangepair.com?subject=Founder%20Circle%20Inquiry" class="btn-gold" style="width: 100%;">Apply For Founder Tier</a>
-        </div>
-        <!-- ------------------------------------------------------------------
-             END: TIER 3 - THE FOUNDER'S CIRCLE ($10,000)
-             ------------------------------------------------------------------ -->
-
-      </div>
-
-      <!-- LEGAL & DISCRETION DISCLAIMER -->
-      <p style="text-align: center; margin-top: 40px; font-size: 0.8rem; color: var(--text-muted); max-width: 800px; margin-left: auto; margin-right: auto;">
-        All member privileges, preferred rates, and venue amenities are conditional benefits extended at the sole discretion of management and are subject to modification. Membership conveys non-exclusive access and is governed strictly by <strong>The Founder's Charter</strong>.
-      </p>
-
-    </div>
-  </section>
-  <!-- ==========================================================================
-       END: MEMBERSHIP TIERS SECTION
-       ========================================================================== -->
-
-
-  <!-- ==========================================================================
-       START: FOOTER SECTION
-       ========================================================================== -->
-  <footer style="padding: 60px 0 40px; border-top: 1px solid var(--border-subtle); text-align: center; color: var(--text-muted); font-size: 0.85rem; background: #030405;">
-    <div class="container">
-      <h2 style="font-family: var(--font-heading); font-size: 2rem; color: #fff; margin-bottom: 12px; letter-spacing: 0.1em;">THE ORANGE <span style="color: var(--amber-main);">PAIR®</span></h2>
-      <p style="margin-bottom: 24px; color: var(--text-muted);">A Private Waterfront Sanctuary • English Harbour, Antigua</p>
-      <p style="margin-bottom: 12px; font-size: 0.75rem; color: rgba(255,255,255,0.4);">&copy; The Orange Pair. All rights reserved.</p>
-      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3);">Governed by The Founder's Charter • Management retains sole discretion over all privileges.</p>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Orange Pair. All rights reserved.</p>
+      <p>Designed with intentional simplicity.</p>
     </div>
   </footer>
-  <!-- ==========================================================================
-       END: FOOTER SECTION
-       ========================================================================== -->
 
+  <!-- Interactive Scripts -->
+  <script>
+    // Header Scroll Effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    navToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
