@@ -1,620 +1,895 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Orange Pair — Luxury Destination & Private Estate</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg-color: #0d0e0e;
-      --surface-color: #141616;
-      --surface-accent: #1c1f1f;
-      --text-main: #f4f1ea;
-      --text-muted: #a39e93;
-      --accent-terracotta: #d97736;
-      --accent-gold: #c5a059;
-      --border-color: rgba(244, 241, 234, 0.08);
-      
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-      
-      --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Orange Pair | Luxury Waterfront Hospitality Destination • Antigua</title>
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <style>
+        :root {
+            --bg-void: #050608;
+            --bg-surface: #0a0d14;
+            --bg-panel: #111622;
+            --sunset-amber: #e67e33;
+            --sun-gold: #f5ad52;
+            --cream-light: #f7f5f0;
+            --sand-muted: #8e95a5;
+            --line-subtle: rgba(255, 255, 255, 0.08);
+            --line-accent: rgba(230, 126, 51, 0.35);
 
-    html {
-      scroll-behavior: smooth;
-    }
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-display: 'Syne', sans-serif;
+            --font-mono: 'Space Grotesk', sans-serif;
+        }
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      font-weight: 300;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-    h1, h2, h3, h4, .serif {
-      font-family: var(--font-serif);
-      font-weight: 400;
-      letter-spacing: 0.02em;
-    }
+        body {
+            font-family: var(--font-mono);
+            background-color: var(--bg-void);
+            color: var(--cream-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.3s var(--transition-smooth);
-    }
+        /* Top Announcement Strip */
+        .top-announcement {
+            background: #110d0a;
+            border-bottom: 1px solid var(--line-accent);
+            color: var(--sun-gold);
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+        /* Navigation Dock */
+        nav.nav-dock {
+            position: fixed;
+            top: 38px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 40px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-    /* --- Navigation --- */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 4rem;
-      z-index: 100;
-      background: linear-gradient(to bottom, rgba(13, 14, 14, 0.9) 0%, rgba(13, 14, 14, 0) 100%);
-      transition: padding 0.4s var(--transition-smooth), background-color 0.4s var(--transition-smooth);
-    }
+        nav.nav-dock.scrolled {
+            top: 0;
+            background: rgba(5, 6, 8, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 14px 40px;
+            border-bottom: 1px solid var(--line-subtle);
+        }
 
-    .navbar.scrolled {
-      padding: 1.25rem 4rem;
-      background-color: rgba(13, 14, 14, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-color);
-    }
+        .nav-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .nav-brand {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-weight: 400;
-    }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--cream-light);
+        }
 
-    .nav-menu {
-      display: flex;
-      gap: 3rem;
-      list-style: none;
-    }
+        .brand img { height: 44px; width: auto; }
 
-    .nav-link {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--text-muted);
-      position: relative;
-      padding-bottom: 4px;
-    }
+        .brand-text {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff, var(--sun-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 1px;
-      background-color: var(--accent-terracotta);
-      transition: width 0.3s var(--transition-smooth);
-    }
+        .nav-menu {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
 
-    .nav-link:hover {
-      color: var(--text-main);
-    }
+        .nav-menu a {
+            color: var(--cream-light);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
 
-    .nav-link:hover::after {
-      width: 100%;
-    }
+        .nav-menu a:hover { color: var(--sun-gold); }
 
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-      z-index: 101;
-    }
+        .btn-amber {
+            background: linear-gradient(135deg, var(--sunset-amber), var(--sun-gold));
+            color: #000 !important;
+            padding: 12px 28px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.15em !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 4px 25px rgba(230, 126, 51, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+        }
 
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 1px;
-      background-color: var(--text-main);
-      margin: 6px 0;
-      transition: transform 0.3s var(--transition-smooth), opacity 0.3s var(--transition-smooth);
-    }
+        .btn-amber:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 35px rgba(245, 173, 82, 0.5);
+        }
 
-    /* Mobile Menu Drawer */
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 100%;
-      height: 100vh;
-      background-color: var(--surface-color);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2.5rem;
-      transition: right 0.5s var(--transition-smooth);
-      z-index: 99;
-    }
+        .btn-ghost {
+            border: 1px solid var(--sun-gold);
+            color: var(--cream-light) !important;
+            padding: 12px 28px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: rgba(10, 13, 20, 0.6);
+            display: inline-block;
+        }
 
-    .mobile-menu.active {
-      right: 0;
-    }
+        .btn-ghost:hover {
+            background: var(--sunset-amber);
+            color: #000 !important;
+            border-color: var(--sunset-amber);
+        }
 
-    .mobile-menu a {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      color: var(--text-main);
-    }
+        /* Hero Section */
+        .hero-split {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            padding-top: 80px;
+            background: var(--bg-void);
+        }
 
-    /* --- Hero Section --- */
-    .hero {
-      position: relative;
-      height: 100vh;
-      min-height: 700px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 1.5rem;
-    }
+        .hero-left {
+            padding: 100px 60px 80px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-    .hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.5) contrast(1.05);
-      z-index: -1;
-    }
+        .hero-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--sun-gold);
+            margin-bottom: 20px;
+            display: block;
+        }
 
-    .hero-content {
-      max-width: 900px;
-      margin-top: 4rem;
-    }
+        .hero-left h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3.2rem, 5vw, 5.2rem);
+            line-height: 1.05;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
 
-    .hero-subtitle {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.35em;
-      color: var(--accent-terracotta);
-      margin-bottom: 1.5rem;
-      display: block;
-    }
+        .hero-left h1 i {
+            font-style: italic;
+            color: var(--sun-gold);
+        }
 
-    .hero-title {
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      line-height: 1.05;
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
+        .hero-left p {
+            font-size: 1.15rem;
+            color: var(--sand-muted);
+            font-weight: 300;
+            margin-bottom: 40px;
+            max-width: 540px;
+        }
 
-    .hero-title i {
-      font-style: italic;
-      font-weight: 400;
-    }
+        .hero-right-frame {
+            position: relative;
+            height: 100%;
+            min-height: 500px;
+            overflow: hidden;
+        }
 
-    .btn {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      border: 1px solid var(--text-main);
-      background: transparent;
-      color: var(--text-main);
-      cursor: pointer;
-      transition: all 0.4s var(--transition-smooth);
-      position: relative;
-      overflow: hidden;
-    }
+        .hero-right-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
-    .btn:hover {
-      background-color: var(--text-main);
-      color: var(--bg-color);
-    }
+        /* Portal Strip */
+        .portal-strip {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--line-subtle);
+            border-bottom: 1px solid var(--line-subtle);
+            padding: 35px 0;
+        }
 
-    /* --- About / Intro Section --- */
-    .section-padding {
-      padding: 8rem 4rem;
-    }
+        .portal-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 18px;
+        }
 
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+        .portal-item {
+            text-decoration: none;
+            background: var(--bg-panel);
+            border: 1px solid var(--line-subtle);
+            padding: 18px;
+            transition: all 0.3s ease;
+        }
 
-    .about-text h2 {
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      line-height: 1.2;
-      margin-bottom: 2rem;
-    }
+        .portal-item:hover {
+            border-color: var(--sunset-amber);
+            transform: translateY(-4px);
+        }
 
-    .about-text p {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      font-size: 1.05rem;
-    }
+        .portal-item span {
+            font-size: 0.68rem;
+            color: var(--sun-gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 5px;
+        }
 
-    .about-image-wrapper {
-      position: relative;
-    }
+        .portal-item h4 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            color: var(--cream-light);
+            font-weight: 700;
+        }
 
-    .about-image-wrapper img {
-      width: 100%;
-      height: 600px;
-      object-fit: cover;
-      border-radius: 2px;
-    }
+        /* Masonry Showcase */
+        .gallery-showcase {
+            padding: 120px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-    /* --- Gallery Masonry Section --- */
-    .gallery {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+        .section-headline {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 70px;
+        }
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 5rem;
-    }
+        .section-headline h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 4vw, 3.8rem);
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
 
-    .section-header h2 {
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      margin-bottom: 1rem;
-    }
+        .section-headline p {
+            color: var(--sand-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
 
-    .section-header p {
-      color: var(--text-muted);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-    }
+        .visual-masonry {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 25px;
+        }
 
-    .masonry-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
+        .img-card {
+            position: relative;
+            background: var(--bg-panel);
+            border: 1px solid var(--line-subtle);
+            overflow: hidden;
+        }
 
-    .masonry-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 2px;
-      background-color: var(--surface-color);
-    }
+        .img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-    .masonry-item img {
-      width: 100%;
-      height: 450px;
-      object-fit: cover;
-      transition: transform 0.7s var(--transition-smooth);
-    }
+        .img-card:hover img { transform: scale(1.05); }
 
-    .masonry-item:hover img {
-      transform: scale(1.04);
-    }
+        .img-card .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: rgba(5, 6, 8, 0.88);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid var(--line-subtle);
+        }
 
-    /* --- Experience Cards --- */
-    .experience {
-      background-color: var(--surface-color);
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-    }
+        .img-card .caption h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--cream-light);
+            margin-bottom: 3px;
+        }
 
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+        .img-card .caption p {
+            font-size: 0.78rem;
+            color: var(--sun-gold);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
 
-    .card {
-      background-color: var(--bg-color);
-      padding: 3rem 2.5rem;
-      border: 1px solid var(--border-color);
-      transition: border-color 0.4s var(--transition-smooth), transform 0.4s var(--transition-smooth);
-    }
+        .span-8 { grid-column: span 8; height: 480px; }
+        .span-4 { grid-column: span 4; height: 480px; }
+        .span-6 { grid-column: span 6; height: 420px; }
 
-    .card:hover {
-      border-color: var(--accent-terracotta);
-      transform: translateY(-5px);
-    }
+        /* Feature Sections */
+        .feature-split {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--line-subtle);
+            border-bottom: 1px solid var(--line-subtle);
+            padding: 100px 40px;
+            margin: 40px 0;
+        }
 
-    .card-number {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      color: var(--accent-terracotta);
-      margin-bottom: 1.5rem;
-      display: block;
-    }
+        .feature-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
 
-    .card h3 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
+        .feature-text h3 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--cream-light);
+        }
 
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
+        .feature-text p {
+            color: var(--sand-muted);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
 
-    /* --- Footer --- */
-    footer {
-      padding: 6rem 4rem 3rem 4rem;
-      background-color: var(--bg-color);
-      border-top: 1px solid var(--border-color);
-    }
+        .feature-media {
+            border: 1px solid var(--line-accent);
+            height: 440px;
+            overflow: hidden;
+            position: relative;
+        }
 
-    .footer-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 4rem;
-      margin-bottom: 5rem;
-    }
+        .feature-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .footer-brand h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+        /* Membership Block */
+        .membership-block {
+            padding: 120px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-    .footer-brand p {
-      color: var(--text-muted);
-      max-width: 400px;
-      font-size: 0.95rem;
-    }
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
 
-    .footer-column h4 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      margin-bottom: 1.5rem;
-      color: var(--accent-gold);
-    }
+        .tier-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--line-subtle);
+            padding: 45px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    .footer-column ul {
-      list-style: none;
-    }
+        .tier-card.highlight {
+            border-color: var(--sunset-amber);
+            background: linear-gradient(180deg, #182030, var(--bg-panel));
+            box-shadow: 0 10px 40px rgba(230, 126, 51, 0.15);
+        }
 
-    .footer-column li {
-      margin-bottom: 0.75rem;
-    }
+        .tier-card h3 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
 
-    .footer-column a {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
+        .tier-card p {
+            color: var(--sand-muted);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
 
-    .footer-column a:hover {
-      color: var(--text-main);
-    }
+        .tier-perks {
+            list-style: none;
+            margin-bottom: 35px;
+        }
 
-    .footer-bottom {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-color);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--text-muted);
-      font-size: 0.8rem;
-    }
+        .tier-perks li {
+            font-size: 0.88rem;
+            color: var(--cream-light);
+            margin-bottom: 12px;
+        }
 
-    /* --- Responsive Queries --- */
-    @media (max-width: 1024px) {
-      .navbar {
-        padding: 1.5rem 2rem;
-      }
-      .nav-menu {
-        display: none;
-      }
-      .nav-toggle {
-        display: block;
-      }
-      .section-padding {
-        padding: 5rem 2rem;
-      }
-      .about {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-      .about-image-wrapper img {
-        height: 400px;
-      }
-      .masonry-grid, .cards-grid {
-        grid-template-columns: 1fr;
-      }
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-      .footer-bottom {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-      }
-    }
-  </style>
+        .tier-perks li::before {
+            content: "✦ ";
+            color: var(--sun-gold);
+        }
+
+        /* Antigua Journal Grid */
+        .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .journal-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--line-subtle);
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--cream-light);
+            transition: all 0.3s ease;
+        }
+
+        .journal-card:hover {
+            border-color: var(--sun-gold);
+            transform: translateY(-5px);
+        }
+
+        .journal-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .journal-body { padding: 25px; }
+
+        .journal-body span {
+            font-size: 0.7rem;
+            color: var(--sun-gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .journal-body h4 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin: 10px 0;
+            line-height: 1.2;
+        }
+
+        /* Footer */
+        footer {
+            background: #020304;
+            border-top: 1px solid var(--line-subtle);
+            padding: 80px 40px 40px;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: var(--sand-muted);
+            margin-top: 18px;
+            font-size: 0.9rem;
+            max-width: 380px;
+            font-weight: 300;
+        }
+
+        .footer-col h5 {
+            font-family: var(--font-display);
+            color: var(--sun-gold);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 22px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--sand-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover { color: var(--cream-light); }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.82rem;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-split, .feature-grid, .tiers-grid, .journal-grid, .footer-inner {
+                grid-template-columns: 1fr;
+            }
+            .span-8, .span-4, .span-6 { grid-column: span 12; height: 360px; }
+            .nav-menu { display: none; }
+            .hero-left { padding: 40px 20px; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar" aria-label="Main Navigation">
-    <a href="#" class="nav-brand">The Orange Pair</a>
-    <ul class="nav-menu">
-      <li><a href="#about" class="nav-link">Destination</a></li>
-      <li><a href="#gallery" class="nav-link">Gallery</a></li>
-      <li><a href="#experience" class="nav-link">Experiences</a></li>
-      <li><a href="#contact" class="nav-link">Inquiries</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile Drawer -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" class="mobile-nav-link">Destination</a>
-    <a href="#gallery" class="mobile-nav-link">Gallery</a>
-    <a href="#experience" class="mobile-nav-link">Experiences</a>
-    <a href="#contact" class="mobile-nav-link">Inquiries</a>
-  </div>
-
-  <!-- Hero Section -->
-  <header class="hero">
-    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80" alt="Estate Grounds" class="hero-bg">
-    <div class="hero-content">
-      <span class="hero-subtitle">Private Sanctuary</span>
-      <h1 class="hero-title">Where refined luxury meets <i>effortless grace</i>.</h1>
-      <a href="#about" class="btn">Explore The Property</a>
+    <!-- Top Announcement Strip -->
+    <div class="top-announcement">
+        Antigua Waterfront Destination • Dining • Cocktails • Cigar Lounge • Sunday Live Jazz
     </div>
-  </header>
 
-  <!-- About Section -->
-  <section id="about" class="section-padding about">
-    <div class="about-text">
-      <h2>A sanctuary designed for quiet contemplation & connection.</h2>
-      <p>Nestled among coastal ridges, The Orange Pair offers an exclusive retreat designed for those who appreciate understated elegance and architectural detail.</p>
-      <p>Every corner is curated to provide balance, security, and an inspiring backdrop for restorative stays and intimate gatherings.</p>
-    </div>
-    <div class="about-image-wrapper">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Architectural Interior" loading="lazy">
-    </div>
-  </section>
+    <!-- Floating Navigation Dock -->
+    <nav class="nav-dock" id="navDock">
+        <div class="nav-wrapper">
+            <a href="#" class="brand">
+                <img src="./images/Orange%20Pair%20Logo%20blue%20and%20orange.png" alt="The Orange Pair" />
+                <span class="brand-text">THE ORANGE PAIR</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#about">Destination</a></li>
+                <li><a href="#gallery">Showcase</a></li>
+                <li><a href="#jazz">Sunday Jazz</a></li>
+                <li><a href="#cigars">Cigar Lounge</a></li>
+                <li><a href="#marina">Marina Arrival</a></li>
+                <li><a href="#membership">Memberships</a></li>
+                <li><a href="#journal">Journal</a></li>
+            </ul>
+            <a href="mailto:concierge@orangepair.com" class="btn-amber">Concierge</a>
+        </div>
+    </nav>
 
-  <!-- Gallery Section -->
-  <section id="gallery" class="section-padding gallery">
-    <div class="section-header">
-      <p>Visual Journal</p>
-      <h2>The Atmosphere</h2>
-    </div>
-    <div class="masonry-grid">
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Living Spaces" loading="lazy">
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Patio Views" loading="lazy">
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80" alt="Dining Detail" loading="lazy">
-      </div>
-    </div>
-  </section>
+    <!-- Unfiltered Hero -->
+    <section class="hero-split">
+        <div class="hero-left">
+            <span class="hero-tag">Antigua, West Indies</span>
+            <h1>The Beating Heart of <i>Island Evenings.</i></h1>
+            <p>An exceptional waterfront destination uniting fine cuisine, rare rums, hand-selected cigars, and live entertainment under Caribbean stars.</p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="mailto:concierge@orangepair.com" class="btn-amber">Reserve Dining</a>
+                <a href="#gallery" class="btn-ghost">Explore Venue</a>
+            </div>
+        </div>
+        <div class="hero-right-frame">
+            <img src="./images/The%20orange%20Pair%20landing%20image%202.png" alt="The Orange Pair Waterfront Destination" />
+        </div>
+    </section>
 
-  <!-- Experiences Section -->
-  <section id="experience" class="section-padding experience">
-    <div class="section-header">
-      <p>Curated Amenities</p>
-      <h2>Tailored Living</h2>
+    <!-- Portal Strip -->
+    <div class="portal-strip">
+        <div class="portal-grid">
+            <a href="#about" class="portal-item">
+                <span>01. Cuisine</span>
+                <h4>Chef Specials</h4>
+            </a>
+            <a href="#cigars" class="portal-item">
+                <span>02. Humidor</span>
+                <h4>Cigar Lounge</h4>
+            </a>
+            <a href="#marina" class="portal-item">
+                <span>03. Yachting</span>
+                <h4>Marina Arrival</h4>
+            </a>
+            <a href="#events" class="portal-item">
+                <span>04. Buyouts</span>
+                <h4>Private Events</h4>
+            </a>
+            <a href="#membership" class="portal-item">
+                <span>05. Access</span>
+                <h4>Memberships</h4>
+            </a>
+        </div>
     </div>
-    <div class="cards-grid">
-      <div class="card">
-        <span class="card-number">01</span>
-        <h3>Private Dining</h3>
-        <p>Custom culinary programs crafted on-site, showcasing seasonal, locally sourced regional ingredients.</p>
-      </div>
-      <div class="card">
-        <span class="card-number">02</span>
-        <h3>Wellness Spaces</h3>
-        <p>Dedicated pavilions for meditation, restorative therapies, and private bodywork instruction.</p>
-      </div>
-      <div class="card">
-        <span class="card-number">03</span>
-        <h3>Concierge Access</h3>
-        <p>Seamless management of transit, private charters, and tailored local excursions.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <h2>The Orange Pair</h2>
-        <p>An private estate sanctuary tailored for timeless stays and meaningful experiences.</p>
-      </div>
-      <div class="footer-column">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="#about">Destination</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#experience">Experiences</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Inquiries</h4>
-        <ul>
-          <li><a href="mailto:concierge@theorangepair.com">concierge@theorangepair.com</a></li>
-          <li><a href="#">Private Member Portal</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 The Orange Pair. All rights reserved.</p>
-      <p>Designed with intentional simplicity.</p>
-    </div>
-  </footer>
+    <!-- Image Showcase Masonry -->
+    <section class="gallery-showcase" id="gallery">
+        <div class="section-headline">
+            <span class="hero-tag">Pure Atmosphere</span>
+            <h2>Every Space in Full Clarity</h2>
+            <p>Unfiltered photographs capturing the natural warmth, architecture, and crowd energy across the venue.</p>
+        </div>
 
-  <!-- Interactive Scripts -->
-  <script>
-    // Header Scroll Effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
+        <div class="visual-masonry">
+            <div class="img-card span-8">
+                <img src="./images/Cam%2003%20Main%20Floor.png" alt="Main Floor Gathering" />
+                <div class="caption">
+                    <h3>The Main Floor &amp; Great Hall</h3>
+                    <p>High-energy gathering hub with handcrafted bar setup</p>
+                </div>
+            </div>
 
-    // Mobile Menu Toggle
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            <div class="img-card span-4">
+                <img src="./images/Cam%2007%20Kitchen.png" alt="Culinary Kitchen" />
+                <div class="caption">
+                    <h3>The Open Culinary Kitchen</h3>
+                    <p>World-class culinary team crafting island-inspired cuisine</p>
+                </div>
+            </div>
 
-    navToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-    });
+            <div class="img-card span-4">
+                <img src="./images/Orange%20Pair%20Patio%20Firepit.png" alt="Outdoor Patio Firepit" />
+                <div class="caption">
+                    <h3>The Waterfront Firepit</h3>
+                    <p>Open-air seating under the Antigua night sky</p>
+                </div>
+            </div>
 
-    mobileNavLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-      });
-    });
-  </script>
+            <div class="img-card span-4">
+                <img src="./images/cam%204%20Lounge%20North.png" alt="Lounge North" />
+                <div class="caption">
+                    <h3>Lounge North Wing</h3>
+                    <p>Intimate lounge seating with ambient amber lighting</p>
+                </div>
+            </div>
+
+            <div class="img-card span-4">
+                <img src="./images/Rooftop%20bar%20with%20waterfront%20views.png" alt="Rooftop Bar Views" />
+                <div class="caption">
+                    <h3>Rooftop Sunset Deck</h3>
+                    <p>Elevated views across the water at golden hour</p>
+                </div>
+            </div>
+
+            <div class="img-card span-6">
+                <img src="./images/The%20Orange%20Pair%20nightlife%20glamour.png" alt="Vibrant Crowd" />
+                <div class="caption">
+                    <h3>Plaza Lounge &amp; Dance</h3>
+                    <p>Unmatched night vibrancy for guests from around the globe</p>
+                </div>
+            </div>
+
+            <div class="img-card span-6">
+                <img src="./images/Nighttime%20luxury%20lounge%20with%20city%20view.png" alt="Nighttime Luxury Lounge" />
+                <div class="caption">
+                    <h3>Terrace Night Views</h3>
+                    <p>Sophisticated evening atmosphere surrounded by water reflection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sunday Jazz Nights Section -->
+    <section class="feature-split" id="jazz">
+        <div class="feature-grid">
+            <div class="feature-text">
+                <span class="hero-tag">Weekly Highlight</span>
+                <h3>SUNDAY JAZZ NIGHTS</h3>
+                <p>Smooth live jazz performances, handcrafted spirit pairings, and the finest Sunday evening atmosphere on Antigua.</p>
+                <a href="mailto:concierge@orangepair.com" class="btn-amber">Reserve Sunday Table</a>
+            </div>
+            <div class="feature-media">
+                <img src="./images/Vibrant%20waterfront%20nightlife%20at%20The%20Orange%20Pair.png" alt="Live Jazz Vibe" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated Cigar Lounge Section -->
+    <section class="feature-split" id="cigars" style="background: var(--bg-void);">
+        <div class="feature-grid">
+            <div class="feature-media">
+                <img src="./images/Cam%2008%20Fire%20in%20cigar%20lounge%20demonstration.png" alt="Cigar Lounge Fire Demonstration" />
+            </div>
+            <div class="feature-text">
+                <span class="hero-tag">World-Class Humidor</span>
+                <h3>The Cigar &amp; Reserve Lounge</h3>
+                <p>Featuring hand-selected international cigars, custom leather seating, and rare aged rums poured to perfection in a ventilated sanctuary.</p>
+                <a href="mailto:concierge@orangepair.com" class="btn-ghost">View Cigar Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marina & Yachting Arrival Section -->
+    <section class="feature-split" id="marina">
+        <div class="feature-grid">
+            <div class="feature-text">
+                <span class="hero-tag">Arrival By Sea</span>
+                <h3>Marina &amp; Yachting Arrival</h3>
+                <p>Direct dockside access for tenders, yachts, and marine arrivals. Coordinates, captain concierge services, and private VIP waterfront entry available year-round.</p>
+                <a href="mailto:concierge@orangepair.com" class="btn-amber">Captain Concierge Info</a>
+            </div>
+            <div class="feature-media">
+                <img src="./images/Orange%20Pair%20from%20the%20marina%20image.png" alt="The Orange Pair Marina View" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Private Events Section -->
+    <section id="events" style="padding: 100px 40px; text-align: center; max-width: 1000px; margin: 0 auto;">
+        <span class="hero-tag">Exclusive Access</span>
+        <h2 style="font-family: var(--font-serif); font-size: 3.2rem; margin-bottom: 15px;">Private Events &amp; Buyouts</h2>
+        <p style="color: var(--sand-muted); font-size: 1.1rem; font-weight: 300; margin-bottom: 35px;">Host private celebrations, corporate receptions, or full venue buyouts with tailored culinary menus and custom live entertainment.</p>
+        <a href="mailto:events@orangepair.com" class="btn-amber">Plan an Event</a>
+    </section>
+
+    <!-- Memberships Section -->
+    <section class="membership-block" id="membership">
+        <div class="section-headline">
+            <span class="hero-tag">Privileges of Belonging</span>
+            <h2>Membership Tiers</h2>
+            <p>Designed for guests who call The Orange Pair their home away from home in Antigua.</p>
+        </div>
+
+        <div style="margin-bottom: 60px; text-align: center;">
+            <img src="./images/FOUNDERS%20WALL.png" alt="Founders Wall" style="max-width: 100%; border: 1px solid var(--line-accent);" />
+        </div>
+
+        <div class="tiers-grid">
+            <div class="tier-card">
+                <div>
+                    <span class="hero-tag">Tier I</span>
+                    <h3>Social Membership</h3>
+                    <p>Priority dining reservations, event access, and seamless waterfront hospitality.</p>
+                    <ul class="tier-perks">
+                        <li>Priority table reservations</li>
+                        <li>Complimentary venue access</li>
+                        <li>Invitations to special gatherings</li>
+                    </ul>
+                </div>
+                <a href="mailto:concierge@orangepair.com" class="btn-ghost">Inquire Social</a>
+            </div>
+
+            <div class="tier-card highlight">
+                <div>
+                    <span class="hero-tag">Tier II • Permanent</span>
+                    <h3>Founder's Membership</h3>
+                    <p>Our highest founding designation with top-level privileges and permanent distinction on the Founders Wall.</p>
+                    <ul class="tier-perks">
+                        <li>Highest priority access during peak seasons</li>
+                        <li>Permanent Founder recognition</li>
+                        <li>Exclusive Annual Founders Gala invitation</li>
+                        <li>Private locker program access</li>
+                    </ul>
+                </div>
+                <a href="mailto:concierge@orangepair.com" class="btn-amber" style="text-align: center;">Join Founder's Circle</a>
+            </div>
+
+            <div class="tier-card">
+                <div>
+                    <span class="hero-tag">Tier III • Connoisseur</span>
+                    <h3>English Harbour Membership</h3>
+                    <p>Deeply rooted in maritime heritage, tailored for cigar collectors and rare spirit enthusiasts.</p>
+                    <ul class="tier-perks">
+                        <li>Access to rare reserve cigar releases</li>
+                        <li>Private spirit tastings &amp; pairings</li>
+                        <li>Exclusive lounge seating access</li>
+                        <li>Harbor-front priority arrival services</li>
+                    </ul>
+                </div>
+                <a href="mailto:concierge@orangepair.com" class="btn-ghost">Inquire English Harbour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Antigua Journal Section -->
+    <section id="journal" style="padding: 100px 40px; max-width: 1400px; margin: 0 auto;">
+        <div class="section-headline">
+            <span class="hero-tag">Stories &amp; Culture</span>
+            <h2>The Antigua Journal</h2>
+            <p>Exploring Caribbean luxury, rum heritage, cigar craft, and local art.</p>
+        </div>
+
+        <div class="journal-grid">
+            <!-- Article 1: Aged Rums -->
+            <a href="#" class="journal-card">
+                <img src="./images/Luxury%20experiences%20at%20The%20Orange%20Pair.png" alt="Luxury Experiences at The Orange Pair" />
+                <div class="journal-body">
+                    <span>Behind The Bar</span>
+                    <h4>The Art of Aged Caribbean Rums</h4>
+                    <p style="color: var(--sand-muted); font-size: 0.85rem; font-weight: 300;">Discovering rare reserves crafted across the West Indies.</p>
+                </div>
+            </a>
+
+            <!-- Article 2: Cigar Spotlight -->
+            <a href="#" class="journal-card">
+                <img src="./images/The%20Orange%20Pair%3A%20a%20luxury%20destination.png" alt="The Orange Pair A Luxury Destination" />
+                <div class="journal-body">
+                    <span>Cigar Spotlight</span>
+                    <h4>Pairing Notes: Tobacco &amp; Single Malts</h4>
+                    <p style="color: var(--sand-muted); font-size: 0.85rem; font-weight: 300;">Harmonizing notes of leather, oak, and spice in Antigua.</p>
+                </div>
+            </a>
+
+            <!-- Article 3: Sailing Week -->
+            <a href="#" class="journal-card">
+                <img src="./images/Antigua%20Sailing%20Week%20highlights.png" alt="Antigua Sailing Week Highlights" />
+                <div class="journal-body">
+                    <span>Maritime Lifestyle</span>
+                    <h4>Sailing Week Highlights &amp; Evenings</h4>
+                    <p style="color: var(--sand-muted); font-size: 0.85rem; font-weight: 300;">Where yachters and locals meet under night skies.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="#" class="brand">
+                    <img src="./images/The%20Orange%20Pair%20Door%20logo.png" alt="The Orange Pair Door Logo" style="height: 60px;" />
+                </a>
+                <p>Antigua's premier waterfront hospitality destination combining fine dining, rare spirits, cigar lounge culture, and live entertainment.</p>
+            </div>
+            <div class="footer-col">
+                <h5>NAVIGATION</h5>
+                <a href="#about">Destination</a>
+                <a href="#gallery">Showcase</a>
+                <a href="#jazz">Sunday Jazz</a>
+                <a href="#cigars">Cigar Lounge</a>
+                <a href="#marina">Marina Arrival</a>
+                <a href="#membership">Memberships</a>
+            </div>
+            <div class="footer-col">
+                <h5>INQUIRIES</h5>
+                <a href="mailto:concierge@orangepair.com">Concierge</a>
+                <a href="mailto:invest@orangepair.com">Investor Portal</a>
+                <a href="mailto:events@orangepair.com">Private Events</a>
+                <a href="mailto:press@orangepair.com">Press &amp; Media Kit</a>
+            </div>
+            <div class="footer-col">
+                <h5>THE ANTIGUA JOURNAL</h5>
+                <p style="font-size: 0.85rem; color: var(--sand-muted);">Articles on West Indies culinary craft, spirits, and island living.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Orange Pair. Antigua &amp; Barbuda. All rights reserved.</p>
+            <p>Designed for World-Class Hospitality</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Listener -->
+    <script>
+        const nav = document.getElementById('navDock');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
 </body>
 </html>
