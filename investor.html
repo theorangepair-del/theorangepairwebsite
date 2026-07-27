@@ -1,1 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investor Portal | The Orange Pair</title>
 
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-void: #050608;
+            --bg-surface: #0a0d14;
+            --bg-panel: #111622;
+            --sunset-amber: #e67e33;
+            --sun-gold: #f5ad52;
+            --cream-light: #f7f5f0;
+            --sand-muted: #8e95a5;
+            --line-subtle: rgba(255, 255, 255, 0.08);
+            --line-accent: rgba(230, 126, 51, 0.35);
+
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-display: 'Syne', sans-serif;
+            --font-mono: 'Space Grotesk', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-mono);
+            background-color: var(--bg-void);
+            color: var(--cream-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav.nav-dock {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 40px;
+            background: rgba(5, 6, 8, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--line-subtle);
+        }
+
+        .nav-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--cream-light);
+        }
+
+        .brand img { height: 44px; width: auto; }
+
+        .brand-text {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff, var(--sun-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn-amber {
+            background: linear-gradient(135deg, var(--sunset-amber), var(--sun-gold));
+            color: #000 !important;
+            padding: 12px 28px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.15em !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 4px 25px rgba(230, 126, 51, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-amber:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 35px rgba(245, 173, 82, 0.5);
+        }
+
+        .btn-ghost {
+            border: 1px solid var(--sun-gold);
+            color: var(--cream-light) !important;
+            padding: 12px 28px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: rgba(10, 13, 20, 0.6);
+            display: inline-block;
+        }
+
+        .btn-ghost:hover {
+            background: var(--sunset-amber);
+            color: #000 !important;
+            border-color: var(--sunset-amber);
+        }
+
+        .btn-investor {
+            background: transparent;
+            color: var(--sun-gold) !important;
+            border: 2px solid var(--sun-gold);
+            padding: 16px 40px;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-investor:hover {
+            background: var(--sun-gold);
+            color: #000 !important;
+            box-shadow: 0 0 40px rgba(245, 173, 82, 0.2);
+        }
+
+        /* Hero Section */
+        .investor-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 40px 80px;
+            background: linear-gradient(180deg, var(--bg-void), var(--bg-surface));
+            border-bottom: 1px solid var(--line-accent);
+        }
+
+        .investor-hero-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--sun-gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .investor-hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            line-height: 1.05;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .investor-hero h1 span {
+            color: var(--sun-gold);
+        }
+
+        .investor-hero p {
+            font-size: 1.25rem;
+            color: var(--sand-muted);
+            font-weight: 300;
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 80px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .content-section h2 {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .content-section h2 span {
+            color: var(--sun-gold);
+        }
+
+        .content-section p {
+            color: var(--sand-muted);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-weight: 300;
+            max-width: 900px;
+        }
+
+        .content-section p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .content-section .blockquote {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--cream-light);
+            padding: 30px 40px;
+            border-left: 3px solid var(--sun-gold);
+            margin: 30px 0;
+            max-width: 800px;
+        }
+
+        .content-section .divider {
+            border: none;
+            border-top: 1px solid var(--line-subtle);
+            margin: 60px 0;
+            max-width: 900px;
+        }
+
+        .content-section .highlight-box {
+            background: var(--bg-panel);
+            border: 1px solid var(--line-accent);
+            padding: 40px 50px;
+            margin: 30px 0;
+            max-width: 900px;
+        }
+
+        .content-section .highlight-box h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--sun-gold);
+            margin-bottom: 12px;
+        }
+
+        /* Investor CTA Section */
+        .investor-cta {
+            padding: 80px 40px;
+            background: var(--bg-panel);
+            border-top: 1px solid var(--line-accent);
+            border-bottom: 1px solid var(--line-accent);
+            text-align: center;
+        }
+
+        .investor-cta h2 {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+        }
+
+        .investor-cta p {
+            color: var(--sand-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+
+        .investor-cta .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: #020304;
+            border-top: 1px solid var(--line-subtle);
+            padding: 60px 40px 30px;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--sand-muted);
+            margin-top: 12px;
+            font-size: 0.9rem;
+            max-width: 380px;
+            font-weight: 300;
+        }
+
+        .footer-col h5 {
+            font-family: var(--font-display);
+            color: var(--sun-gold);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 18px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--sand-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover { color: var(--cream-light); }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            nav.nav-dock {
+                padding: 14px 20px;
+            }
+            .brand-text {
+                font-size: 0.9rem;
+            }
+            .brand img {
+                height: 32px;
+            }
+            .investor-hero {
+                padding: 120px 20px 60px;
+            }
+            .investor-hero h1 {
+                font-size: 2.8rem;
+            }
+            .investor-hero p {
+                font-size: 1rem;
+            }
+            .content-section {
+                padding: 50px 20px;
+            }
+            .content-section h2 {
+                font-size: 2.2rem;
+            }
+            .investor-cta {
+                padding: 50px 20px;
+            }
+            .investor-cta h2 {
+                font-size: 2.2rem;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .content-section .blockquote {
+                font-size: 1.2rem;
+                padding: 20px;
+            }
+            .content-section .highlight-box {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- NAVIGATION                                                    -->
+    <!-- ============================================================ -->
+    <nav class="nav-dock">
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand">
+                <img src="./images/Orange%20Pair%20Logo%20blue%20and%20orange.png" alt="The Orange Pair" />
+                <span class="brand-text">THE ORANGE PAIR</span>
+            </a>
+            <div class="nav-actions">
+                <a href="index.html" class="btn-ghost">Return to Site</a>
+                <a href="mailto:invest@orangepair.com" class="btn-amber">Contact IR</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- HERO SECTION                                                  -->
+    <!-- ============================================================ -->
+    <section class="investor-hero">
+        <div class="investor-hero-content">
+            <span class="hero-tag">The Orange Pair — Investor Portal</span>
+            <h1>Invest in a Destination. <span>Build a Legacy.</span></h1>
+            <p>Some businesses are built to generate revenue. Others are built to become destinations.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTENT SECTION: THE OPPORTUNITY                              -->
+    <!-- ============================================================ -->
+    <section class="content-section">
+        <p><strong>The Orange Pair is being created to become one of the Caribbean's most recognized hospitality experiences—where exceptional dining, elevated nightlife, premium cigars, handcrafted cocktails, meaningful connections, and unforgettable moments come together in one extraordinary waterfront destination.</strong></p>
+
+        <p>We're not simply opening another restaurant. We're creating a place that becomes part of people's lives.</p>
+
+        <p>The place families celebrate milestones. The place professionals build relationships. The place couples create memories. The place friends reunite. The place visitors discover. The place locals proudly call their own.</p>
+
+        <p>When the sun begins to set over English Harbour, The Orange Pair transforms into the place people naturally gravitate toward—not because they have plans, but because they know something memorable is about to happen.</p>
+
+        <p><strong>That is the business we're building.</strong></p>
+
+        <hr class="divider" />
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTENT SECTION: THE VISION                                   -->
+    <!-- ============================================================ -->
+    <section class="content-section">
+        <h2>The <span>Vision</span></h2>
+        <p>We believe the world's most successful hospitality destinations have one thing in common:</p>
+
+        <div class="blockquote">
+            "People don't return because they were hungry. They return because they found a place where they felt they belonged."
+        </div>
+
+        <p>The Orange Pair is designed to become that place. A destination where hospitality creates loyalty, loyalty creates community, and community becomes one of the most valuable assets a business can possess.</p>
+
+        <p>Our vision extends far beyond opening day. We're building a brand designed to endure, evolve, and become synonymous with exceptional hospitality in Antigua and, ultimately, beyond.</p>
+
+        <hr class="divider" />
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTENT SECTION: WHY ANTIGUA                                  -->
+    <!-- ============================================================ -->
+    <section class="content-section">
+        <h2>Why <span>Antigua</span></h2>
+        <p>Antigua is already one of the Caribbean's premier destinations. Millions are drawn by its crystal-clear waters, world-renowned sailing, luxury yachts, vibrant culture, Carnival celebrations, and unforgettable natural beauty.</p>
+
+        <p>Yet every world-class destination deserves iconic places where people gather after the beach, after sailing, after business meetings, after celebrations, and after unforgettable days exploring the island.</p>
+
+        <p><strong>The Orange Pair is being created to become one of those places.</strong> A destination that feels equally at home welcoming lifelong Antiguans, returning visitors, yacht owners, business travelers, and first-time guests from around the world.</p>
+
+        <hr class="divider" />
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTENT SECTION: WHY THE ORANGE PAIR                          -->
+    <!-- ============================================================ -->
+    <section class="content-section">
+        <h2>Why <span>The Orange Pair</span></h2>
+        <p>The Orange Pair is intentionally designed around one simple idea:</p>
+
+        <div class="highlight-box">
+            <h3>People return to experiences — not transactions.</h3>
+            <p style="margin-bottom: 0;">Everything we create is built around encouraging guests to stay longer, return more often, and bring someone new with them.</p>
+        </div>
+
+        <p>Exceptional dining. Premium cigars. Signature cocktails. Live entertainment. Thoughtfully designed events. Membership experiences. Private celebrations. Business gatherings. Romantic evenings. Family occasions.</p>
+
+        <p>Each experience strengthens the next. Rather than relying on a single source of revenue, The Orange Pair is designed as a hospitality ecosystem where multiple experiences work together to build lasting guest relationships and sustainable long-term growth.</p>
+
+        <hr class="divider" />
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTENT SECTION: COMPETITIVE ADVANTAGE                        -->
+    <!-- ============================================================ -->
+    <section class="content-section">
+        <h2>Our <span>Competitive Advantage</span></h2>
+        <p>Restaurants can be copied. Menus can be copied. Cocktails can be copied. Buildings can be copied.</p>
+
+        <div class="blockquote">
+            "Communities cannot."
+        </div>
+
+        <p>The Orange Pair is being built around something far more valuable than a menu. We're building <strong>belonging</strong>.</p>
+
+        <p>When guests celebrate birthdays here, they'll return for anniversaries. When they bring clients, they'll return with friends. When visitors discover us on vacation, they'll make us part of every trip back to Antigua. When members help shape signature experiences, they become emotionally invested in our success.</p>
+
+        <p>That kind of loyalty cannot be manufactured. It must be earned. And once earned, it becomes one of the strongest competitive advantages any hospitality brand can possess.</p>
+
+        <hr class="divider" />
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTENT SECTION: MEET THE FOUNDER                             -->
+    <!-- ============================================================ -->
+    <section class="content-section">
+        <h2>Meet the <span>Founder</span></h2>
+        <p>Every meaningful business begins with a belief. Mine is simple.</p>
+
+        <p><strong>Hospitality has the power to change lives.</strong></p>
+
+        <p>One conversation can create a friendship. One dinner can become a tradition. One introduction can become a business partnership. One extraordinary evening can become a memory someone carries for decades.</p>
+
+        <p>The Orange Pair was created to provide the setting where those moments happen naturally. This isn't simply the business I'm building. It's the legacy I hope to leave behind.</p>
+
+        <hr class="divider" />
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTENT SECTION: WHERE WE ARE TODAY                           -->
+    <!-- ============================================================ -->
+    <section class="content-section">
+        <h2>Where We Are <span>Today</span></h2>
+        <p>The Orange Pair is currently advancing through its foundational development phase. Our focus is on strengthening every aspect of the business before opening our doors.</p>
+
+        <p>That includes refining our operating model, expanding strategic partnerships, building our membership community, strengthening our brand, engaging prospective investors, and preparing for the next stage of growth.</p>
+
+        <p>We believe great destinations aren't rushed. They're built with intention. Every decision we make today is designed to create a stronger business for tomorrow.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- INVESTOR CTA                                                  -->
+    <!-- ============================================================ -->
+    <section class="investor-cta">
+        <h2>Join the <span style="color: var(--sun-gold);">Investor Circle</span></h2>
+        <p>We're seeking investors who believe the greatest opportunities aren't found by following the crowd—they're created by building something people will never forget.</p>
+        <div class="btn-group">
+            <a href="mailto:invest@orangepair.com?subject=Investor%20Inquiry%20-%20The%20Orange%20Pair" class="btn-investor">Request the Deck</a>
+            <a href="mailto:invest@orangepair.com" class="btn-ghost">invest@orangepair.com</a>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--sand-muted); margin-top: 24px; max-width: 500px; margin-left: auto; margin-right: auto;">All inquiries are confidential and subject to accredited investor verification.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER                                                        -->
+    <!-- ============================================================ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="brand">
+                    <img src="./images/The%20Orange%20Pair%20Door%20logo.png" alt="The Orange Pair Door Logo" style="height: 50px;" />
+                </a>
+                <p>Antigua's premier hospitality destination combining fine dining, rare spirits, cigar lounge culture, and live entertainment.</p>
+            </div>
+            <div class="footer-col">
+                <h5>NAVIGATION</h5>
+                <a href="index.html">Home</a>
+                <a href="investor.html">Investor Portal</a>
+                <a href="mailto:concierge@orangepair.com">Concierge</a>
+            </div>
+            <div class="footer-col">
+                <h5>INQUIRIES</h5>
+                <a href="mailto:invest@orangepair.com">Investor Portal</a>
+                <a href="mailto:events@orangepair.com">Private Events</a>
+                <a href="mailto:press@orangepair.com">Press &amp; Media Kit</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Orange Pair. Antigua &amp; Barbuda. All rights reserved.</p>
+            <p>Before Everyone Else.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
