@@ -288,6 +288,80 @@
             font-weight: 700;
         }
 
+        /* About Section - NEW */
+        .about-section {
+            padding: 120px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .about-text h2 span {
+            color: var(--sun-gold);
+        }
+
+        .about-text p {
+            color: var(--sand-muted);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .about-text p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .about-text .signoff {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--cream-light);
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--line-accent);
+        }
+
+        .about-image {
+            position: relative;
+            border: 1px solid var(--line-accent);
+            overflow: hidden;
+            height: 500px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-image .image-credit {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px 20px;
+            background: rgba(5, 6, 8, 0.8);
+            font-size: 0.7rem;
+            color: var(--sand-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
         /* Gallery Showcase */
         .gallery-showcase {
             padding: 120px 40px;
@@ -801,13 +875,14 @@
         }
 
         @media (max-width: 1024px) {
-            .hero-split, .feature-grid, .tiers-grid, .journal-grid, .footer-inner {
+            .hero-split, .feature-grid, .tiers-grid, .journal-grid, .footer-inner, .about-inner {
                 grid-template-columns: 1fr;
             }
             .span-8, .span-4, .span-6 { grid-column: span 12; height: 360px; }
             .nav-menu { display: none; }
             .hamburger { display: flex; }
             .hero-left { padding: 40px 20px; }
+            .about-image { height: 350px; }
 
             .investor-preview::before {
                 width: 100%;
@@ -899,6 +974,15 @@
             .signature-grid {
                 grid-template-columns: 1fr;
             }
+            .about-section {
+                padding: 60px 20px;
+            }
+            .about-inner {
+                gap: 40px;
+            }
+            .about-image {
+                height: 280px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -930,6 +1014,9 @@
             .tier-perks {
                 max-height: 200px;
             }
+            .about-image {
+                height: 220px;
+            }
         }
     </style>
 </head>
@@ -953,11 +1040,11 @@
             </a>
 
             <ul class="nav-menu">
-                <li><a href="#about">Destination</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#gallery">Showcase</a></li>
                 <li><a href="#jazz">Sunday Jazz</a></li>
                 <li><a href="#cigars">Cigar Lounge</a></li>
-                <li><a href="#marina">Marina Arrival</a></li>
+                <li><a href="#marina">Marina</a></li>
                 <li><a href="#membership">Memberships</a></li>
                 <li><a href="#journal">Journal</a></li>
             </ul>
@@ -974,11 +1061,11 @@
 
     <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
-        <a href="#about">Destination</a>
+        <a href="#about">About</a>
         <a href="#gallery">Showcase</a>
         <a href="#jazz">Sunday Jazz</a>
         <a href="#cigars">Cigar Lounge</a>
-        <a href="#marina">Marina Arrival</a>
+        <a href="#marina">Marina</a>
         <a href="#membership">Memberships</a>
         <a href="#journal">Journal</a>
         <a href="mailto:concierge@orangepair.com" class="btn-amber" style="text-align: center;">Concierge</a>
@@ -1001,6 +1088,28 @@
         </div>
         <div class="hero-right-frame">
             <img src="./images/The%20orange%20Pair%20landing%20image%202.png" alt="The Orange Pair" />
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ABOUT SECTION - NEW                                          -->
+    <!-- ============================================================ -->
+    <section class="about-section" id="about">
+        <div class="about-inner">
+            <div class="about-text">
+                <span class="hero-tag">About The Orange Pair</span>
+                <h2>The place you never want <span>the night to end.</span></h2>
+                <p>Whether you're sharing lunch with family, closing a business deal, celebrating a birthday, planning the perfect date night, enjoying a handcrafted cocktail and premium cigar at sunset over English Harbour, or looking for the perfect finale after Carnival, a fête, or a day on the water — this is where unforgettable moments come together.</p>
+                <p>Life gives us plenty of reasons to gather. We believe every one of them deserves an extraordinary setting.</p>
+                <p>Here, strangers become friends. Friends become family. Every visit feels familiar, every welcome is genuine, and every evening has the potential to become a story you'll tell again and again.</p>
+                <p>As the sun slips below the harbour, the atmosphere begins to change. Conversations linger. Music fills the air. Glasses are raised. The dance floor comes alive. What started as dinner becomes the highlight of the night.</p>
+                <p>Whether you're a local returning to your favourite table or discovering Antigua for the very first time, you'll always have a place here.</p>
+                <div class="signoff">Welcome to The Orange Pair.</div>
+            </div>
+            <div class="about-image">
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Elegant%20Sunset%20Lounge%20at%20the%20Orange%20Pair.png" alt="Elegant Sunset Lounge at The Orange Pair" />
+                <div class="image-credit">The Orange Pair — Sunset Lounge</div>
+            </div>
         </div>
     </section>
 
@@ -1043,7 +1152,6 @@
         </div>
 
         <div class="visual-masonry">
-            <!-- NEW IMAGE: Elegant Sunset Lounge with Orange Pair branding -->
             <div class="img-card span-8">
                 <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Elegant%20Sunset%20Lounge%20at%20the%20Orange%20Pair.png" alt="Elegant Sunset Lounge at The Orange Pair" />
                 <div class="caption">
@@ -1405,11 +1513,11 @@
             </div>
             <div class="footer-col">
                 <h5>NAVIGATION</h5>
-                <a href="#about">Destination</a>
+                <a href="#about">About</a>
                 <a href="#gallery">Showcase</a>
                 <a href="#jazz">Sunday Jazz</a>
                 <a href="#cigars">Cigar Lounge</a>
-                <a href="#marina">Marina Arrival</a>
+                <a href="#marina">Marina</a>
                 <a href="#membership">Memberships</a>
             </div>
             <div class="footer-col">
