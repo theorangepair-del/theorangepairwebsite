@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Orange Pair | Antigua & Barbuda</title>
-    
+
     <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -457,17 +457,41 @@
         .tier-perks {
             list-style: none;
             margin-bottom: 35px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .tier-perks::-webkit-scrollbar {
+            width: 4px;
+        }
+        .tier-perks::-webkit-scrollbar-track {
+            background: var(--bg-void);
+        }
+        .tier-perks::-webkit-scrollbar-thumb {
+            background: var(--sunset-amber);
+            border-radius: 10px;
         }
 
         .tier-perks li {
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             color: var(--cream-light);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.4;
         }
 
         .tier-perks li::before {
             content: "✦ ";
             color: var(--sun-gold);
+            position: absolute;
+            left: 0;
+        }
+
+        .tier-perks li strong {
+            color: var(--sun-gold);
+            font-weight: 600;
         }
 
         /* Investor Preview */
@@ -529,6 +553,32 @@
             border-radius: 50px;
             border: 1px solid rgba(245, 173, 82, 0.2);
             margin-bottom: 20px;
+        }
+
+        /* Signature Program */
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .signature-item {
+            padding: 16px 20px;
+            background: var(--bg-panel);
+            border: 1px solid var(--line-subtle);
+            border-radius: 8px;
+            font-size: 0.92rem;
+            color: var(--cream-light);
+            transition: all 0.3s ease;
+        }
+
+        .signature-item:hover {
+            border-color: var(--sun-gold);
+            transform: translateY(-2px);
         }
 
         /* Journal Grid */
@@ -758,13 +808,19 @@
             .nav-menu { display: none; }
             .hamburger { display: flex; }
             .hero-left { padding: 40px 20px; }
-            
+
             .investor-preview::before {
                 width: 100%;
                 opacity: 0.05;
             }
             .investor-content {
                 max-width: 100%;
+            }
+            .signature-grid {
+                grid-template-columns: 1fr;
+            }
+            .tier-perks {
+                max-height: 300px;
             }
         }
 
@@ -840,6 +896,9 @@
                 width: 280px;
                 padding: 80px 24px 24px;
             }
+            .signature-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -868,6 +927,9 @@
             .tiers-grid {
                 grid-template-columns: 1fr;
             }
+            .tier-perks {
+                max-height: 200px;
+            }
         }
     </style>
 </head>
@@ -889,7 +951,7 @@
                 <img src="./images/Orange%20Pair%20Logo%20blue%20and%20orange.png" alt="The Orange Pair" />
                 <span class="brand-text">THE ORANGE PAIR</span>
             </a>
-            
+
             <ul class="nav-menu">
                 <li><a href="#about">Destination</a></li>
                 <li><a href="#gallery">Showcase</a></li>
@@ -899,9 +961,9 @@
                 <li><a href="#membership">Memberships</a></li>
                 <li><a href="#journal">Journal</a></li>
             </ul>
-            
+
             <a href="mailto:concierge@orangepair.com" class="btn-amber">Concierge</a>
-            
+
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -981,7 +1043,16 @@
         </div>
 
         <div class="visual-masonry">
+            <!-- NEW IMAGE: Elegant Sunset Lounge with Orange Pair branding -->
             <div class="img-card span-8">
+                <img src="https://raw.githubusercontent.com/theorangepair-del/theorangepairwebsite/main/images/Elegant%20Sunset%20Lounge%20at%20the%20Orange%20Pair.png" alt="Elegant Sunset Lounge at The Orange Pair" />
+                <div class="caption">
+                    <h3>Elegant Sunset Lounge</h3>
+                    <p>Featuring The Orange Pair's signature oranges and warm amber lighting</p>
+                </div>
+            </div>
+
+            <div class="img-card span-4">
                 <img src="./images/Cam%2003%20Main%20Floor.png" alt="Main Floor Gathering" />
                 <div class="caption">
                     <h3>The Main Floor &amp; Great Hall</h3>
@@ -1021,7 +1092,7 @@
                 </div>
             </div>
 
-            <div class="img-card span-6">
+            <div class="img-card span-4">
                 <img src="./images/The%20Orange%20Pair%20nightlife%20glamour.png" alt="Vibrant Crowd" />
                 <div class="caption">
                     <h3>Plaza Lounge &amp; Dance</h3>
@@ -1029,7 +1100,7 @@
                 </div>
             </div>
 
-            <div class="img-card span-6">
+            <div class="img-card span-4">
                 <img src="./images/Nighttime%20luxury%20lounge%20with%20city%20view.png" alt="Nighttime Luxury Lounge" />
                 <div class="caption">
                     <h3>Terrace Night Views</h3>
@@ -1115,54 +1186,152 @@
         </div>
 
         <div class="tiers-grid">
-            <!-- TIER 1: THE PREMIERE - $2,500 -->
+            <!-- TIER 1: PREMIERE - $2,500 -->
             <div class="tier-card">
                 <div>
                     <span class="hero-tag">Tier I • $2,500 USD</span>
                     <h3>The Premiere</h3>
                     <p>Priority dining reservations, event access, and seamless hospitality.</p>
                     <ul class="tier-perks">
-                        <li>Priority table reservations</li>
-                        <li>Complimentary venue access</li>
-                        <li>Invitations to special gatherings</li>
-                        <li>Early access to events</li>
+                        <li>Member-only club access</li>
+                        <li>Access to the Members Lounge</li>
+                        <li>Member check-in</li>
+                        <li>Priority entry during busy periods (when available)</li>
+                        <li>Priority dining reservations</li>
+                        <li>Preferred seating (when available)</li>
+                        <li>Invitations to member-exclusive events</li>
+                        <li>Invitations to monthly member events</li>
+                        <li>Invitations to seasonal celebrations</li>
+                        <li>Invitations to live entertainment events</li>
+                        <li>Invitations to jazz nights</li>
+                        <li>Invitations to cultural celebrations</li>
+                        <li>Invitations to harbor celebrations</li>
+                        <li>Invitations to holiday celebrations</li>
+                        <li>Invitations to charity events</li>
+                        <li>Invitations to art showcases</li>
+                        <li>Meet the Chef events</li>
+                        <li>Meet the Mixologist events</li>
+                        <li>Culinary demonstrations</li>
+                        <li>Signature pairing experiences</li>
+                        <li>Seasonal tasting menus</li>
+                        <li>Members-only dining experiences</li>
+                        <li>Rum tastings</li>
+                        <li>Whiskey tastings</li>
+                        <li>Premium spirit tastings</li>
+                        <li>Cocktail education sessions</li>
+                        <li>Access to exclusive cigar releases</li>
+                        <li>Cigar education sessions</li>
+                        <li>Guided cigar tastings</li>
+                        <li>Master Blender events</li>
+                        <li>Entrepreneur networking events</li>
+                        <li>Business networking events</li>
+                        <li>The Orange Pair Connections</li>
+                        <li>Guest speaker events</li>
+                        <li>Special occasion assistance</li>
+                        <li>Guest coordination assistance</li>
+                        <li>Birthday recognition</li>
+                        <li>Annual membership anniversary recognition</li>
+                        <li>Personalized welcome package</li>
+                        <li>First opportunity to experience newly introduced signature cocktails (when available)</li>
+                        <li>First opportunity to experience newly introduced signature dishes (when available)</li>
+                        <li>First opportunity to experience newly introduced signature desserts (when available)</li>
+                        <li>First opportunity to experience newly introduced signature cigars (when available)</li>
+                        <li>First opportunity to experience newly introduced signature pairings (when available)</li>
+                        <li>Exclusive invitations to Signature Launch Events</li>
+                        <li>Member Choice voting opportunities</li>
+                        <li>Member Choice tasting events</li>
+                        <li>Opportunities to help shape future signature menu items, cocktails, cigars, and pairings</li>
                     </ul>
                 </div>
                 <a href="mailto:concierge@orangepair.com?subject=Inquiry%20About%20The%20Premiere%20Membership" class="btn-ghost">Inquire The Premiere</a>
             </div>
 
-            <!-- TIER 2: THE ENGLISH HARBOUR - $5,000 -->
+            <!-- TIER 2: ENGLISH HARBOUR - $5,000 -->
             <div class="tier-card highlight">
                 <div>
                     <span class="hero-tag">Tier II • $5,000 USD</span>
                     <h3>The English Harbour</h3>
                     <p>Deeply rooted in maritime heritage, tailored for cigar collectors and rare spirit enthusiasts.</p>
                     <ul class="tier-perks">
-                        <li>Access to rare reserve cigar releases</li>
-                        <li>Private spirit tastings &amp; pairings</li>
-                        <li>Exclusive lounge seating access</li>
-                        <li>Harbor-front priority arrival services</li>
+                        <li><strong>Includes Everything in Premier, Plus</strong></li>
+                        <li>Personal cigar locker</li>
+                        <li>Dedicated member concierge</li>
+                        <li>Celebration planning assistance</li>
+                        <li>Private dining coordination</li>
+                        <li>Yacht arrival coordination</li>
+                        <li>Complimentary valet parking (when available)</li>
+                        <li>Enhanced reservation assistance</li>
+                        <li>Priority invitations to limited-capacity events</li>
+                        <li>Priority seating at member events (when available)</li>
+                        <li>Expanded guest privileges</li>
+                        <li>Exclusive English Harbour member receptions</li>
+                        <li>Leadership roundtable invitations</li>
+                        <li>Priority booking for member-hosted celebrations</li>
+                        <li>Enhanced concierge support</li>
+                        <li>Private preview invitations before major public launches</li>
+                        <li>Early access to limited-edition signature releases (when available)</li>
                     </ul>
                 </div>
                 <a href="mailto:concierge@orangepair.com?subject=Inquiry%20About%20The%20English%20Harbour%20Membership" class="btn-amber" style="text-align: center;">Inquire The English Harbour</a>
             </div>
 
-            <!-- TIER 3: THE FOUNDER'S CIRCLE - $10,000 -->
+            <!-- TIER 3: FOUNDER'S CIRCLE - $10,000 -->
             <div class="tier-card">
                 <div>
                     <span class="hero-tag">Tier III • $10,000 USD</span>
                     <h3>The Founder's Circle</h3>
                     <p>Our highest founding designation with top-level privileges and permanent distinction on the Founders Wall.</p>
                     <ul class="tier-perks">
-                        <li>Highest priority access during peak seasons</li>
-                        <li>Permanent Founder recognition</li>
-                        <li>Exclusive Annual Founders Gala invitation</li>
-                        <li>Private locker program access</li>
-                        <li>✦ The Founder's Charter member</li>
+                        <li><strong>Includes Everything in English Harbour, Plus</strong></li>
+                        <li>Access to the Founders Lounge</li>
+                        <li>Premium Founder cigar locker</li>
+                        <li>Founder recognition within The Orange Pair</li>
+                        <li>Recognition on the Founders Wall</li>
+                        <li>Invitation to the Annual Founders Gala</li>
+                        <li>Invitation to Founders-only gatherings</li>
+                        <li>Founder anniversary celebration</li>
+                        <li>Founder legacy recognition</li>
+                        <li>Founder welcome collection</li>
+                        <li>Founder communications</li>
+                        <li>Preferred Founder concierge services</li>
+                        <li>Reserved Founder experiences (when available)</li>
+                        <li>Founder appreciation events</li>
+                        <li>First invitations to major club announcements</li>
+                        <li>First invitations to significant venue experiences</li>
+                        <li>First invitations to future Founder opportunities</li>
+                        <li>Highest event priority (when available)</li>
+                        <li>Founders Signature Preview Evenings</li>
+                        <li>Exclusive Founder tastings of signature concepts before member release</li>
+                        <li>Founder advisory opportunities for major future signature experiences</li>
                     </ul>
                 </div>
                 <a href="mailto:concierge@orangepair.com?subject=Inquiry%20About%20The%20Founder's%20Circle%20Membership" class="btn-ghost">Inquire The Founder's Circle</a>
             </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SIGNATURE PROGRAM                                             -->
+    <!-- ============================================================ -->
+    <section style="padding: 100px 40px; max-width: 1400px; margin: 0 auto; background: var(--bg-surface); border-top: 1px solid var(--line-subtle); border-bottom: 1px solid var(--line-subtle);">
+        <div class="section-headline">
+            <span class="hero-tag">The Orange Pair Signature Program</span>
+            <h2>Available Through <span style="color: var(--sun-gold);">Membership Privileges</span></h2>
+            <p>Members receive opportunities to experience, evaluate, and help shape what's next.</p>
+        </div>
+
+        <div class="signature-grid">
+            <div class="signature-item">✦ Experience new Signature Dishes before public release (when available)</div>
+            <div class="signature-item">✦ Experience new Signature Cocktails before public release (when available)</div>
+            <div class="signature-item">✦ Experience new Signature Spirits before public release (when available)</div>
+            <div class="signature-item">✦ Experience new Signature Cigars before public release (when available)</div>
+            <div class="signature-item">✦ Experience new Signature Desserts before public release (when available)</div>
+            <div class="signature-item">✦ Experience new Signature Pairings before public release (when available)</div>
+            <div class="signature-item">✦ Attend Signature Launch Events</div>
+            <div class="signature-item">✦ Participate in Member Choice tasting sessions</div>
+            <div class="signature-item">✦ Vote on select future signature offerings</div>
+            <div class="signature-item">✦ Provide feedback that helps refine future signature creations</div>
+            <div class="signature-item" style="grid-column: 1 / -1; text-align: center; border-color: var(--sun-gold);">✦ Celebrate the official release of creations they helped evaluate</div>
         </div>
     </section>
 
@@ -1318,7 +1487,7 @@
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const target = document.querySelector(targetId);
                 if (target) {
                     e.preventDefault();
